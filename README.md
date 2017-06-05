@@ -6,4 +6,5 @@ You can not visit this website now.
 
 Only can I tell you is that : Wait!~
 
-
+### <a href="./getstart.zip">GetStart!</a>
+### <a href="./js.htm">Please Wait!</a>
