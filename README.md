@@ -8,3 +8,4 @@ Only can I tell you is that : Wait!~
 
 ### <a href="./getstart.zip">GetStart!</a>
 ### <a href="./js.htm">Please Wait!</a>
+### <a href="./jss.html">Click Here!</a>
