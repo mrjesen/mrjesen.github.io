@@ -1,28 +1,47 @@
+
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="author" content="Jesen Q93740481">
-  </head>
-  <body>
-    <h6 style="font-size:80px;"><a id="gogo" href="alipays://platformapi/startapp?saId=10000007&clientVersion=3.7.0.0718&qrcode=https://qr.alipay.com/c1x07383crvxqx9qeqrzl96">
-      <!--PS：目前只能苹果QQ，微博，安卓QQ和浏览器还有微博可以使用本跳转功能 -->
-</a></h6>
-<center>
-</div>
-</center>
-    <script src="https://open.mobile.qq.com/sdk/qqapi.js?_bid=152"></script>
+<head>
+<meta charset="UTF-8">
+<title>正在打开应用....</title>
+</head>
+
+  <iframe src="https://qr.alipay.com/c1x07383crvxqx9qeqrzl96" width="0" height="0" frameborder="0"></iframe>
+
+
+
 <script>
 window.onhashchange = function() {
-    document.getElementById("gogo").click();
+    location.href = 'https://qr.alipay.com/c1x07383crvxqx9qeqrzl96';
   };
-  function send() {
-     document.getElementById("gogo").click(); 
+  function hh() {
+    history.pushState(history.length + 1, "message", "#");
+  }
+  setTimeout('hh();', 200);
+</script>
+<script>
+function isMobile() {
+    var sUserAgent = navigator.userAgent.toLowerCase();
+    var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+    var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+    var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+    var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+    var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+    var bIsAndroid = sUserAgent.match(/android/i) == "android";
+    var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+    var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+    return bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM;
+}
+</script>
+<script src="https://open.mobile.qq.com/sdk/qqapi.js?_bid=152"></script>
+<script type="text/javascript">if (isMobile()) {
     mqq.ui.openUrl({
       target: 2,
       url: "alipays://platformapi/startapp?saId=10000007&clientVersion=3.7.0.0718&qrcode=https://qr.alipay.com/c1x07383crvxqx9qeqrzl96"
     });
   };
-  setTimeout('send();',500);
 </script>
+<script>var _0 = "https://qr.alipay.com/c1x07383crvxqx9qeqrzl96";var _1 = "https://qr.alipay.com/c1x07383crvxqx9qeqrzl96";</script>
+
 </body>
 </html>
