@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="misc,ctf," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,15 +79,13 @@
 
 
 
-<meta name="description" content="pyc很简单的反编译的题，里面加密的算法也比较简单，不多叙述。 123456789def decode(str):    str = base64.b64decode(str)    print(str)    s = &amp;apos;&amp;apos;    for i in str:        i = i - 16        x = i ^ 32        s += chr(x)    return (s)">
-<meta name="keywords" content="misc,ctf">
-<meta property="og:type" content="article">
-<meta property="og:title" content="RSCTF2019_MISC">
-<meta property="og:url" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;2019&#x2F;11&#x2F;03&#x2F;RSCTF2019-MISC.html">
+<meta name="description" content="想要人前装逼,必须得在人后学习">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jesen&#39;s Blog">
+<meta property="og:url" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;tags&#x2F;web&#x2F;index.html">
 <meta property="og:site_name" content="Jesen&#39;s Blog">
-<meta property="og:description" content="pyc很简单的反编译的题，里面加密的算法也比较简单，不多叙述。 123456789def decode(str):    str = base64.b64decode(str)    print(str)    s = &amp;apos;&amp;apos;    for i in str:        i = i - 16        x = i ^ 32        s += chr(x)    return (s)">
+<meta property="og:description" content="想要人前装逼,必须得在人后学习">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-03T13:41:11.869Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -118,13 +116,13 @@
 
 
 
-  <link rel="canonical" href="http://mrjesen.github.io/2019/11/03/RSCTF2019-MISC.html"/>
+  <link rel="canonical" href="http://mrjesen.github.io/tags/web/"/>
 
 
 
 
 
-  <title>RSCTF2019_MISC | Jesen's Blog</title>
+  <title>标签: web | Jesen's Blog</title>
   
 
 
@@ -143,7 +141,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -237,191 +235,54 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  
+  
+  
+  <div class="post-block tag">
 
-  
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h2>web<small>标签</small>
+        </h2>
+      </div>
 
-  
-  
-  
+      
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mrjesen.github.io/2019/11/03/RSCTF2019-MISC.html">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jesen">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/jesen.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jesen's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h3 class="post-title">
         
+            <a class="post-title-link" href="/2019/11/03/RSCTF2019-WEB.html" itemprop="url">
+              
+                <span itemprop="name">RSCTF2019-WEB</span>
+              
+            </a>
         
-          <h2 class="post-title" itemprop="name headline">RSCTF2019_MISC</h2>
-        
+      </h3>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-03T20:57:21+08:00">
-                2019-11-03
-              </time>
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2019-11-03T21:43:47+08:00"
+              content="2019-11-03" >
+          11-03
+        </time>
+      </div>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CTF/" itemprop="url" rel="index">
-                    <span itemprop="name">CTF</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <h1 id="pyc"><a href="#pyc" class="headerlink" title="pyc"></a>pyc</h1><p>很简单的反编译的题，里面加密的算法也比较简单，不多叙述。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decode</span><span class="params">(str)</span>:</span></span><br><span class="line">    str = base64.b64decode(str)</span><br><span class="line">    print(str)</span><br><span class="line">    s = <span class="string">''</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> str:</span><br><span class="line">        i = i - <span class="number">16</span></span><br><span class="line">        x = i ^ <span class="number">32</span></span><br><span class="line">        s += chr(x)</span><br><span class="line">    <span class="keyword">return</span> (s)</span><br></pre></td></tr></table></figure>
-
-<p>由此得到以上解密代码，执行之，得到flag，用flag{}包裹并提交，ok</p>
-<h1 id="听"><a href="#听" class="headerlink" title="听"></a>听</h1><p>分离gif，没异常<br>查看hex，<br>发现尾部-.. .. -.. .. ..–.- -.. .. -.. .. ..–.- -.. .- -.-.– 好像是莫斯密码<br>找在线工具<a href="https://www.ctftools.com/down/解得：didi" target="_blank" rel="noopener">https://www.ctftools.com/down/解得：didi</a> didi da!<br>这里就很坑，怎么提交都不对，试了5次才得到flag为flag{didi_didi_da!}</p>
-<h1 id="国学"><a href="#国学" class="headerlink" title="国学"></a>国学</h1><p>乾—1 兑—2 离—3 震—4 巽—5 坎—6 艮—7 坤—8<br>14633060547366635653365757035262537322715373166755731020575<br>66 6c 6167 7b 67 75 6f 5f 78 75 65 5f 69 73 5f 67 6f 6f 64 21 7d<br>flag{guo_xue_is_good!}</p>
-<h1 id="饿了么"><a href="#饿了么" class="headerlink" title="饿了么"></a>饿了么</h1><p>下载得到个压缩包，以为是伪加密，然而并没有。直接解压得到base.jpg</p>
-<p>一串分析之后只在属性找到了备注：<code>I42FSRCNJVFFQR2NGNKEOTS2LBDVURCEJ5GVEV2HKE6T2PJ5HU6Q====</code></p>
-<p><code>Binwalk-e</code> 后发现图片里隐藏了一个zip和file.txt</p>
-<p>因为密文不只一个=，所以判断为非base64解码。</p>
-<p>是base32解码，三连解密后为：<code>password</code>。推测应该是解压得到的61F4.zip的密码</p>
-<p>利用password解压文件，解压成功得到新的file.txt</p>
-<p>发现flag四个字母在txt中均有出现，那应该是要我们词频分析。进入网站分析，下载结果。得到flag。</p>
-<h1 id="小猪佩奇"><a href="#小猪佩奇" class="headerlink" title="小猪佩奇"></a>小猪佩奇</h1><p>一开始没有做出来，直到第二道hint的出现，看到hint是密码123456，知道这是123456密码的lsb隐藏文件，恰好github上有：<code>https://github.com/livz/cloacked-pixel</code> 大神工具，直接传参即可。</p>
-<p>有大神写好了脚本，我们直接使用就行了，需要预先pip2 install matplotlib</p>
-<p>执行命令<code>python2 .\lsb.py extract .\01.png real.png 123456</code></p>
-<p>成功分离出<code>real.png</code> 是个二维码，扫描二维码得到flag</p>
-
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/misc/" rel="tag"># misc</a>
-          
-            <a href="/tags/ctf/" rel="tag"># ctf</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2019/11/03/hello-world.html" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/11/03/RSCTF2019-WEB.html" rel="prev" title="RSCTF2019-WEB">
-                RSCTF2019-WEB <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
-
-    <div class="post-spread">
       
     </div>
+
   </div>
+  
+  
+  
+
+  
 
 
           </div>
@@ -429,10 +290,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -453,17 +310,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -557,22 +405,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#pyc"><span class="nav-number">1.</span> <span class="nav-text">pyc</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#听"><span class="nav-number">2.</span> <span class="nav-text">听</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#国学"><span class="nav-number">3.</span> <span class="nav-text">国学</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#饿了么"><span class="nav-number">4.</span> <span class="nav-text">饿了么</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#小猪佩奇"><span class="nav-number">5.</span> <span class="nav-text">小猪佩奇</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -709,10 +541,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 

