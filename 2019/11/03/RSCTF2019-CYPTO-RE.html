@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="ctf,cypto,re,逆向," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Alice_is_loney这个一血我当之无愧，哈哈，我可是上课时候都在笔算rsa的男人！ 链接题目给的nc地址。给出以下信息: 1234567891011================HELLO-Ctfer================ I write some code here \######################################################">
+<meta name="keywords" content="ctf,cypto,re,逆向">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RSCTF2019_CYPTO+RE">
+<meta property="og:url" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;2019&#x2F;11&#x2F;03&#x2F;RSCTF2019-CYPTO-RE.html">
+<meta property="og:site_name" content="Jesen&#39;s Blog">
+<meta property="og:description" content="Alice_is_loney这个一血我当之无愧，哈哈，我可是上课时候都在笔算rsa的男人！ 链接题目给的nc地址。给出以下信息: 1234567891011================HELLO-Ctfer================ I write some code here \######################################################">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;clip_image002-1572792464876.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;clip_image004-1572792464877.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;clip_image002-1572792600422.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;clip_image002-1572792635868.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;clip_image004-1572792635868.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;clip_image006-1572792635869.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;clip_image008-1572792635869.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;clip_image010-1572792635869.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;clip_image012.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;clip_image002-1572792705583.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;clip_image004-1572792705583.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;clip_image006-1572792705583.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;clip_image008-1572792705583.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;clip_image002-1572792911008.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;clip_image004-1572792911009.jpg">
+<meta property="og:updated_time" content="2019-11-03T14:56:30.032Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;clip_image002-1572792464876.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://mrjesen.github.io/2019/11/03/RSCTF2019-CYPTO-RE.html"/>
+
+
+
+
+
+  <title>RSCTF2019_CYPTO+RE | Jesen's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jesen's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">想要人前装逼,必须得在人后学习</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/#" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/#%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/#%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/#" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mrjesen.github.io/2019/11/03/RSCTF2019-CYPTO-RE.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jesen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/jesen.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jesen's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">RSCTF2019_CYPTO+RE</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-03T22:43:15+08:00">
+                2019-11-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CTF/" itemprop="url" rel="index">
+                    <span itemprop="name">CTF</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Alice-is-loney"><a href="#Alice-is-loney" class="headerlink" title="Alice_is_loney"></a>Alice_is_loney</h1><p>这个一血我当之无愧，哈哈，我可是上课时候都在笔算rsa的男人！</p>
+<p>链接题目给的nc地址。给出以下信息:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">================HELLO-Ctfer================</span><br><span class="line"> I write some code here</span><br><span class="line"> \<span class="comment">#######################################################</span></span><br><span class="line"> <span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> bytes_to_long</span><br><span class="line"> <span class="keyword">from</span> flag <span class="keyword">import</span> flag</span><br><span class="line"> m = bytes_to_long(flag)</span><br><span class="line"> n = <span class="number">164888441809128804043925323634271956117746447290247557983550180397219601638632167520893244184248651325836885440262466991644967448074324222935200774858221524309942099541654472034185281067340449292547001584952112657559833907602079378034244708596313856132553777564957631968285353555564224702946380512343248672289</span></span><br><span class="line"> e = <span class="number">2</span></span><br><span class="line"> c = pow(m,e,n)</span><br><span class="line"> <span class="keyword">print</span> c</span><br><span class="line"> \<span class="comment">#output :499707694085937832478791464262001401287172806732772794560051316967321235368715727466292805495910281773610881330183697022117438765554611594403081</span></span><br></pre></td></tr></table></figure>
+
+<p>从中我们提取到有用信息:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">n=164888441809128804043925323634271956117746447290247557983550180397219601638632167520893244184248651325836885440262466991644967448074324222935200774858221524309942099541654472034185281067340449292547001584952112657559833907602079378034244708596313856132553777564957631968285353555564224702946380512343248672289</span><br><span class="line">e=2</span><br><span class="line">c=499707694085937832478791464262001401287172806732772794560051316967321235368715727466292805495910281773610881330183697022117438765554611594403081</span><br></pre></td></tr></table></figure>
+
+<p>以下是rsa加密原理：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">m^e = c mod n</span><br></pre></td></tr></table></figure>
+
+<p>我们这里<code>e=2</code></p>
+<p>所以m为 <code>m =√(c%n)</code></p>
+<p>因此我们的代码为:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line">n = <span class="number">164888441809128804043925323634271956117746447290247557983550180397219601638632167520893244184248651325836885440262466991644967448074324222935200774858221524309942099541654472034185281067340449292547001584952112657559833907602079378034244708596313856132553777564957631968285353555564224702946380512343248672289</span></span><br><span class="line">e = <span class="number">2</span></span><br><span class="line">c = <span class="number">499707694085937832478791464262001401287172806732772794560051316967321235368715727466292805495910281773610881330183697022117438765554611594403081</span></span><br><span class="line">m = gmpy2.isqrt( c % n )</span><br><span class="line"><span class="keyword">print</span> hex(int(m))</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">得到m为0x666c61677b77656c636f6d655f436375745f456173795f6330797074307dL</span><br><span class="line">去掉0x和L之后为hex。</span><br><span class="line">nc再次提交即可得到flag。</span><br></pre></td></tr></table></figure>
+
+<h1 id="RSA"><a href="#RSA" class="headerlink" title="RSA"></a>RSA</h1><p>由题目可得，本题为rsa加密，</p>
+<p>链接nc，</p>
+<p>hhhhhhhhhhhhhhhhhhhhhhhh this is easy hhhhhhhhhhhhhhhhhhhhhhhhhhhh</p>
+<p>N = 0x25a1b1e3108a3d2e3a962f16765e13defc71456c3804a582318de1453L</p>
+<p>e = 5</p>
+<p>c = 0x1c073214016413df344d16894c48103c8b92fca17f2edb3a19f4d23c6</p>
+<p>#######################################################</p>
+<p>通过查找资料发现，n为p与q的乘积，由于n太大，所以我们可以用<a href="http://factordb.com/index.php?query=63409155256164507967196147936982653264415559154678954807355722568787" target="_blank" rel="noopener">http://factordb.com/index.php?query=63409155256164507967196147936982653264415559154678954807355722568787</a></p>
+<p>网站查找p和q。</p>
+<p>这里我得到，</p>
+<p>p是2663993</p>
+<p>q是23802298000094034769309134046892260326665858038920881101172459</p>
+<p>我自己用本机跑了好多时间也没跑出来。。。</p>
+<p>至此，我们已知</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">n=p*q</span><br><span class="line">p</span><br><span class="line">q</span><br><span class="line">e</span><br><span class="line">c</span><br></pre></td></tr></table></figure>
+
+<p>根据网上查找到的资料，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python</span><br><span class="line">\# -*- coding: utf-8 -*-</span><br><span class="line">__author__ = &apos;Jesen&apos;</span><br><span class="line">import gmpy2</span><br><span class="line">import binascii</span><br><span class="line"></span><br><span class="line">n = gmpy2.mpz(63409155256164507967196147936982653264415559154678954807355722568787)</span><br><span class="line">p = gmpy2.mpz(2663993)</span><br><span class="line">q = gmpy2.mpz(23802298000094034769309134046892260326665858038920881101172459)</span><br><span class="line">e = gmpy2.mpz(5)</span><br><span class="line">phi_n = (p-1)*(q-1)</span><br><span class="line">d = gmpy2.invert(e, phi_n)</span><br><span class="line">c = gmpy2.mpz(47227268354772263297672801857404286345600006178682788542814788330438)</span><br><span class="line">m = pow(c, d, n)</span><br><span class="line"></span><br><span class="line">print(&quot;十进制:\n%s&quot;%m)</span><br><span class="line">m_hex = hex(m)[2:]</span><br><span class="line">print(&quot;十六进制:\n%s&quot;%(m_hex,))</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/clip_image002-1572792464876.jpg" alt="img"></p>
+<p>由此解得</p>
+<p>··十进制:</p>
+<p>38321129010631058343178605582128475888719355970990717</p>
+<p>·十六进制:</p>
+<p>666c61677b363634343036383761373362656236327d</p>
+<p>把hex值，也就是十六进制传入nc中得到flag</p>
+<p><img src="/images/clip_image004-1572792464877.jpg" alt="img"></p>
+<h1 id="以下是RE部分，比较菜，没做几道。"><a href="#以下是RE部分，比较菜，没做几道。" class="headerlink" title="以下是RE部分，比较菜，没做几道。"></a>以下是RE部分，比较菜，没做几道。</h1><h1 id="Simple"><a href="#Simple" class="headerlink" title="Simple"></a>Simple</h1><p>拖入ida64查看反汇编，发现<img src="/images/clip_image002-1572792600422.jpg" alt="img"></p>
+<p>此处有一个判断，输入的数字如果是233333即可跳入yes分支，得到flag，太简单。</p>
+<h1 id="Simple2"><a href="#Simple2" class="headerlink" title="Simple2"></a>Simple2</h1><p>下载好程序，发现ida并不能直接查看汇编代码，猜测是加了壳，查询之后发现是加的upx的壳，在windows下没有脱壳成功，用linux脱成功了，直接upx -d 即可。脱壳之后就开始分析代码</p>
+<p>ida中<img src="/images/clip_image002-1572792635868.jpg" alt="img"></p>
+<p>上面是一个main函数前半部分，最下面loc_4049C4是循环。1Fh为31</p>
+<p>还是f5查看伪代码吧，<img src="/images/clip_image004-1572792635868.jpg" alt="img"></p>
+<p>这里发现v13到v15疑似密文。</p>
+<p>所以还是看下面的代码推测加密方式吧。</p>
+<p>这里我发现v6是用户输入的变量，程序把v6转成字节码，然后减五</p>
+<p>然后就有了下面的exp：</p>
+<p><img src="/images/clip_image006-1572792635869.jpg" alt="img"></p>
+<p><img src="/images/clip_image008-1572792635869.jpg" alt="img"></p>
+<p>提交发现不太对。后期发现程序是小端序，是倒序的。</p>
+<p>通过gdb调试我们也可以发现：<img src="/images/clip_image010-1572792635869.jpg" alt="img"></p>
+<p>在字符串比较时候，传入的参数是与我前面写的exp完全相反。</p>
+<p>所以我们把exp修改一下：</p>
+<p>就成了下面的样子：2333333333</p>
+<p><img src="/images/clip_image012.jpg" alt="img"></p>
+<p>运行得到结果，</p>
+<p>634b863c6c1cf8c3eb479281892a6d03</p>
+<p>flag{634b863c6c1cf8c3eb479281892a6d03}</p>
+<h1 id="Mobile"><a href="#Mobile" class="headerlink" title="Mobile"></a>Mobile</h1><p>看到是个apk，手机安装一下，失败（不支持android9）</p>
+<p>那好吧，直接反编译把，这里取巧一下，直接把apk改成zip</p>
+<p>然后解压classes.dex运用github开源工具，dex2jar成功得到jar</p>
+<p>然后利用jd-gui反编译jar得到各种函数源码，有两个重要点。都在com.example.myapplication下面</p>
+<p><img src="/images/clip_image002-1572792705583.jpg" alt="img"></p>
+<p>从mainactivity得到密文：</p>
+<p>FVJaF2IrFLAoEbRdRbupFru4FrNzFeFaFbW5RVQrGYQ=</p>
+<p>同时从(Encryption.Encode(paramAnonymousView, paramAnonymousView.length()).equals(“FVJaF2IrFLAoEbRdRbupFru4FrNzFeFaFbW5RVQrGYQ=”)) 这里发现，encode传入两个参数，一个是密文，一个是密文长度。</p>
+<p>我们继续观察encode函数<img src="/images/clip_image004-1572792705583.jpg" alt="img"></p>
+<p>根据这个思路，我们写出了如下decode代码（python）</p>
+<p><img src="/images/clip_image006-1572792705583.jpg" alt="img"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">between</span><span class="params">(a,num,b)</span>:</span></span><br><span class="line">  <span class="keyword">if</span> num&gt;=a <span class="keyword">and</span> num&lt;=b:</span><br><span class="line">​    <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> offset <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">27</span>):</span><br><span class="line">  str = <span class="string">'FVJaF2IrFLAoEbRdRbupFru4FrNzFeFaFbW5RVQrGYQ='</span></span><br><span class="line">  result = <span class="string">""</span></span><br><span class="line">  <span class="keyword">for</span> each <span class="keyword">in</span> str:</span><br><span class="line">​    j = ord(each)</span><br><span class="line">​    <span class="keyword">if</span> between(<span class="number">97</span>,j,<span class="number">122</span>):</span><br><span class="line">​      i = j</span><br><span class="line">​      i = j - offset % <span class="number">26</span></span><br><span class="line">​      j = i</span><br><span class="line">​      <span class="keyword">if</span> i &gt; <span class="number">122</span>:</span><br><span class="line">​        i = j - <span class="number">26</span></span><br><span class="line">​      j = i</span><br><span class="line">​      <span class="keyword">if</span> i &lt; <span class="number">97</span>:</span><br><span class="line">​        i = j + <span class="number">26</span></span><br><span class="line">​      j = i</span><br><span class="line">​      result += chr(i)</span><br><span class="line">​    <span class="keyword">else</span>:</span><br><span class="line">​      j = ord(each)</span><br><span class="line">​      i = j</span><br><span class="line">​      <span class="keyword">if</span> between(<span class="number">65</span>,j,<span class="number">90</span>):</span><br><span class="line">​        i = j - offset % <span class="number">26</span></span><br><span class="line">​        j = i</span><br><span class="line">​        <span class="keyword">if</span> j &lt; <span class="number">65</span>:</span><br><span class="line">​          j = i + <span class="number">26</span></span><br><span class="line">​        i = j</span><br><span class="line">​        <span class="keyword">if</span> j &gt; <span class="number">90</span>:</span><br><span class="line">​          j = i - <span class="number">26</span></span><br><span class="line">​        i = j</span><br><span class="line">​      result += chr(i)</span><br><span class="line">       flag = <span class="string">''</span></span><br><span class="line">  <span class="keyword">try</span>:</span><br><span class="line">​    <span class="keyword">print</span> base64.b64decode(result),<span class="string">"  "</span>,offset</span><br><span class="line">  <span class="keyword">except</span> :</span><br><span class="line">​    print(<span class="string">"Error!"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>反正基本思路就是把+改成- -改成+</p>
+<p>这里有一个变量需要注意就是offset他是不可预测的，所以我们直接“爆破”</p>
+<p>最终得到：<img src="/images/clip_image008-1572792705583.jpg" alt="img"></p>
+<p>成功!</p>
+<h1 id="WF"><a href="#WF" class="headerlink" title="WF"></a>WF</h1><p>发现是exe程序，运行一下，试试，额。。不能运行，装运行库解决。</p>
+<p>这一步很坑，我的虚拟机和本机都不能执行，后来重新装了一下vc运行库才可以。</p>
+<p>知道流程后拖入ida，寻找关键字符串flag</p>
+<p><img src="/images/clip_image002-1572792911008.jpg" alt="img"></p>
+<p>发现程序进行了，创建文件，写入，删除的操作，那我们写一个脚本来无限读D:\flag即可</p>
+<p>PS:这里是因为python读的时候，wf.exe没权限删除文件，会返回文件被占用。</p>
+<p>下面是我的代码<img src="/images/clip_image004-1572792911009.jpg" alt="img"></p>
+<p>运行，然后同时运行wf.exe即可Getflag</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ctf/" rel="tag"># ctf</a>
+          
+            <a href="/tags/cypto/" rel="tag"># cypto</a>
+          
+            <a href="/tags/re/" rel="tag"># re</a>
+          
+            <a href="/tags/%E9%80%86%E5%90%91/" rel="tag"># 逆向</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/11/03/RSCTF2019-PWN.html" rel="next" title="RSCTF2019_PWN">
+                <i class="fa fa-chevron-left"></i> RSCTF2019_PWN
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/jesen.jpg"
+                alt="Jesen" />
+            
+              <p class="site-author-name" itemprop="name">Jesen</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/#%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/mejesen" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:jesen@protonmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://mejsen.github/" title="Blog" target="_blank">Blog</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Alice-is-loney"><span class="nav-number">1.</span> <span class="nav-text">Alice_is_loney</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#RSA"><span class="nav-number">2.</span> <span class="nav-text">RSA</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#以下是RE部分，比较菜，没做几道。"><span class="nav-number">3.</span> <span class="nav-text">以下是RE部分，比较菜，没做几道。</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Simple"><span class="nav-number">4.</span> <span class="nav-text">Simple</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Simple2"><span class="nav-number">5.</span> <span class="nav-text">Simple2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mobile"><span class="nav-number">6.</span> <span class="nav-text">Mobile</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#WF"><span class="nav-number">7.</span> <span class="nav-text">WF</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jesen</span>
+
+  
+</div>
+
+
+
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
