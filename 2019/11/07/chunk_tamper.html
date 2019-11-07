@@ -79,15 +79,28 @@
 
 
 
-<meta name="description" content="暂时啥都没有">
+<meta name="description" content="分块传输tamper本文转载自： http:&#x2F;&#x2F;www.nmd5.com&#x2F;?p=303  大佬侵权删哦！~ 最近看到大佬们都在搞分块传输，据说能吊打所有waf，所以我也跟随大佬们的脚步。 首先先了解下什么是分块传输。   分块传输编码（Chunked transfer encoding）是超文本传输协议（HTTP）中的一种数据传输机制，允许HTTP由应用服务器发送给客户端应用（ 通常是网页浏览器）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="笔记">
-<meta property="og:url" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;2019&#x2F;11&#x2F;06&#x2F;%E7%AC%94%E8%AE%B0.html">
+<meta property="og:title" content="分块传输tamper">
+<meta property="og:url" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;2019&#x2F;11&#x2F;07&#x2F;chunk_tamper.html">
 <meta property="og:site_name" content="Jesen&#39;s Blog">
-<meta property="og:description" content="暂时啥都没有">
+<meta property="og:description" content="分块传输tamper本文转载自： http:&#x2F;&#x2F;www.nmd5.com&#x2F;?p=303  大佬侵权删哦！~ 最近看到大佬们都在搞分块传输，据说能吊打所有waf，所以我也跟随大佬们的脚步。 首先先了解下什么是分块传输。   分块传输编码（Chunked transfer encoding）是超文本传输协议（HTTP）中的一种数据传输机制，允许HTTP由应用服务器发送给客户端应用（ 通常是网页浏览器）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-07T01:30:24.177Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;20190308094925_59360.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;20190308101349_35348.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;20190308101355_13243.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;20190308103343_76255.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;20190308102910_75066.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;20190308104112_63576.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;20190308105624_54439.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;20190308110312_98069.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;20190308110820_69063.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;20190308112655_96042.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;20190308114103_74500.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;20190308114113_28322.png">
+<meta property="og:updated_time" content="2019-11-07T14:42:16.951Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;20190308094925_59360.png">
 
 
 
@@ -117,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://mrjesen.github.io/2019/11/06/笔记.html"/>
+  <link rel="canonical" href="http://mrjesen.github.io/2019/11/07/chunk_tamper.html"/>
 
 
 
 
 
-  <title>笔记 | Jesen's Blog</title>
+  <title>分块传输tamper | Jesen's Blog</title>
   
 
 
@@ -250,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mrjesen.github.io/2019/11/06/%E7%AC%94%E8%AE%B0.html">
+    <link itemprop="mainEntityOfPage" href="http://mrjesen.github.io/2019/11/07/chunk_tamper.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jesen">
@@ -267,7 +280,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">笔记</h2>
+          <h2 class="post-title" itemprop="name headline">分块传输tamper</h2>
         
 
         <div class="post-meta">
@@ -279,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-06T19:33:32+08:00">
-                2019-11-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-07T19:33:32+08:00">
+                2019-11-07
               </time>
             
 
@@ -317,7 +330,64 @@
       
 
       
-        <h1 id="暂时啥都没有"><a href="#暂时啥都没有" class="headerlink" title="暂时啥都没有"></a>暂时啥都没有</h1>
+        <h1 id="分块传输tamper"><a href="#分块传输tamper" class="headerlink" title="分块传输tamper"></a>分块传输tamper</h1><p>本文转载自： <a href="http://www.nmd5.com/?p=303" target="_blank" rel="noopener">http://www.nmd5.com/?p=303</a>  大佬侵权删哦！~</p>
+<p>最近看到大佬们都在搞分块传输，据说能吊打所有waf，所以我也跟随大佬们的脚步。</p>
+<p>首先先了解下什么是分块传输。</p>
+<p><img src="/images/20190308094925_59360.png" alt="blob"></p>
+<hr>
+<p><code>分块传输编码（Chunked transfer encoding）是超文本传输协议（HTTP）中的一种数据传输机制，允许HTTP由应用服务器发送给客户端应用（ 通常是网页浏览器）的数据可以分成多个部分。分块传输编码只在HTTP协议1.1版本（HTTP/1.1）中提供。通常，HTTP应答消息中发送的数据是整个发送的，Content-Length消息头字段表示数据的长度。数据的长度很重要，因为客户端需要知道哪里是应答消息的结束，以及后续应答消息的开始。然而，使用分块传输编码，数据分解成一系列数据块，并以一个或多个块发送，这样服务器可以发送数据而不需要预先知道发送内容的总大小。通常数据块的大小是一致的，但也不总是这种情况。</code></p>
+<hr>
+<p>一般情况HTTP的Header包含Content-Length域来指明报文体的长度。有时候服务生成HTTP回应是无法确定消息大小的，比如大文件的下载，或者后台需要复杂的逻辑才能全部处理页面的请求，这时用需要实时生成消息长度，服务器一般使用chunked编码。</p>
+<p>在进行Chunked编码传输时，在回复消息的Headers有transfer-coding域值为chunked，表示将用chunked编码传输内容。</p>
+<p>理论知识就说到这。下面说说在写tamper过程中的坑，目前还有些问题没有解决。</p>
+<hr>
+<p>但是接下来的时间要忙些别的，所以把这段时间的结果先写到博客里面，以后有时间在继续把这些坑填上.</p>
+<p>下面切换回正题，正常的post数据包如下</p>
+<p><img src="/images/20190308101349_35348.png" alt="blob"></p>
+<p>而分块传输的post数据包如下</p>
+<p><img src="/images/20190308101355_13243.png" alt="blob"></p>
+<p>服务器能正常接收到数据并返回了正常的页面内容</p>
+<p>分块传输的post数据头部需要添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Transfer-Encoding:Chunked</span><br></pre></td></tr></table></figure>
+
+<p>而post的数据是这种格式<br>&gt;2<br>id<br>2<br>=3<br>0</p>
+<p>分块传输格式解析</p>
+<p>2   #这个2表示下面数据的个数 可以在这个后面加入分号后面添加注释 比如 2;hello world 可以利用这个特性添加随机字符来干扰waf</p>
+<p>id   #数据内容 内容就是id一共就两个 所以上面的个数是2</p>
+<p>2   #同理 表示下面的数据的个数</p>
+<p>=3  #这个也是同理 和前面的id连起来 post的数据就是 id=3 </p>
+<p>0   #分块传输表示结束的方式 一个0和两个换号<br>    #换行<br>    #换行</p>
+<p>既然知道了发送的数据格式，那下一步就是写个sqlmap的tamper<br>首先先把post数据的head的内容加上。</p>
+<p><img src="/images/20190308103343_76255.png" alt="blob"></p>
+<p>加上后sqlmap数据始终发不出去。</p>
+<p><img src="/images/20190308102910_75066.png" alt="blob"></p>
+<p>似乎遇到这个问题不只我一个，一个老哥是sqlmap加参数解决的这个问题 sqlmap.py -r 1.txt –headers=”Transfer-Encoding: chunked”</p>
+<p>但是我的解决方法是 在encoding后面加了个空格 同时能正常发送数据包</p>
+<p><img src="/images/20190308104112_63576.png" alt="blob"></p>
+<p>sqlmap能正常发送出数据包 且服务器也能正常的接收到数据</p>
+<p><img src="/images/20190308105624_54439.png" alt="blob"></p>
+<p>但是sqlmap在payload生成后 还url编码下才发送给服务器，所以导致\n换行符或其他特殊字符会被编码，最后服务器无法理解。</p>
+<p>目前的解决方法是通过给sqlmap加参数 –skip-urlencode 跳过url编码</p>
+<p><img src="/images/20190308110312_98069.png" alt="blob"></p>
+<p>但是我不想通过加参数，想直接写到tamper里面，各种疯狂百度谷歌还有问大佬们</p>
+<p><img src="/images/20190308110820_69063.png" alt="blob"></p>
+<p>但是都没结果，于是我就去翻sqlmap的源码。</p>
+<p>找到了urlencode的位置 也找到了最后给调用给payload编码的位置，但是还是不知道怎么写到tamper里面，如果改源码的话，那样就很容易，但是这样毫无意义。</p>
+<p>还有个最重要的问题，那就是sqlmap的tamper无法获取payload的前面的参数，比如id=3 无法把payload的内容写到id=的前面</p>
+<p>目前我的解决方法是手工把要注入的post包先把格式改下。</p>
+<p><img src="/images/20190308112655_96042.png" alt="blob"></p>
+<p>然后就用sqlmap跑起来<br><code>python sqlmap/sqlmap.py -r 1.txt --tamper=fkcs --skip-urlencode</code></p>
+<p><img src="/images/20190308114103_74500.png" alt="blob"></p>
+<p><img src="/images/20190308114113_28322.png" alt="blob"></p>
+<p>能正常使用，但是最大的问题在于怎么修改payload前面的参数，这样手工提前修改数据真的是low的不行，所以算个残疾品，等以后有时间再继续完善它。</p>
+<p>相关文章：<br>利用分块传输吊打所以wa<br><a href="https://www.freebuf.com/articles/web/194351.htmlf" target="_blank" rel="noopener">https://www.freebuf.com/articles/web/194351.htmlf</a></p>
+<p>HTTP协议bypass WAF(狗/盾)<br><a href="https://www.t00ls.net/thread-49138-1-1.html" target="_blank" rel="noopener">https://www.t00ls.net/thread-49138-1-1.html</a></p>
+<p>SQLMAP|阅读手记一{从sqlmap.py开始到参数分析}<br><a href="http://www.wupco.cn/?p=323" target="_blank" rel="noopener">http://www.wupco.cn/?p=323</a></p>
+<p>定制Sqlmap<br><a href="http://lietolive.com/sqlmap/%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91/2018/01/24/%E5%AE%9A%E5%88%B6Sqlmap.html" target="_blank" rel="noopener">http://lietolive.com/sqlmap/%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91/2018/01/24/%E5%AE%9A%E5%88%B6Sqlmap.html</a></p>
+<p>SQLMAP进阶使用<br><a href="http://www.vuln.cn/6495" target="_blank" rel="noopener">http://www.vuln.cn/6495</a></p>
+<p>sqlmap源码解析之test和boundary组合生成payload<br><a href="http://www.beesfun.com/2017/03/30/sqlmap%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E4%B9%8Btest%E5%92%8Cboundary%E7%BB%84%E5%90%88%E7%94%9F%E6%88%90payload/" target="_blank" rel="noopener">http://www.beesfun.com/2017/03/30/sqlmap%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E4%B9%8Btest%E5%92%8Cboundary%E7%BB%84%E5%90%88%E7%94%9F%E6%88%90payload/</a></p>
+<p>sqlmap 的源码学习笔记一之目录结构<br><a href="https://blog.csdn.net/qq_29277155/article/details/51646932" target="_blank" rel="noopener">https://blog.csdn.net/qq_29277155/article/details/51646932</a></p>
+
       
     </div>
     
@@ -532,7 +602,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#暂时啥都没有"><span class="nav-number">1.</span> <span class="nav-text">暂时啥都没有</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#分块传输tamper"><span class="nav-number">1.</span> <span class="nav-text">分块传输tamper</span></a></li></ol></div>
             
 
           </div>
