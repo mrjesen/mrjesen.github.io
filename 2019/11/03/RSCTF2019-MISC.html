@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="ctf,misc," />
+  <meta name="keywords" content="misc,ctf," />
 
 
 
@@ -80,7 +80,7 @@
 
 
 <meta name="description" content="pyc很简单的反编译的题，里面加密的算法也比较简单，不多叙述。 123456789def decode(str):    str = base64.b64decode(str)    print(str)    s = &amp;apos;&amp;apos;    for i in str:        i = i - 16        x = i ^ 32        s += chr(x)    return (s)">
-<meta name="keywords" content="ctf,misc">
+<meta name="keywords" content="misc,ctf">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RSCTF2019_MISC">
 <meta property="og:url" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;2019&#x2F;11&#x2F;03&#x2F;RSCTF2019-MISC.html">
@@ -316,6 +316,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/11/03/RSCTF2019-MISC.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/03/RSCTF2019-MISC.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -374,9 +384,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/ctf/" rel="tag"># ctf</a>
-          
             <a href="/tags/misc/" rel="tag"># misc</a>
+          
+            <a href="/tags/ctf/" rel="tag"># ctf</a>
           
         </div>
       
@@ -432,9 +442,7 @@
 
   
     <div class="comments" id="comments">
-      <div id="lv-container" data-id="city" data-uid="MTAyMC80NzM5MS8yMzg5MQ=="></div>
     </div>
-
   
 
 
@@ -759,26 +767,37 @@
 
 
   
-    <script type="text/javascript">
-      (function(d, s) {
-        var j, e = d.getElementsByTagName(s)[0];
-        if (typeof LivereTower === 'function') { return; }
-        j = d.createElement(s);
-        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-        j.async = true;
-        e.parentNode.insertBefore(j, e);
-      })(document, 'script');
-    </script>
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
   
-
-
-
-
-
-
-
-
-
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'SDu2T9KUB8UY5eF5L3dfbdyt-gzGzoHsz',
+        appKey: 'Q4E9nvCrlFLKhPtPLwXlkkxb',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
