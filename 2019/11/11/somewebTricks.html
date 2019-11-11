@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="ctf,web," />
 
 
 
@@ -79,28 +79,21 @@
 
 
 
-<meta name="description" content="分块传输tamper本文转载自： http:&#x2F;&#x2F;www.nmd5.com&#x2F;?p=303  大佬侵权删哦！~ 最近看到大佬们都在搞分块传输，据说能吊打所有waf，所以我也跟随大佬们的脚步。 首先先了解下什么是分块传输。   分块传输编码（Chunked transfer encoding）是超文本传输协议（HTTP）中的一种数据传输机制，允许HTTP由应用服务器发送给客户端应用（ 通常是网页浏览器）">
+<meta name="description" content="一些web的小Tricks1.当php后缀被过滤的时候可以直接对ph开头的后缀进行一个fuzz测试可以上传的文件后缀名2.curl -x 123.45.67.89:1080 -o page.html http:&#x2F;&#x2F;www.linuxidc.com指定http访问所使用的proxy服务器及其端口 3.CTF php：&#x2F;&#x2F;input 协议解读 php:&#x2F;&#x2F;input 读取的是未经url解码的原始数据">
+<meta name="keywords" content="ctf,web">
 <meta property="og:type" content="article">
-<meta property="og:title" content="分块传输tamper">
-<meta property="og:url" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;2019&#x2F;11&#x2F;07&#x2F;chunk_tamper.html">
+<meta property="og:title" content="一些web的小Tricks">
+<meta property="og:url" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;2019&#x2F;11&#x2F;11&#x2F;somewebTricks.html">
 <meta property="og:site_name" content="Jesen&#39;s Blog">
-<meta property="og:description" content="分块传输tamper本文转载自： http:&#x2F;&#x2F;www.nmd5.com&#x2F;?p=303  大佬侵权删哦！~ 最近看到大佬们都在搞分块传输，据说能吊打所有waf，所以我也跟随大佬们的脚步。 首先先了解下什么是分块传输。   分块传输编码（Chunked transfer encoding）是超文本传输协议（HTTP）中的一种数据传输机制，允许HTTP由应用服务器发送给客户端应用（ 通常是网页浏览器）">
+<meta property="og:description" content="一些web的小Tricks1.当php后缀被过滤的时候可以直接对ph开头的后缀进行一个fuzz测试可以上传的文件后缀名2.curl -x 123.45.67.89:1080 -o page.html http:&#x2F;&#x2F;www.linuxidc.com指定http访问所使用的proxy服务器及其端口 3.CTF php：&#x2F;&#x2F;input 协议解读 php:&#x2F;&#x2F;input 读取的是未经url解码的原始数据">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;20190308094925_59360.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;20190308101349_35348.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;20190308101355_13243.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;20190308103343_76255.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;20190308102910_75066.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;20190308104112_63576.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;20190308105624_54439.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;20190308110312_98069.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;20190308110820_69063.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;20190308112655_96042.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;20190308114103_74500.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;20190308114113_28322.png">
-<meta property="og:updated_time" content="2019-11-07T14:42:16.951Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;1063309-20170731154248068-1767961687.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;1063309-20190224160008531-1260082376.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;1063309-20170904171827038-754070839.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;1063309-20190826205559423-235402880.png">
+<meta property="og:updated_time" content="2019-11-11T15:08:05.263Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;20190308094925_59360.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;1063309-20170731154248068-1767961687.png">
 
 
 
@@ -130,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://mrjesen.github.io/2019/11/07/chunk_tamper.html"/>
+  <link rel="canonical" href="http://mrjesen.github.io/2019/11/11/somewebTricks.html"/>
 
 
 
 
 
-  <title>分块传输tamper | Jesen's Blog</title>
+  <title>一些web的小Tricks | Jesen's Blog</title>
   
 
 
@@ -263,7 +256,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mrjesen.github.io/2019/11/07/chunk_tamper.html">
+    <link itemprop="mainEntityOfPage" href="http://mrjesen.github.io/2019/11/11/somewebTricks.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jesen">
@@ -280,11 +273,15 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">分块传输tamper</h2>
+          <h2 class="post-title" itemprop="name headline">一些web的小Tricks</h2>
         
 
         <div class="post-meta">
           <span class="post-time">
+			
+				<i class="fa fa-thumbs-up"></i>
+				<font color=FFA500>置顶</font>
+				<span class="post-meta-divider">|</span>
 			
             
               <span class="post-meta-item-icon">
@@ -293,8 +290,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-07T19:33:32+08:00">
-                2019-11-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-11T23:03:41+08:00">
+                2019-11-11
               </time>
             
 
@@ -304,6 +301,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CTF/" itemprop="url" rel="index">
+                    <span itemprop="name">CTF</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -312,8 +331,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/11/07/chunk_tamper.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/07/chunk_tamper.html" itemprop="commentCount"></span>
+                <a href="/2019/11/11/somewebTricks.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/11/somewebTricks.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -341,63 +360,60 @@
       
 
       
-        <h1 id="分块传输tamper"><a href="#分块传输tamper" class="headerlink" title="分块传输tamper"></a>分块传输tamper</h1><p>本文转载自： <a href="http://www.nmd5.com/?p=303" target="_blank" rel="noopener">http://www.nmd5.com/?p=303</a>  大佬侵权删哦！~</p>
-<p>最近看到大佬们都在搞分块传输，据说能吊打所有waf，所以我也跟随大佬们的脚步。</p>
-<p>首先先了解下什么是分块传输。</p>
-<p><img src="/images/20190308094925_59360.png" alt="blob"></p>
-<hr>
-<p><code>分块传输编码（Chunked transfer encoding）是超文本传输协议（HTTP）中的一种数据传输机制，允许HTTP由应用服务器发送给客户端应用（ 通常是网页浏览器）的数据可以分成多个部分。分块传输编码只在HTTP协议1.1版本（HTTP/1.1）中提供。通常，HTTP应答消息中发送的数据是整个发送的，Content-Length消息头字段表示数据的长度。数据的长度很重要，因为客户端需要知道哪里是应答消息的结束，以及后续应答消息的开始。然而，使用分块传输编码，数据分解成一系列数据块，并以一个或多个块发送，这样服务器可以发送数据而不需要预先知道发送内容的总大小。通常数据块的大小是一致的，但也不总是这种情况。</code></p>
-<hr>
-<p>一般情况HTTP的Header包含Content-Length域来指明报文体的长度。有时候服务生成HTTP回应是无法确定消息大小的，比如大文件的下载，或者后台需要复杂的逻辑才能全部处理页面的请求，这时用需要实时生成消息长度，服务器一般使用chunked编码。</p>
-<p>在进行Chunked编码传输时，在回复消息的Headers有transfer-coding域值为chunked，表示将用chunked编码传输内容。</p>
-<p>理论知识就说到这。下面说说在写tamper过程中的坑，目前还有些问题没有解决。</p>
-<hr>
-<p>但是接下来的时间要忙些别的，所以把这段时间的结果先写到博客里面，以后有时间在继续把这些坑填上.</p>
-<p>下面切换回正题，正常的post数据包如下</p>
-<p><img src="/images/20190308101349_35348.png" alt="blob"></p>
-<p>而分块传输的post数据包如下</p>
-<p><img src="/images/20190308101355_13243.png" alt="blob"></p>
-<p>服务器能正常接收到数据并返回了正常的页面内容</p>
-<p>分块传输的post数据头部需要添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Transfer-Encoding:Chunked</span><br></pre></td></tr></table></figure>
+        <h1 id="一些web的小Tricks"><a href="#一些web的小Tricks" class="headerlink" title="一些web的小Tricks"></a>一些web的小Tricks</h1><p>1.当php后缀被过滤的时候可以直接对ph开头的后缀进行一个fuzz测试可以上传的文件后缀名<br>2.curl -x 123.45.67.89:1080 -o page.html <a href="http://www.linuxidc.com" target="_blank" rel="noopener">http://www.linuxidc.com</a><br>指定http访问所使用的proxy服务器及其端口</p>
+<p>3.CTF php：//input 协议解读</p>
+<p>php://input 读取的是未经url解码的原始数据</p>
+<p>$POST[x]中的数据是经过解码的</p>
+<p>file_get_contents()函数不能直接读取$_post[x] 例如：flag=$_post[x]; file_get_contents(flag) 此处将发生错误</p>
+<p>4.php：//phar协议 突破文件包含</p>
+<p>首先写1.php压缩为1.zip更改后缀名为.jpg上传，然后利用文件读取直接包含。</p>
+<p>http:<a href="http://www.c1sec.club/include.php?file=phar://upload/1.jpg/1" target="_blank" rel="noopener">www.c1sec.club/include.php?file=phar://upload/1.jpg/1</a></p>
+<p>这里的1指的是先前写好的1.php小马</p>
+<p>5 . .avi文件上传：</p>
+<p>具体用法：<a href="https://github.com/neex/ffmpeg-avi-m3u-xbin" target="_blank" rel="noopener">https://github.com/neex/ffmpeg-avi-m3u-xbin</a></p>
+<p>6.能读文件，apache下记得读/etc/apache2/sites-available/000-default.conf，会有一些配置文件</p>
+<p>7.上传文件后，如果服务器是linux系统，那么会在/tmp/目录下生成对应的临时文件</p>
+<p>8.unset函数是注销变量函数<br>11.mysql 绕过截断单引号<br>$query=’select * from flag where user=’.$user[0].’ and passwd=’.$passwd[0].’ &#39; ‘ ;</p>
+<p>要产生注入，则必须构造payload来截断单引号，打乱sql语句原来的构成标准。即可构造user=&amp;&amp;passwd=or 1#<br>此时sql语句为<br>select * from flag where user=’ &#39; and passwd= ‘ or 1# ‘;<br>（2） url二次编码绕过单引号过滤</p>
+<p>12.备份文件泄漏在外网</p>
+<p>漏洞描述：编辑器或者人员在编辑文件时，产生的临时文件，如vim自动保存为.swp后缀、UltrlEditor自动保存.bak后缀等，这些文件会泄漏源代码或者敏感信息。</p>
+<p>检测方法：在cgi文件后面添加.bak、.swp、.old、~等后缀探测。</p>
+<p>修复方案：删除备份文件。</p>
+<p>13.版本管理工具泄漏漏洞</p>
+<p>版本管理工具CVS会在所有目录添加特殊文件，如果这些文件同步到Web目录后就会泄漏路径等信息。</p>
+<p>检测方法：访问http://[ip]/CVS/Entriesp</p>
+<p>修复方法：删除cvs所在目录</p>
+<p>14.php5.2以上默认allow_url_include关闭，若开启allow_url_include则容易引起利用php://input伪协议进行文件包含</p>
+<p>15.通过php glob（）函数读取文件</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"> <span class="keyword">foreach</span> (glob(<span class="string">"*.txt"</span>) <span class="keyword">as</span> $filename) &#123;</span><br><span class="line">     <span class="keyword">echo</span> <span class="string">"$filename size "</span> . filesize($filename) . <span class="string">"\n"</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>而post的数据是这种格式<br>&gt;2<br>id<br>2<br>=3<br>0</p>
-<p>分块传输格式解析</p>
-<p>2   #这个2表示下面数据的个数 可以在这个后面加入分号后面添加注释 比如 2;hello world 可以利用这个特性添加随机字符来干扰waf</p>
-<p>id   #数据内容 内容就是id一共就两个 所以上面的个数是2</p>
-<p>2   #同理 表示下面的数据的个数</p>
-<p>=3  #这个也是同理 和前面的id连起来 post的数据就是 id=3 </p>
-<p>0   #分块传输表示结束的方式 一个0和两个换号<br>    #换行<br>    #换行</p>
-<p>既然知道了发送的数据格式，那下一步就是写个sqlmap的tamper<br>首先先把post数据的head的内容加上。</p>
-<p><img src="/images/20190308103343_76255.png" alt="blob"></p>
-<p>加上后sqlmap数据始终发不出去。</p>
-<p><img src="/images/20190308102910_75066.png" alt="blob"></p>
-<p>似乎遇到这个问题不只我一个，一个老哥是sqlmap加参数解决的这个问题 sqlmap.py -r 1.txt –headers=”Transfer-Encoding: chunked”</p>
-<p>但是我的解决方法是 在encoding后面加了个空格 同时能正常发送数据包</p>
-<p><img src="/images/20190308104112_63576.png" alt="blob"></p>
-<p>sqlmap能正常发送出数据包 且服务器也能正常的接收到数据</p>
-<p><img src="/images/20190308105624_54439.png" alt="blob"></p>
-<p>但是sqlmap在payload生成后 还url编码下才发送给服务器，所以导致\n换行符或其他特殊字符会被编码，最后服务器无法理解。</p>
-<p>目前的解决方法是通过给sqlmap加参数 –skip-urlencode 跳过url编码</p>
-<p><img src="/images/20190308110312_98069.png" alt="blob"></p>
-<p>但是我不想通过加参数，想直接写到tamper里面，各种疯狂百度谷歌还有问大佬们</p>
-<p><img src="/images/20190308110820_69063.png" alt="blob"></p>
-<p>但是都没结果，于是我就去翻sqlmap的源码。</p>
-<p>找到了urlencode的位置 也找到了最后给调用给payload编码的位置，但是还是不知道怎么写到tamper里面，如果改源码的话，那样就很容易，但是这样毫无意义。</p>
-<p>还有个最重要的问题，那就是sqlmap的tamper无法获取payload的前面的参数，比如id=3 无法把payload的内容写到id=的前面</p>
-<p>目前我的解决方法是手工把要注入的post包先把格式改下。</p>
-<p><img src="/images/20190308112655_96042.png" alt="blob"></p>
-<p>然后就用sqlmap跑起来<br><code>python sqlmap/sqlmap.py -r 1.txt --tamper=fkcs --skip-urlencode</code></p>
-<p><img src="/images/20190308114103_74500.png" alt="blob"></p>
-<p><img src="/images/20190308114113_28322.png" alt="blob"></p>
-<p>能正常使用，但是最大的问题在于怎么修改payload前面的参数，这样手工提前修改数据真的是low的不行，所以算个残疾品，等以后有时间再继续完善它。</p>
-<p>相关文章：<br>利用分块传输吊打所以wa<br><a href="https://www.freebuf.com/articles/web/194351.htmlf" target="_blank" rel="noopener">https://www.freebuf.com/articles/web/194351.htmlf</a></p>
-<p>HTTP协议bypass WAF(狗/盾)<br><a href="https://www.t00ls.net/thread-49138-1-1.html" target="_blank" rel="noopener">https://www.t00ls.net/thread-49138-1-1.html</a></p>
-<p>SQLMAP|阅读手记一{从sqlmap.py开始到参数分析}<br><a href="http://www.wupco.cn/?p=323" target="_blank" rel="noopener">http://www.wupco.cn/?p=323</a></p>
-<p>定制Sqlmap<br><a href="http://lietolive.com/sqlmap/%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91/2018/01/24/%E5%AE%9A%E5%88%B6Sqlmap.html" target="_blank" rel="noopener">http://lietolive.com/sqlmap/%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91/2018/01/24/%E5%AE%9A%E5%88%B6Sqlmap.html</a></p>
-<p>SQLMAP进阶使用<br><a href="http://www.vuln.cn/6495" target="_blank" rel="noopener">http://www.vuln.cn/6495</a></p>
-<p>sqlmap源码解析之test和boundary组合生成payload<br><a href="http://www.beesfun.com/2017/03/30/sqlmap%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E4%B9%8Btest%E5%92%8Cboundary%E7%BB%84%E5%90%88%E7%94%9F%E6%88%90payload/" target="_blank" rel="noopener">http://www.beesfun.com/2017/03/30/sqlmap%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E4%B9%8Btest%E5%92%8Cboundary%E7%BB%84%E5%90%88%E7%94%9F%E6%88%90payload/</a></p>
-<p>sqlmap 的源码学习笔记一之目录结构<br><a href="https://blog.csdn.net/qq_29277155/article/details/51646932" target="_blank" rel="noopener">https://blog.csdn.net/qq_29277155/article/details/51646932</a></p>
+<p>输出结果如下：</p>
+<p><img src="/images/1063309-20170731154248068-1767961687.png" alt="img"></p>
+<p>16.命令执行时当；|| &amp;&amp; 被过滤时可以尝试%0a来绕过多执行一条命令。</p>
+<p>17.禁止加载XML实体对象的方式，来防止XXE漏洞，通过使用</p>
+<p><img src="/images/1063309-20190224160008531-1260082376.png" alt="img"></p>
+<p> 18.当addslashes（）函数遇到json_encode()函数</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">   $sa=$_GET[<span class="string">'a'</span>];</span><br><span class="line">   $sa=addslashes($sa);</span><br><span class="line">   <span class="keyword">echo</span> json_encode($sa);</span><br></pre></td></tr></table></figure>
+
+<p>如果提交a=admin‘ 则json后能够逃逸反斜杠 \</p>
+<p><img src="/images/1063309-20170904171827038-754070839.png" alt="img"></p>
+<p>此时\被再次转义，即 ‘ 可逃逸。</p>
+<p>19.win下php可以利用短文件名来实现文件爆破，比如就是当文件名超过 <code>6</code> 位时，可以用 <code>~1</code> 表示后面的字符串，比如我们的文件名叫 <code>abcdefghijk.txt</code>，短文件名表示成:<code>abcdef~1.txt</code>，如果这时候还有个叫 <code>abcdefhhhh.txt</code> 的，就可以把 <code>1</code> 改成 <code>2</code>：<code>abcdef~2.txt</code></p>
+<p>20.<strong>doc</strong>和<strong>zip</strong>的文件头一样，因此构造一句话木马打包后，<strong>Burpsuite</strong>抓包修改后缀名和<strong>Mime</strong>类型上传，最后使用zip伪协议读取即可。</p>
+<p>21.door为数组则$secret将为null</p>
+<p><img src="/images/1063309-20190826205559423-235402880.png" alt="img"></p>
+<p>22.生成多个md5值相同的文件</p>
+<p><a href="https://www.yuque.com/sourcecode/2019hgame/magical_md5" target="_blank" rel="noopener">https://www.yuque.com/sourcecode/2019hgame/magical_md5</a></p>
+<p>23.php://filter 伪协议支持多个过滤器同时使用</p>
+<p>24..htaccess开启php解析引擎</p>
+<p>AddType application/x-httpd-php .png</p>
+<p>php_flag engine 1</p>
+<ol start="25">
+<li>php://resource=jpg/resource=file/tips.txt 可以绕过以下正则</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^php:\/\/.*resource=([^|]*)/i</span><br></pre></td></tr></table></figure>
+
+<p>26.sql注入空格还可以用%来代替</p>
 
       
     </div>
@@ -413,6 +429,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/ctf/" rel="tag"># ctf</a>
+          
+            <a href="/tags/web/" rel="tag"># web</a>
+          
+        </div>
+      
 
       
       
@@ -422,8 +446,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/11/05/ctf-php-zishi.html" rel="next" title="CTF中的PHP常见姿势分析">
-                <i class="fa fa-chevron-left"></i> CTF中的PHP常见姿势分析
+              <a href="/2019/11/09/hxbctf-2019.html" rel="next" title="湖湘杯2019 web1-UNTAR writeup">
+                <i class="fa fa-chevron-left"></i> 湖湘杯2019 web1-UNTAR writeup
               </a>
             
           </div>
@@ -431,10 +455,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/11/09/hxbctf-2019.html" rel="prev" title="湖湘杯2019 web1-UNTAR writeup">
-                湖湘杯2019 web1-UNTAR writeup <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -615,7 +635,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#分块传输tamper"><span class="nav-number">1.</span> <span class="nav-text">分块传输tamper</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一些web的小Tricks"><span class="nav-number">1.</span> <span class="nav-text">一些web的小Tricks</span></a></li></ol></div>
             
 
           </div>
