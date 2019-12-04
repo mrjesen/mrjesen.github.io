@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="web,ctf," />
+  <meta name="keywords" content="ctf,web," />
 
 
 
@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="一些web的小Tricks1.当php后缀被过滤的时候可以直接对ph开头的后缀进行一个fuzz测试可以上传的文件后缀名2.curl -x 123.45.67.89:1080 -o page.html http:&#x2F;&#x2F;www.linuxidc.com指定http访问所使用的proxy服务器及其端口 3.CTF php：&#x2F;&#x2F;input 协议解读 php:&#x2F;&#x2F;input 读取的是未经url解码的原始数据">
-<meta name="keywords" content="web,ctf">
+<meta name="description" content="个人打CTF的一些总结本篇文章非面向大众文章，仅供我本人查阅，一般只保证我本人能看懂 parse_url url中&#x2F;全换成&#x2F;&#x2F;&#x2F; 反序列化遇到protected变量，可以直接把private改成public然后把生成的加上%00*%00 strpos 大小写敏感，数组绕过也可。 php后缀过滤 对ph开头的后缀进行一个fuzz(php php7 php5 phtml)curl -x 123.45.">
+<meta name="keywords" content="ctf,web">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一些web的小Tricks">
-<meta property="og:url" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;2019&#x2F;11&#x2F;11&#x2F;somewebTricks.html">
+<meta property="og:title" content="个人打CTF的一些总结">
+<meta property="og:url" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;2019&#x2F;11&#x2F;11&#x2F;zongjie.html">
 <meta property="og:site_name" content="Jesen&#39;s Blog">
-<meta property="og:description" content="一些web的小Tricks1.当php后缀被过滤的时候可以直接对ph开头的后缀进行一个fuzz测试可以上传的文件后缀名2.curl -x 123.45.67.89:1080 -o page.html http:&#x2F;&#x2F;www.linuxidc.com指定http访问所使用的proxy服务器及其端口 3.CTF php：&#x2F;&#x2F;input 协议解读 php:&#x2F;&#x2F;input 读取的是未经url解码的原始数据">
+<meta property="og:description" content="个人打CTF的一些总结本篇文章非面向大众文章，仅供我本人查阅，一般只保证我本人能看懂 parse_url url中&#x2F;全换成&#x2F;&#x2F;&#x2F; 反序列化遇到protected变量，可以直接把private改成public然后把生成的加上%00*%00 strpos 大小写敏感，数组绕过也可。 php后缀过滤 对ph开头的后缀进行一个fuzz(php php7 php5 phtml)curl -x 123.45.">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;1063309-20170731154248068-1767961687.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;1063309-20190224160008531-1260082376.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;1063309-20170904171827038-754070839.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;1063309-20190826205559423-235402880.png">
-<meta property="og:updated_time" content="2019-11-11T15:08:05.263Z">
+<meta property="og:updated_time" content="2019-12-04T11:42:14.960Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;1063309-20170731154248068-1767961687.png">
 
@@ -123,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://mrjesen.github.io/2019/11/11/somewebTricks.html"/>
+  <link rel="canonical" href="http://mrjesen.github.io/2019/11/11/zongjie.html"/>
 
 
 
 
 
-  <title>一些web的小Tricks | Jesen's Blog</title>
+  <title>个人打CTF的一些总结 | Jesen's Blog</title>
   
 
 
@@ -256,7 +256,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mrjesen.github.io/2019/11/11/somewebTricks.html">
+    <link itemprop="mainEntityOfPage" href="http://mrjesen.github.io/2019/11/11/zongjie.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jesen">
@@ -273,7 +273,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">一些web的小Tricks</h2>
+          <h2 class="post-title" itemprop="name headline">个人打CTF的一些总结</h2>
         
 
         <div class="post-meta">
@@ -331,8 +331,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/11/11/somewebTricks.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/11/somewebTricks.html" itemprop="commentCount"></span>
+                <a href="/2019/11/11/zongjie.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/11/zongjie.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -360,31 +360,25 @@
       
 
       
-        <h1 id="一些web的小Tricks"><a href="#一些web的小Tricks" class="headerlink" title="一些web的小Tricks"></a>一些web的小Tricks</h1><p>1.当php后缀被过滤的时候可以直接对ph开头的后缀进行一个fuzz测试可以上传的文件后缀名<br>2.curl -x 123.45.67.89:1080 -o page.html <a href="http://www.linuxidc.com" target="_blank" rel="noopener">http://www.linuxidc.com</a><br>指定http访问所使用的proxy服务器及其端口</p>
-<p>3.CTF php：//input 协议解读</p>
-<p>php://input 读取的是未经url解码的原始数据</p>
-<p>$POST[x]中的数据是经过解码的</p>
-<p>file_get_contents()函数不能直接读取$_post[x] 例如：flag=$_post[x]; file_get_contents(flag) 此处将发生错误</p>
-<p>4.php：//phar协议 突破文件包含</p>
-<p>首先写1.php压缩为1.zip更改后缀名为.jpg上传，然后利用文件读取直接包含。</p>
-<p>http:<a href="http://www.c1sec.club/include.php?file=phar://upload/1.jpg/1" target="_blank" rel="noopener">www.c1sec.club/include.php?file=phar://upload/1.jpg/1</a></p>
-<p>这里的1指的是先前写好的1.php小马</p>
-<p>5 . .avi文件上传：</p>
-<p>具体用法：<a href="https://github.com/neex/ffmpeg-avi-m3u-xbin" target="_blank" rel="noopener">https://github.com/neex/ffmpeg-avi-m3u-xbin</a></p>
-<p>6.能读文件，apache下记得读/etc/apache2/sites-available/000-default.conf，会有一些配置文件</p>
-<p>7.上传文件后，如果服务器是linux系统，那么会在/tmp/目录下生成对应的临时文件</p>
-<p>8.unset函数是注销变量函数<br>11.mysql 绕过截断单引号<br>$query=’select * from flag where user=’.$user[0].’ and passwd=’.$passwd[0].’ &#39; ‘ ;</p>
-<p>要产生注入，则必须构造payload来截断单引号，打乱sql语句原来的构成标准。即可构造user=&amp;&amp;passwd=or 1#<br>此时sql语句为<br>select * from flag where user=’ &#39; and passwd= ‘ or 1# ‘;<br>（2） url二次编码绕过单引号过滤</p>
-<p>12.备份文件泄漏在外网</p>
-<p>漏洞描述：编辑器或者人员在编辑文件时，产生的临时文件，如vim自动保存为.swp后缀、UltrlEditor自动保存.bak后缀等，这些文件会泄漏源代码或者敏感信息。</p>
-<p>检测方法：在cgi文件后面添加.bak、.swp、.old、~等后缀探测。</p>
-<p>修复方案：删除备份文件。</p>
-<p>13.版本管理工具泄漏漏洞</p>
-<p>版本管理工具CVS会在所有目录添加特殊文件，如果这些文件同步到Web目录后就会泄漏路径等信息。</p>
-<p>检测方法：访问http://[ip]/CVS/Entriesp</p>
-<p>修复方法：删除cvs所在目录</p>
-<p>14.php5.2以上默认allow_url_include关闭，若开启allow_url_include则容易引起利用php://input伪协议进行文件包含</p>
-<p>15.通过php glob（）函数读取文件</p>
+        <h1 id="个人打CTF的一些总结"><a href="#个人打CTF的一些总结" class="headerlink" title="个人打CTF的一些总结"></a>个人打CTF的一些总结</h1><p><u><strong>本篇文章非面向大众文章，仅供我本人查阅，一般只保证我本人能看懂</strong></u></p>
+<p>parse_url url中/全换成///</p>
+<p>反序列化遇到protected变量，可以直接把private改成public然后把生成的加上%00*%00</p>
+<p>strpos 大小写敏感，数组绕过也可。</p>
+<p>php后缀过滤 对ph开头的后缀进行一个fuzz(php php7 php5 phtml)<br>curl -x 123.45.67.89:1080 -o page.html <a href="http://www.ip.cn" target="_blank" rel="noopener">http://www.ip.cn</a> 代理访问</p>
+<p>php://input 获取post 记得改POST方法（数据不会urldecode）</p>
+<p>file_get_contents() file:// php:// zlib:// zip:// http://均可</p>
+<p>phar协议突破文件包含首先1.php压缩为1.zip更改后缀名为.jpg上传，然后利用文件读取直接包含。</p>
+<p><a href="http://www.c1sec.club/include.php?file=phar://upload/1.jpg/1这里的1指的是先前写好的1.php小马" target="_blank" rel="noopener">http://www.c1sec.club/include.php?file=phar://upload/1.jpg/1这里的1指的是先前写好的1.php小马</a></p>
+<p>.avi文件上传：<a href="https://github.com/neex/ffmpeg-avi-m3u-xbin" target="_blank" rel="noopener">https://github.com/neex/ffmpeg-avi-m3u-xbin</a></p>
+<p>能读文件，apache下记得读/etc/apache2/sites-available/000-default.conf，会有一些配置文件</p>
+<p>上传文件后，如果服务器是linux系统，那么会在/tmp/目录下生成对应的临时文件phpinfo();<br>$query=’select * from flag where user=’.$user[0].’ and passwd=’.$passwd[0].’ &#39; ‘ ;</p>
+<p>要产生注入，则必须构造payload来截断单引号，打乱sql语句原来的构成标准。即可构造user=&amp;&amp;passwd=or 1#<br>此时sql语句为<br>select * from flag where user=’ &#39; and passwd= ‘ or 1# ‘;<br>url二次编码绕过单引号过滤</p>
+<p>vim自动保存为.swp后缀、UltrlEditor自动保存.bak后缀</p>
+<p>在文件后面添加.bak、.swp、.old、~等探测。</p>
+<p>CVS会在所有目录添加特殊文件，如果这些文件同步到Web目录后就会泄漏路径等信息。</p>
+<p>检测方法：http://[ip]/CVS/Entriesp</p>
+<p>php5.2以上allow_url_include关闭，若开启allow_url_include则容易引起php://input伪协议进行包含</p>
+<p>通过php glob()函数读取文件</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"> <span class="keyword">foreach</span> (glob(<span class="string">"*.txt"</span>) <span class="keyword">as</span> $filename) &#123;</span><br><span class="line">     <span class="keyword">echo</span> <span class="string">"$filename size "</span> . filesize($filename) . <span class="string">"\n"</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>输出结果如下：</p>
@@ -413,7 +407,7 @@
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^php:\/\/.*resource=([^|]*)/i</span><br></pre></td></tr></table></figure>
 
-<p>26.sql注入空格还可以用%来代替</p>
+<p>26.sql注入空格还可以用%,/**/等来代替</p>
 
       
     </div>
@@ -431,9 +425,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/web/" rel="tag"># web</a>
-          
             <a href="/tags/ctf/" rel="tag"># ctf</a>
+          
+            <a href="/tags/web/" rel="tag"># web</a>
           
         </div>
       
@@ -639,7 +633,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一些web的小Tricks"><span class="nav-number">1.</span> <span class="nav-text">一些web的小Tricks</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#个人打CTF的一些总结"><span class="nav-number">1.</span> <span class="nav-text">个人打CTF的一些总结</span></a></li></ol></div>
             
 
           </div>
