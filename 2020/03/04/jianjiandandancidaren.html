@@ -83,18 +83,15 @@
 
 
 
-<meta name="description" content="前提本文默认你具备使用burp的能力以及对json数据格式有所了解，并且可以为手机配置代理或者对安卓模拟器进行设置. 还需要你有配置https证书的能力。  简单de操作正文比这个复杂，但是解析的比较详细。还是修改得分比较简单，需要做的只有点击继续或跳过~，我图里是改的9分，可以改成10 :)  图解析:拦截request body并修改你的得分，即修改score”:0为score:”9。 这样你">
+<meta name="description" content="前提本文默认你具备使用burp的能力以及对json数据格式有所了解，并且可以为手机配置代理或者对安卓模拟器进行设置. 还需要你有配置https证书的能力。  2020&#x2F;3&#x2F;22更新 很遗憾现在的词达人已经从简简单单的http协议更换成了https协议。所以我们需要往您的手机导入安卓证书，这里操作如下。 访问代理ip地址，如我burp的ip地址为 172.16.20.107 端口为8080 那么我就">
 <meta name="keywords" content="词达人">
 <meta property="og:type" content="article">
 <meta property="og:title" content="简简单单过词达人各种任务">
 <meta property="og:url" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;2020&#x2F;03&#x2F;04&#x2F;jianjiandandancidaren.html">
 <meta property="og:site_name" content="Jesen&#39;s Blog">
-<meta property="og:description" content="前提本文默认你具备使用burp的能力以及对json数据格式有所了解，并且可以为手机配置代理或者对安卓模拟器进行设置. 还需要你有配置https证书的能力。  简单de操作正文比这个复杂，但是解析的比较详细。还是修改得分比较简单，需要做的只有点击继续或跳过~，我图里是改的9分，可以改成10 :)  图解析:拦截request body并修改你的得分，即修改score”:0为score:”9。 这样你">
+<meta property="og:description" content="前提本文默认你具备使用burp的能力以及对json数据格式有所了解，并且可以为手机配置代理或者对安卓模拟器进行设置. 还需要你有配置https证书的能力。  2020&#x2F;3&#x2F;22更新 很遗憾现在的词达人已经从简简单单的http协议更换成了https协议。所以我们需要往您的手机导入安卓证书，这里操作如下。 访问代理ip地址，如我burp的ip地址为 172.16.20.107 端口为8080 那么我就">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200313204924747.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200322134517924.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200322134211694.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200322134240108.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200304212731446.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200304212713261.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200304212848065.png">
@@ -105,10 +102,9 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200304214048764.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200304214311276.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200304214517300.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200313204924747.png">
-<meta property="og:updated_time" content="2020-03-22T06:02:35.069Z">
+<meta property="og:updated_time" content="2020-04-16T03:32:51.243Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200313204924747.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200322134517924.png">
 
 
 
@@ -373,21 +369,12 @@
       
         <h1 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h1><p>本文默认你具备使用burp的能力以及对json数据格式有所了解，并且可以为手机配置代理或者对安卓模拟器进行设置. 还需要你有配置https证书的能力。</p>
 <hr>
-<h1 id="简单de操作"><a href="#简单de操作" class="headerlink" title="简单de操作"></a>简单de操作</h1><h4 id="正文比这个复杂，但是解析的比较详细。"><a href="#正文比这个复杂，但是解析的比较详细。" class="headerlink" title="正文比这个复杂，但是解析的比较详细。"></a>正文比这个复杂，但是解析的比较详细。</h4><p><strong>还是修改得分比较简单，需要做的只有点击继续或跳过~，我图里是改的9分，可以改成10 :)</strong></p>
-<p><img src="/images/image-20200313204924747.png" alt="image-20200313204924747"></p>
-<p><strong>图解析:拦截request body并修改你的得分，即修改score”:0为score:”9。</strong></p>
-<p>这样你狂点跳过或者继续即可得分，注意不是跳过当前题型。没有试过修改小数你们可以自己试一试。</p>
-<p><font color=RED>注意这里我修改的是request body而下面正文我修改的是response body，是不一样的</font></p>
-<hr>
 <h1 id="2020-3-22更新"><a href="#2020-3-22更新" class="headerlink" title="2020/3/22更新"></a>2020/3/22更新</h1><p><img src="/images/image-20200322134517924.png" alt="image-20200322134517924"></p>
 <h4 id="很遗憾现在的词达人已经从简简单单的http协议更换成了https协议。"><a href="#很遗憾现在的词达人已经从简简单单的http协议更换成了https协议。" class="headerlink" title="很遗憾现在的词达人已经从简简单单的http协议更换成了https协议。"></a>很遗憾现在的词达人已经从简简单单的http协议更换成了https协议。</h4><p>所以我们需要往您的手机导入安卓证书，这里操作如下。</p>
 <p>访问代理ip地址，如我burp的ip地址为 172.16.20.107 端口为8080 那么我就访问<a href="http://172.16.20.107:8080/" target="_blank" rel="noopener">http://172.16.20.107:8080/</a></p>
 <p>点击右上角 CA cert*** 下载证书，下载的文件是der格式的，手机可能无法直接打开，需要改成cacert.crt就是把der改成crt文件。 具体操作参见：<a href="https://blog.csdn.net/wst0717/article/details/83787153" target="_blank" rel="noopener">https://blog.csdn.net/wst0717/article/details/83787153</a></p>
 <p><font color=green>注：导入后手机的状态栏会提示:网络可能会受到监控，正常现象</font></p>
 <p>打开进行安装即可。这里不再截图。</p>
-<p><strong>可选操作</strong>： 在<img src="/images/image-20200322134211694.png" alt="image-20200322134211694">这里点击Add 填写如下:</p>
-<p><img src="/images/image-20200322134240108.png" alt="image-20200322134240108"></p>
-<p>可以只拦截词达人的包。<font color=RED>注：未测试</font></p>
 <p>然后现在只能改答案为true来欺骗客户端了，想改分需要拿到sign参数的具体文件，我有点懒，就不发出来了。。</p>
 <p><font color=blue>祝你们好运！</font></p>
 <h4 id="不一定需要burp，业界常见的fillder（好像是这么写的把）也可以。"><a href="#不一定需要burp，业界常见的fillder（好像是这么写的把）也可以。" class="headerlink" title="不一定需要burp，业界常见的fillder（好像是这么写的把）也可以。"></a>不一定需要burp，业界常见的fillder（好像是这么写的把）也可以。</h4><h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h2 id="1-启动burpsuite2-1版本"><a href="#1-启动burpsuite2-1版本" class="headerlink" title="1.启动burpsuite2.1版本"></a>1.启动burpsuite2.1版本</h2><p>修改监听地址为:0.0.0.0:8080(本人在用这个，不想用这个也可以不用)</p>
@@ -420,9 +407,7 @@
 <p><img src="/images/image-20200304214311276.png" alt="image-20200304214311276"></p>
 <p>发现所有选项后面都带有小星星 ，就是修改成功了。</p>
 <h1 id="收工"><a href="#收工" class="headerlink" title="收工"></a>收工</h1><h2 id="代理选择-无-即可"><a href="#代理选择-无-即可" class="headerlink" title="代理选择: 无 即可"></a>代理选择: 无 即可</h2><p><img src="/images/image-20200304214517300.png" alt="image-20200304214517300"></p>
-<h2 id="然后关闭burp"><a href="#然后关闭burp" class="headerlink" title="然后关闭burp"></a>然后关闭burp</h2><h1 id="补充说明"><a href="#补充说明" class="headerlink" title="补充说明"></a>补充说明</h1><p><strong>这里也可以拦截request body修改你的得分，即修改score”:0为score:”10。</strong></p>
-<p><img src="/images/image-20200313204924747.png" alt="image-20200313204924747"></p>
-<p>这样你狂点跳过即可得分。没有试过修改小数你们可以自己试一试。</p>
+<h2 id="然后关闭burp"><a href="#然后关闭burp" class="headerlink" title="然后关闭burp"></a>然后关闭burp</h2><p>感谢支持！</p>
 
       
     </div>
@@ -646,7 +631,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前提"><span class="nav-number">1.</span> <span class="nav-text">前提</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简单de操作"><span class="nav-number">2.</span> <span class="nav-text">简单de操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#正文比这个复杂，但是解析的比较详细。"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">正文比这个复杂，但是解析的比较详细。</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2020-3-22更新"><span class="nav-number">3.</span> <span class="nav-text">2020/3/22更新</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#很遗憾现在的词达人已经从简简单单的http协议更换成了https协议。"><span class="nav-number">3.0.0.1.</span> <span class="nav-text">很遗憾现在的词达人已经从简简单单的http协议更换成了https协议。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不一定需要burp，业界常见的fillder（好像是这么写的把）也可以。"><span class="nav-number">3.0.0.2.</span> <span class="nav-text">不一定需要burp，业界常见的fillder（好像是这么写的把）也可以。</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#准备工作"><span class="nav-number">4.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-启动burpsuite2-1版本"><span class="nav-number">4.1.</span> <span class="nav-text">1.启动burpsuite2.1版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-手机修改代理服务器"><span class="nav-number">4.2.</span> <span class="nav-text">2.手机修改代理服务器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#具体操作"><span class="nav-number">5.</span> <span class="nav-text">具体操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#收工"><span class="nav-number">6.</span> <span class="nav-text">收工</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#代理选择-无-即可"><span class="nav-number">6.1.</span> <span class="nav-text">代理选择: 无 即可</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#然后关闭burp"><span class="nav-number">6.2.</span> <span class="nav-text">然后关闭burp</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#补充说明"><span class="nav-number">7.</span> <span class="nav-text">补充说明</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前提"><span class="nav-number">1.</span> <span class="nav-text">前提</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2020-3-22更新"><span class="nav-number">2.</span> <span class="nav-text">2020/3/22更新</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#很遗憾现在的词达人已经从简简单单的http协议更换成了https协议。"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">很遗憾现在的词达人已经从简简单单的http协议更换成了https协议。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不一定需要burp，业界常见的fillder（好像是这么写的把）也可以。"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">不一定需要burp，业界常见的fillder（好像是这么写的把）也可以。</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#准备工作"><span class="nav-number">3.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-启动burpsuite2-1版本"><span class="nav-number">3.1.</span> <span class="nav-text">1.启动burpsuite2.1版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-手机修改代理服务器"><span class="nav-number">3.2.</span> <span class="nav-text">2.手机修改代理服务器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#具体操作"><span class="nav-number">4.</span> <span class="nav-text">具体操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#收工"><span class="nav-number">5.</span> <span class="nav-text">收工</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#代理选择-无-即可"><span class="nav-number">5.1.</span> <span class="nav-text">代理选择: 无 即可</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#然后关闭burp"><span class="nav-number">5.2.</span> <span class="nav-text">然后关闭burp</span></a></li></ol></li></ol></div>
             
 
           </div>
