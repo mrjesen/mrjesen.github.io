@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="CTF," />
+  <meta name="keywords" content="CTF,web,writeup,纵横杯," />
 
 
 
@@ -83,21 +83,23 @@
 
 
 
-<meta name="description" content="2020GeekPwn-Cosplay题解打开即可看到上传页面，  按照惯例查看源代码企图获取提示，前半部分不需要看，那是腾讯COS的JSSDK部分。 （至于为什么这么觉得，完全是看了下半部分推测出来的。下半部分是jssdk的上传文件功能，此页面并没有引入其他js，所以上面的复杂混淆代码一定是cos的sdk。） 可以看到：  初始化实例，获取临时的key用来上传。 先看sdk的文档（参考：http">
-<meta name="keywords" content="CTF">
+<meta name="description" content="纵横杯WRITEUP纵横杯的wp版权不仅仅属于本人，转载请注明来源。 马赛克操作内容：根据题目mosaic以及得到的马赛克图片 利用工具Depix github地址：https:&#x2F;&#x2F;github.com&#x2F;beurtschipper&#x2F;Depix EXP: 1python depix.py -p mosaic.png -s images&#x2F;searchimages&#x2F;debruinseq_notepad_">
+<meta name="keywords" content="CTF,web,writeup,纵横杯">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2020GeekPwn-Cosplay题解">
-<meta property="og:url" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;2020&#x2F;07&#x2F;12&#x2F;2020GeekPwn-Cosplay.html">
+<meta property="og:title" content="纵横杯2020-WRITEUP">
+<meta property="og:url" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;2020&#x2F;12&#x2F;27&#x2F;zongheng-wp.html">
 <meta property="og:site_name" content="Jesen&#39;s Blog">
-<meta property="og:description" content="2020GeekPwn-Cosplay题解打开即可看到上传页面，  按照惯例查看源代码企图获取提示，前半部分不需要看，那是腾讯COS的JSSDK部分。 （至于为什么这么觉得，完全是看了下半部分推测出来的。下半部分是jssdk的上传文件功能，此页面并没有引入其他js，所以上面的复杂混淆代码一定是cos的sdk。） 可以看到：  初始化实例，获取临时的key用来上传。 先看sdk的文档（参考：http">
+<meta property="og:description" content="纵横杯WRITEUP纵横杯的wp版权不仅仅属于本人，转载请注明来源。 马赛克操作内容：根据题目mosaic以及得到的马赛克图片 利用工具Depix github地址：https:&#x2F;&#x2F;github.com&#x2F;beurtschipper&#x2F;Depix EXP: 1python depix.py -p mosaic.png -s images&#x2F;searchimages&#x2F;debruinseq_notepad_">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200712223923626.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200712224128098.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200712224518339.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200712224705621.png">
-<meta property="og:updated_time" content="2020-07-12T14:48:31.340Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;Kgc41JQDHcI1qFQk.png!thumbnail">
+<meta property="og:image" content="https:&#x2F;&#x2F;uploader.shimo.im&#x2F;f&#x2F;eV9jy9AvIp7oqYme.png!thumbnail?fileGuid=MKnRiUUP7yE3zW1Y">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;WcWYwvdQT2ZqY0Ya.png!thumbnail">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;jaRag7YuYmni7jfA.png!thumbnail">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;HpizB2NaZQrohnjS.png!thumbnail">
+<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;KbixtkRGwClWGX8b.png!thumbnail">
+<meta property="og:updated_time" content="2020-12-27T13:04:16.228Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200712223923626.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;Kgc41JQDHcI1qFQk.png!thumbnail">
 
 
 
@@ -127,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://mrjesen.github.io/2020/07/12/2020GeekPwn-Cosplay.html"/>
+  <link rel="canonical" href="http://mrjesen.github.io/2020/12/27/zongheng-wp.html"/>
 
 
 
 
 
-  <title>2020GeekPwn-Cosplay题解 | Jesen's Blog</title>
+  <title>纵横杯2020-WRITEUP | Jesen's Blog</title>
   
 
 
@@ -260,7 +262,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mrjesen.github.io/2020/07/12/2020GeekPwn-Cosplay.html">
+    <link itemprop="mainEntityOfPage" href="http://mrjesen.github.io/2020/12/27/zongheng-wp.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jesen">
@@ -277,7 +279,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">2020GeekPwn-Cosplay题解</h2>
+          <h2 class="post-title" itemprop="name headline">纵横杯2020-WRITEUP</h2>
         
 
         <div class="post-meta">
@@ -290,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-12T22:38:02+08:00">
-                2020-07-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-12-27T20:58:25+08:00">
+                2020-12-27
               </time>
             
 
@@ -331,8 +333,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/07/12/2020GeekPwn-Cosplay.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/07/12/2020GeekPwn-Cosplay.html" itemprop="commentCount"></span>
+                <a href="/2020/12/27/zongheng-wp.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/12/27/zongheng-wp.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -340,7 +342,7 @@
 
           
           
-             <span id="/2020/07/12/2020GeekPwn-Cosplay.html" class="leancloud_visitors" data-flag-title="2020GeekPwn-Cosplay题解">
+             <span id="/2020/12/27/zongheng-wp.html" class="leancloud_visitors" data-flag-title="纵横杯2020-WRITEUP">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -371,29 +373,58 @@
       
 
       
-        <h1 id="2020GeekPwn-Cosplay题解"><a href="#2020GeekPwn-Cosplay题解" class="headerlink" title="2020GeekPwn-Cosplay题解"></a>2020GeekPwn-Cosplay题解</h1><p>打开即可看到上传页面，</p>
-<p><img src="/images/image-20200712223923626.png" alt="image-20200712223923626"></p>
-<p>按照惯例查看源代码企图获取提示，前半部分不需要看，那是腾讯COS的JSSDK部分。</p>
-<p>（至于为什么这么觉得，完全是看了下半部分推测出来的。下半部分是jssdk的上传文件功能，此页面并没有引入其他js，所以上面的复杂混淆代码一定是cos的sdk。）</p>
-<p>可以看到：</p>
-<p><img src="/images/image-20200712224128098.png" alt="image-20200712224128098"></p>
-<p>初始化实例，获取临时的key用来上传。</p>
-<p>先看sdk的文档（参考：<a href="https://cloud.tencent.com/document/product/436/11459），发现有了key之后就可以查看cos里面的具体文件，在控制台执行即可。" target="_blank" rel="noopener">https://cloud.tencent.com/document/product/436/11459），发现有了key之后就可以查看cos里面的具体文件，在控制台执行即可。</a></p>
-<p>具体的流程为：</p>
-<ol>
-<li>随便上传一个文件，让js获取到tempkey。</li>
-<li>控制台执行代码即可查看所有文件。</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 查询对象列表</span></span><br><span class="line">cos.getBucket(&#123;</span><br><span class="line">    Bucket: Bucket, <span class="comment">/* 必须 */</span></span><br><span class="line">    Region: Region,     <span class="comment">/* 存储桶所在地域，必须字段 */</span></span><br><span class="line">    Prefix: <span class="string">''</span>,           <span class="comment">/* 非必须 */</span></span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err || data.Contents);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+        <h1 id="纵横杯WRITEUP"><a href="#纵横杯WRITEUP" class="headerlink" title="纵横杯WRITEUP"></a><strong>纵横杯WRITEUP</strong></h1><p>纵横杯的wp版权不仅仅属于本人，转载请注明来源。</p>
+<h1 id="马赛克"><a href="#马赛克" class="headerlink" title="马赛克"></a>马赛克</h1><h2 id="操作内容："><a href="#操作内容：" class="headerlink" title="操作内容："></a>操作内容：</h2><p>根据题目mosaic以及得到的马赛克图片</p>
+<p>利用工具Depix</p>
+<p>github地址：<a href="https://github.com/beurtschipper/Depix" target="_blank" rel="noopener">https://github.com/beurtschipper/Depix</a></p>
+<p>EXP:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python depix.py -p mosaic.png -s images/searchimages/debruinseq_notepad_Windows10_closeAndSpaced.png -o flag.png</span><br></pre></td></tr></table></figure>
+<p><img src="/images/Kgc41JQDHcI1qFQk.png!thumbnail" alt="图片"></p>
+<p>成功得到flag.png</p>
+<p>打开是：</p>
+<p><img src="https://uploader.shimo.im/f/eV9jy9AvIp7oqYme.png!thumbnail?fileGuid=MKnRiUUP7yE3zW1Y" alt="图片"></p>
+<p>根据题目信息，包裹字符串</p>
+<p><strong>flag值：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;0123468abd68abd0123&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Web-ezcms"><a href="#Web-ezcms" class="headerlink" title="Web-ezcms"></a><strong>Web-ezcms</strong></h1><h2 id="操作内容：-1"><a href="#操作内容：-1" class="headerlink" title="操作内容："></a><strong>操作内容：</strong></h2><p>扫描得到源代码<a href="http://www.zip" target="_blank" rel="noopener">www.zip</a></p>
+<p>下载后与官方版本对比，发现此处不同，猜测是ssrf：</p>
+<p><img src="/images/WcWYwvdQT2ZqY0Ya.png!thumbnail" alt="图片"></p>
+<p>根据注释得知是采集功能。</p>
+<p>同时根据config.php的数据库密码是admin868,那么试了一下后台也是这个密码。</p>
+<p>于此同时在github上也发现了对应的ssrf的issue：</p>
+<p><a href="https://github.com/yzmcms/yzmcms/issues/53" target="_blank" rel="noopener">https://github.com/yzmcms/yzmcms/issues/53</a></p>
+<p>进入后台直奔采集功能，看了一下yzmcms的文档，把<a href="http://127.0.0.1/" target="_blank" rel="noopener">http://127.0.0.1/</a>当作采集目标。</p>
+<p>然后修改系统设置的统计代码为<a href="httpxxx://../../../../../../flag" target="_blank" rel="noopener">jeseniscool</a></p>
+<p>那么按如下配置即可采集到我们自定义的链接：</p>
+<p><img src="/images/jaRag7YuYmni7jfA.png!thumbnail" alt="图片"></p>
+<p>根据issue，可以看到，当scheme为未知协议时候会变成null，代表file协议。</p>
+<p>试了读取etc/passwd成功了，</p>
+<p>那么顺理成章读到flag文件</p>
+<p><strong>flag值：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;3578aa8d-3fab-4042-988c-e94c8bcd127b&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Web-hello-php"><a href="#Web-hello-php" class="headerlink" title="Web-hello_php"></a><strong>Web-hello_php</strong></h1><h2 id="操作内容：-2"><a href="#操作内容：-2" class="headerlink" title="操作内容："></a><strong>操作内容：</strong></h2><p>扫描得到源代码<a href="http://www.zip" target="_blank" rel="noopener">www.zip</a></p>
+<p>下载后进行审计，发现是后台上传（密码admin/admin888）phar</p>
+<p>然后前台img利用phar://xxxxxxxxxxxx/ + 爆破文件名（十位时间戳很好爆破）+ file_exsits()进行触发。</p>
+<p><a href="http://eci-2ze3qpk9e6qoiveebamt.cloudeci1.ichunqiu.com/?img=phar:///var/www/html/static/920827b634efb6f03d85bf5dc072cb4d.jpg" target="_blank" rel="noopener">http://eci-2ze3qpk9e6qoiveebamt.cloudeci1.ichunqiu.com/?img=phar:///var/www/html/static/920827b634efb6f03d85bf5dc072cb4d.jpg</a></p>
+<p>就这样，先写了个shell，</p>
+<p>写完shell之后，直接post: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jesen=echo(file_get_contents(&quot;/flag&quot;));</span><br></pre></td></tr></table></figure>
+<p><strong>flag值：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;376eb548-2f8a-4e5d-952f-6d130a300072&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Web-大家一起来审代码"><a href="#Web-大家一起来审代码" class="headerlink" title="Web-大家一起来审代码"></a><strong>Web-</strong>大家一起来审代码</h1><h2 id="操作内容：-3"><a href="#操作内容：-3" class="headerlink" title="操作内容："></a><strong>操作内容：</strong></h2><p>源代码<a href="http://www.zip" target="_blank" rel="noopener">www.zip</a></p>
+<p>下载后进行搜索，搜索到已有代码审计的文章：<a href="https://www.freebuf.com/vuls/241106.html" target="_blank" rel="noopener">https://www.freebuf.com/vuls/241106.html</a></p>
+<p>后台是弱密码（密码admin/admin）</p>
+<p>发现admin_weixin.php符合freebuf文章里面的后台RCE2，因此按照他给的构造，</p>
+<p>我这里自定义了参数是dpic。</p>
+<p>我让（记得url编码，否则会出现问题）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpic=&quot;);?&gt;&lt;?php $_=`/b?n/c?? /fl?g`; ?&gt;&lt;?=$_?&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="/images/HpizB2NaZQrohnjS.png!thumbnail" alt="图片"></p>
+<p>就这样，直接就得到了flag</p>
+<p><img src="/images/KbixtkRGwClWGX8b.png!thumbnail" alt="图片"></p>
+<p><strong>flag值：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;5e20e6fb-cf3c-44f9-b605-c65d90cc77a9&#125;</span><br></pre></td></tr></table></figure>
 
-<p>可以看到：</p>
-<p><img src="/images/image-20200712224518339.png" alt="image-20200712224518339"></p>
-<p>一看就是flag了。</p>
-<p>调用文件下载api即可查看文件：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//文件下载</span></span><br><span class="line">cos.getObject(&#123;</span><br><span class="line">    Bucket: Bucket, <span class="comment">/* 必须 */</span></span><br><span class="line">    Region: Region,     <span class="comment">/* 存储桶所在地域，必须字段 */</span></span><br><span class="line">    Key: <span class="string">'f1L9@/flag.txt'</span>,              <span class="comment">/* 必须 */</span></span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err || data.Body);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-<p><img src="/images/image-20200712224705621.png" alt="image-20200712224705621"></p>
-<p>成功得到flag。</p>
 
       
     </div>
@@ -413,6 +444,12 @@
           
             <a href="/tags/CTF/" rel="tag"># CTF</a>
           
+            <a href="/tags/web/" rel="tag"># web</a>
+          
+            <a href="/tags/writeup/" rel="tag"># writeup</a>
+          
+            <a href="/tags/%E7%BA%B5%E6%A8%AA%E6%9D%AF/" rel="tag"># 纵横杯</a>
+          
         </div>
       
 
@@ -424,8 +461,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/03/04/jianjiandandancidaren.html" rel="next" title="简简单单过词达人各种任务">
-                <i class="fa fa-chevron-left"></i> 简简单单过词达人各种任务
+              <a href="/2020/11/16/RSCTF2020writeup.html" rel="next" title="RSCTF2020_writeup">
+                <i class="fa fa-chevron-left"></i> RSCTF2020_writeup
               </a>
             
           </div>
@@ -433,10 +470,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/08/24/ciscncs.html" rel="prev" title="CISCN2020 初赛WEB writeup">
-                CISCN2020 初赛WEB writeup <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -621,7 +654,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2020GeekPwn-Cosplay题解"><span class="nav-number">1.</span> <span class="nav-text">2020GeekPwn-Cosplay题解</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#纵横杯WRITEUP"><span class="nav-number">1.</span> <span class="nav-text">纵横杯WRITEUP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#马赛克"><span class="nav-number">2.</span> <span class="nav-text">马赛克</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#操作内容："><span class="nav-number">2.1.</span> <span class="nav-text">操作内容：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Web-ezcms"><span class="nav-number">3.</span> <span class="nav-text">Web-ezcms</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#操作内容：-1"><span class="nav-number">3.1.</span> <span class="nav-text">操作内容：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Web-hello-php"><span class="nav-number">4.</span> <span class="nav-text">Web-hello_php</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#操作内容：-2"><span class="nav-number">4.1.</span> <span class="nav-text">操作内容：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Web-大家一起来审代码"><span class="nav-number">5.</span> <span class="nav-text">Web-大家一起来审代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#操作内容：-3"><span class="nav-number">5.1.</span> <span class="nav-text">操作内容：</span></a></li></ol></li></ol></div>
             
 
           </div>
