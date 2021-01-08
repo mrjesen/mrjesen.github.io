@@ -87,7 +87,7 @@
 <meta name="keywords" content="misc,ctf">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RSCTF2019_MISC">
-<meta property="og:url" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;2019&#x2F;11&#x2F;03&#x2F;RSCTF2019-MISC.html">
+<meta property="og:url" content="&#x2F;2019&#x2F;11&#x2F;03&#x2F;RSCTF2019-MISC.html">
 <meta property="og:site_name" content="Jesen&#39;s Blog">
 <meta property="og:description" content="pyc很简单的反编译的题，里面加密的算法也比较简单，不多叙述。 123456789def decode(str):    str = base64.b64decode(str)    print(str)    s = &amp;apos;&amp;apos;    for i in str:        i = i - 16        x = i ^ 32        s += chr(x)    return (s)">
 <meta property="og:locale" content="zh-Hans">
@@ -122,7 +122,7 @@
 
 
 
-  <link rel="canonical" href="http://mrjesen.github.io/2019/11/03/RSCTF2019-MISC.html"/>
+  <link rel="canonical" href="/2019/11/03/RSCTF2019-MISC.html"/>
 
 
 
@@ -255,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mrjesen.github.io/2019/11/03/RSCTF2019-MISC.html">
+    <link itemprop="mainEntityOfPage" href="/2019/11/03/RSCTF2019-MISC.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jesen">
@@ -370,7 +370,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decode</span><span class="params">(str)</span>:</span></span><br><span class="line">    str = base64.b64decode(str)</span><br><span class="line">    print(str)</span><br><span class="line">    s = <span class="string">''</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> str:</span><br><span class="line">        i = i - <span class="number">16</span></span><br><span class="line">        x = i ^ <span class="number">32</span></span><br><span class="line">        s += chr(x)</span><br><span class="line">    <span class="keyword">return</span> (s)</span><br></pre></td></tr></table></figure>
 
 <p>由此得到以上解密代码，执行之，得到flag，用flag{}包裹并提交，ok</p>
-<h1 id="听"><a href="#听" class="headerlink" title="听"></a>听</h1><p>分离gif，没异常<br>查看hex，<br>发现尾部-.. .. -.. .. ..–.- -.. .. -.. .. ..–.- -.. .- -.-.– 好像是莫斯密码<br>找在线工具<a href="https://www.ctftools.com/down/解得：didi" target="_blank" rel="noopener">https://www.ctftools.com/down/解得：didi</a> didi da!<br>这里就很坑，怎么提交都不对，试了5次才得到flag为flag{didi_didi_da!}</p>
+<h1 id="听"><a href="#听" class="headerlink" title="听"></a>听</h1><p>分离gif，没异常<br>查看hex，<br>发现尾部-.. .. -.. .. ..–.- -.. .. -.. .. ..–.- -.. .- -.-.– 好像是莫斯密码<br>找在线工具<a href="https://www.ctftools.com/down/解得：didi">https://www.ctftools.com/down/解得：didi</a> didi da!<br>这里就很坑，怎么提交都不对，试了5次才得到flag为flag{didi_didi_da!}</p>
 <h1 id="国学"><a href="#国学" class="headerlink" title="国学"></a>国学</h1><p>乾—1 兑—2 离—3 震—4 巽—5 坎—6 艮—7 坤—8<br>14633060547366635653365757035262537322715373166755731020575<br>66 6c 6167 7b 67 75 6f 5f 78 75 65 5f 69 73 5f 67 6f 6f 64 21 7d<br>flag{guo_xue_is_good!}</p>
 <h1 id="饿了么"><a href="#饿了么" class="headerlink" title="饿了么"></a>饿了么</h1><p>下载得到个压缩包，以为是伪加密，然而并没有。直接解压得到base.jpg</p>
 <p>一串分析之后只在属性找到了备注：<code>I42FSRCNJVFFQR2NGNKEOTS2LBDVURCEJ5GVEV2HKE6T2PJ5HU6Q====</code></p>

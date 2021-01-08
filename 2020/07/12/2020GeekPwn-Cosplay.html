@@ -87,17 +87,17 @@
 <meta name="keywords" content="CTF">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2020GeekPwn-Cosplay题解">
-<meta property="og:url" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;2020&#x2F;07&#x2F;12&#x2F;2020GeekPwn-Cosplay.html">
+<meta property="og:url" content="&#x2F;2020&#x2F;07&#x2F;12&#x2F;2020GeekPwn-Cosplay.html">
 <meta property="og:site_name" content="Jesen&#39;s Blog">
 <meta property="og:description" content="2020GeekPwn-Cosplay题解打开即可看到上传页面，  按照惯例查看源代码企图获取提示，前半部分不需要看，那是腾讯COS的JSSDK部分。 （至于为什么这么觉得，完全是看了下半部分推测出来的。下半部分是jssdk的上传文件功能，此页面并没有引入其他js，所以上面的复杂混淆代码一定是cos的sdk。） 可以看到：  初始化实例，获取临时的key用来上传。 先看sdk的文档（参考：http">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200712223923626.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200712224128098.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200712224518339.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200712224705621.png">
+<meta property="og:image" content="&#x2F;images&#x2F;image-20200712223923626.png">
+<meta property="og:image" content="&#x2F;images&#x2F;image-20200712224128098.png">
+<meta property="og:image" content="&#x2F;images&#x2F;image-20200712224518339.png">
+<meta property="og:image" content="&#x2F;images&#x2F;image-20200712224705621.png">
 <meta property="og:updated_time" content="2020-07-12T14:48:31.340Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20200712223923626.png">
+<meta name="twitter:image" content="&#x2F;images&#x2F;image-20200712223923626.png">
 
 
 
@@ -127,7 +127,7 @@
 
 
 
-  <link rel="canonical" href="http://mrjesen.github.io/2020/07/12/2020GeekPwn-Cosplay.html"/>
+  <link rel="canonical" href="/2020/07/12/2020GeekPwn-Cosplay.html"/>
 
 
 
@@ -260,7 +260,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mrjesen.github.io/2020/07/12/2020GeekPwn-Cosplay.html">
+    <link itemprop="mainEntityOfPage" href="/2020/07/12/2020GeekPwn-Cosplay.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jesen">
@@ -378,7 +378,7 @@
 <p>可以看到：</p>
 <p><img src="/images/image-20200712224128098.png" alt="image-20200712224128098"></p>
 <p>初始化实例，获取临时的key用来上传。</p>
-<p>先看sdk的文档（参考：<a href="https://cloud.tencent.com/document/product/436/11459），发现有了key之后就可以查看cos里面的具体文件，在控制台执行即可。" target="_blank" rel="noopener">https://cloud.tencent.com/document/product/436/11459），发现有了key之后就可以查看cos里面的具体文件，在控制台执行即可。</a></p>
+<p>先看sdk的文档（参考：<a href="https://cloud.tencent.com/document/product/436/11459），发现有了key之后就可以查看cos里面的具体文件，在控制台执行即可。">https://cloud.tencent.com/document/product/436/11459），发现有了key之后就可以查看cos里面的具体文件，在控制台执行即可。</a></p>
 <p>具体的流程为：</p>
 <ol>
 <li>随便上传一个文件，让js获取到tempkey。</li>

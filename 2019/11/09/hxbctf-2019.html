@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="ctf,web," />
+  <meta name="keywords" content="web,ctf," />
 
 
 
@@ -84,18 +84,18 @@
 
 
 <meta name="description" content="0x01 观察源码 观察源码， 反正我看完心情就是这样: 0x02 分析与操作切回正题，发现php针对每个ip进行md5加密之后把httpGET到的文件存入sandbox&#x2F;md5(ip)中，如果可以untar就进行untar操作。 注意函数escapeshellarg() 基本上已经告别了|，&amp;amp;&amp;amp;，;之类的rce了。 将目光放入untar操作，要知道，tar是可以压缩软连接文件的，">
-<meta name="keywords" content="ctf,web">
+<meta name="keywords" content="web,ctf">
 <meta property="og:type" content="article">
 <meta property="og:title" content="湖湘杯2019 web1-UNTAR writeup">
-<meta property="og:url" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;2019&#x2F;11&#x2F;09&#x2F;hxbctf-2019.html">
+<meta property="og:url" content="&#x2F;2019&#x2F;11&#x2F;09&#x2F;hxbctf-2019.html">
 <meta property="og:site_name" content="Jesen&#39;s Blog">
 <meta property="og:description" content="0x01 观察源码 观察源码， 反正我看完心情就是这样: 0x02 分析与操作切回正题，发现php针对每个ip进行md5加密之后把httpGET到的文件存入sandbox&#x2F;md5(ip)中，如果可以untar就进行untar操作。 注意函数escapeshellarg() 基本上已经告别了|，&amp;amp;&amp;amp;，;之类的rce了。 将目光放入untar操作，要知道，tar是可以压缩软连接文件的，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20191109220539708.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20191109220630610.png">
+<meta property="og:image" content="&#x2F;images&#x2F;image-20191109220539708.png">
+<meta property="og:image" content="&#x2F;images&#x2F;image-20191109220630610.png">
 <meta property="og:updated_time" content="2019-11-09T14:41:29.203Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;images&#x2F;image-20191109220539708.png">
+<meta name="twitter:image" content="&#x2F;images&#x2F;image-20191109220539708.png">
 
 
 
@@ -125,7 +125,7 @@
 
 
 
-  <link rel="canonical" href="http://mrjesen.github.io/2019/11/09/hxbctf-2019.html"/>
+  <link rel="canonical" href="/2019/11/09/hxbctf-2019.html"/>
 
 
 
@@ -258,7 +258,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mrjesen.github.io/2019/11/09/hxbctf-2019.html">
+    <link itemprop="mainEntityOfPage" href="/2019/11/09/hxbctf-2019.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jesen">
@@ -381,7 +381,7 @@
 <p>发现sandbox对应文件夹下多出j文件夹，访问j文件夹，点击flag，发现提示403 Forbidden，应该是出题人限制了权限，唉。</p>
 <p>这里提一下，之前其实进行了很多次尝试，并且搞崩了web服务器两次+ ，主办方并没有用docker，所以好多人都被我卡了哈哈。</p>
 <p>php在sandbox目录无法解析，但是在尝试过程中，曾经把<code>/var/www/html</code>给软连接了，看了一下其他人的进度，发现有一队成功执行了php 不知道什么情况。</p>
-<h2 id="继续"><a href="#继续" class="headerlink" title="继续"></a>继续</h2><p>经历一番波折，参考： <a href="http://momomoxiaoxi.com/2017/11/08/HITCON/" target="_blank" rel="noopener">http://momomoxiaoxi.com/2017/11/08/HITCON/</a>  moxiaoxi师傅博客好多好东西哈哈</p>
+<h2 id="继续"><a href="#继续" class="headerlink" title="继续"></a>继续</h2><p>经历一番波折，参考： <a href="http://momomoxiaoxi.com/2017/11/08/HITCON/">http://momomoxiaoxi.com/2017/11/08/HITCON/</a>  moxiaoxi师傅博客好多好东西哈哈</p>
 <p>题目的考点就是CVE-2016-1238.在URI/lib/URi.pm 136行，有一个<code>eval &quot;require $ic&quot;;</code>语句，当解析遇到一个未定义的协议时，会require这个未知协议。而require的时候，perl脚本会自动搜索当下目录和perl库目录来导入以.pm结尾的模块。</p>
 <p>漏洞代码如下：</p>
 <figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$ic = <span class="string">"URI::$scheme"</span>;  <span class="comment"># default location</span></span><br><span class="line"><span class="comment"># turn scheme into a valid perl identifier by a simple transformation...</span></span><br><span class="line">$ic =~ <span class="regexp">s/\+/_P/g</span>;</span><br><span class="line">$ic =~ <span class="regexp">s/\./_O/g</span>;</span><br><span class="line">$ic =~ <span class="regexp">s/\-/_/g</span>;</span><br><span class="line"><span class="keyword">no</span> strict <span class="string">'refs'</span>;</span><br><span class="line"><span class="comment"># check we actually have one for the scheme:</span></span><br><span class="line"><span class="keyword">unless</span> (@&#123;<span class="string">"<span class="subst">$&#123;ic&#125;</span>::ISA"</span>&#125;) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">not</span> <span class="keyword">exists</span> $require_attempted&#123;$ic&#125;) &#123;</span><br><span class="line">        <span class="comment"># Try to load it</span></span><br><span class="line">        <span class="keyword">my</span> $_old_error = $@;</span><br><span class="line">        <span class="keyword">eval</span> <span class="string">"require $ic"</span>;</span><br><span class="line">        <span class="keyword">die</span> $@ <span class="keyword">if</span> $@ &amp;&amp; $@ !~ <span class="regexp">/Can\'t locate.*in \@INC/</span>;</span><br><span class="line">        $@ = $_old_error;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">undef</span> <span class="keyword">unless</span> @&#123;<span class="string">"<span class="subst">$&#123;ic&#125;</span>::ISA"</span>&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -416,9 +416,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/ctf/" rel="tag"># ctf</a>
-          
             <a href="/tags/web/" rel="tag"># web</a>
+          
+            <a href="/tags/ctf/" rel="tag"># ctf</a>
           
         </div>
       

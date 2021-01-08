@@ -87,7 +87,7 @@
 <meta name="keywords" content="ctf,php">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CTF中的PHP常见姿势分析">
-<meta property="og:url" content="http:&#x2F;&#x2F;mrjesen.github.io&#x2F;2019&#x2F;11&#x2F;05&#x2F;ctf-php-zishi.html">
+<meta property="og:url" content="&#x2F;2019&#x2F;11&#x2F;05&#x2F;ctf-php-zishi.html">
 <meta property="og:site_name" content="Jesen&#39;s Blog">
 <meta property="og:description" content="CTF中的php常见姿势分析1.12345if(eregi(&quot;hackerDJ&quot;,$_GET[id])) &amp;#123;  &#x2F;&#x2F;eregi字符串对比 echo(&quot;&amp;lt;p&amp;gt;not allowed!&amp;lt;&#x2F;p&amp;gt;&quot;); exit();  2.isset 判断变量是否定义过3.比较符$a==$b  松散比较 ===    完全等于 =     大于等于 !=    如果类型转换后$a不等于">
 <meta property="og:locale" content="zh-Hans">
@@ -122,7 +122,7 @@
 
 
 
-  <link rel="canonical" href="http://mrjesen.github.io/2019/11/05/ctf-php-zishi.html"/>
+  <link rel="canonical" href="/2019/11/05/ctf-php-zishi.html"/>
 
 
 
@@ -255,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mrjesen.github.io/2019/11/05/ctf-php-zishi.html">
+    <link itemprop="mainEntityOfPage" href="/2019/11/05/ctf-php-zishi.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jesen">
@@ -445,7 +445,7 @@
 <p>例，</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">error_reporting(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">include</span> <span class="string">"flag1.php"</span>;</span><br><span class="line">highlight_file(<span class="keyword">__file__</span>);</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($_GET[<span class="string">'args'</span>]))&#123;</span><br><span class="line">  $args = $_GET[<span class="string">'args'</span>];</span><br><span class="line">  <span class="keyword">if</span>(!preg_match(<span class="string">"/^\w+$/"</span>,$args))&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">"args error!"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">eval</span>(<span class="string">"var_dump($$args);"</span>);<span class="comment">//这里涉及超全局变量的使用</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>构造特殊url：<a href="http://120.24.86.145:8004/index1.php?args=GLOBALS" target="_blank" rel="noopener">http://120.24.86.145:8004/index1.php?args=GLOBALS</a></p>
+<p>构造特殊url：<a href="http://120.24.86.145:8004/index1.php?args=GLOBALS">http://120.24.86.145:8004/index1.php?args=GLOBALS</a></p>
 
       
     </div>
