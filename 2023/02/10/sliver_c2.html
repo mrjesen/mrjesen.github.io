@@ -16,18 +16,18 @@
   <meta name="author" content="Jesen">
   <meta name="keywords" content="Jesen,Jesen&#39;s Blog,ctf,writeups,web,渗透,渗透测试">
   
-    <meta name="description" content="安装 一键脚本  1curl -q -o- https:&#x2F;&#x2F;sliver.sh&#x2F;install | sudo bash  自行下载  12345678910111213141516171819    直接从https:&#x2F;&#x2F;github.com&#x2F;BishopFox&#x2F;sliver&#x2F;releases下载，    服务端下载-server，例如wget https:&#x2F;&#x2F;github.com&#x2F;BishopF">
+    <meta name="description" content="笔者最近在使用sliver过程中，发现目前中文社区内暂无较为完善的教程。 而且目前命令搜索相当麻烦，因此整理出一份入土教程供大家参考 当然了，同时也会作为本人备忘录使用。 安装 一键脚本  1curl -q -o- https:&#x2F;&#x2F;sliver.sh&#x2F;install | sudo bash  自行下载  12345678910111213141516171819    直接从https:&#x2F;&#x2F;git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Sliver从入门到入土">
 <meta property="og:url" content="https://jesen.ddwhm.com/2023/02/10/sliver_c2.html">
 <meta property="og:site_name" content="Jesen&#39;s Blog">
-<meta property="og:description" content="安装 一键脚本  1curl -q -o- https:&#x2F;&#x2F;sliver.sh&#x2F;install | sudo bash  自行下载  12345678910111213141516171819    直接从https:&#x2F;&#x2F;github.com&#x2F;BishopFox&#x2F;sliver&#x2F;releases下载，    服务端下载-server，例如wget https:&#x2F;&#x2F;github.com&#x2F;BishopF">
+<meta property="og:description" content="笔者最近在使用sliver过程中，发现目前中文社区内暂无较为完善的教程。 而且目前命令搜索相当麻烦，因此整理出一份入土教程供大家参考 当然了，同时也会作为本人备忘录使用。 安装 一键脚本  1curl -q -o- https:&#x2F;&#x2F;sliver.sh&#x2F;install | sudo bash  自行下载  12345678910111213141516171819    直接从https:&#x2F;&#x2F;git">
 <meta property="og:locale">
 <meta property="og:image" content="https://jesen.ddwhm.com/2023/02/10/sliver_c2/image-20230210230859968.png">
 <meta property="og:image" content="https://jesen.ddwhm.com/2023/02/10/sliver_c2/FzKX4_Sliver%20C2%20Implant-16377473396871.png">
 <meta property="og:image" content="https://jesen.ddwhm.com/2023/02/10/sliver_c2/Pasted%20image%2020220926232548.png">
 <meta property="article:published_time" content="2023-02-10T14:24:33.000Z">
-<meta property="article:modified_time" content="2023-02-10T16:21:54.351Z">
+<meta property="article:modified_time" content="2023-02-10T16:27:33.122Z">
 <meta property="article:author" content="Jesen">
 <meta property="article:tag" content="远控">
 <meta property="article:tag" content="sliver">
@@ -218,7 +218,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.8k 字
+      3.9k 字
     </span>
   
 
@@ -227,7 +227,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      32 分钟
+      33 分钟
     </span>
   
 
@@ -259,7 +259,10 @@
             <h1 style="display: none">Sliver从入门到入土</h1>
             
             <div class="markdown-body">
-              <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ol>
+              <p>笔者最近在使用sliver过程中，发现目前中文社区内暂无较为完善的教程。</p>
+<p>而且目前命令搜索相当麻烦，因此整理出一份入土教程供大家参考</p>
+<p>当然了，同时也会作为本人备忘录使用。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ol>
 <li><p>一键脚本</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs shell">curl -q -o- https://sliver.sh/install | sudo bash<br></code></pre></td></tr></table></figure>
 </li>
@@ -391,7 +394,7 @@
                     
                       <a href="/2023/01/01/2022zongjie.html">
                         <span class="hidden-mobile">2022zongjie</span>
-                        <span class="visible-mobile">Nächster</span>
+                        <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -463,7 +466,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -472,7 +475,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">Stichwort</label>
+                 for="local-search-input">keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
