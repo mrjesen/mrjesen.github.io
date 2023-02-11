@@ -16,18 +16,18 @@
   <meta name="author" content="Jesen">
   <meta name="keywords" content="Jesen,Jesen&#39;s Blog,ctf,writeups,web,渗透,渗透测试">
   
-    <meta name="description" content="笔者最近在使用sliver过程中，发现目前中文社区内暂无较为完善的教程。 而且目前命令搜索相当麻烦，因此整理出一份入土教程供大家参考 当然了，同时也会作为本人备忘录使用。 安装 一键脚本  1curl -q -o- https:&#x2F;&#x2F;sliver.sh&#x2F;install | sudo bash  自行下载  12345678910111213141516171819    直接从https:&#x2F;&#x2F;git">
+    <meta name="description" content="笔者最近在使用sliver过程中，发现目前中文社区内暂无较为完善的教程。 而且目前命令搜索相当麻烦，因此整理出一份入土教程供大家参考 当然了，同时也会作为本人备忘录使用。 安装 一键脚本  1curl -q -o- https:&#x2F;&#x2F;sliver.sh&#x2F;install | sudo bash  自行下载  12345    直接从https:&#x2F;&#x2F;github.com&#x2F;BishopFox&#x2F;sliver">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Sliver从入门到入土">
 <meta property="og:url" content="https://jesen.ddwhm.com/2023/02/10/sliver_c2.html">
 <meta property="og:site_name" content="Jesen&#39;s Blog">
-<meta property="og:description" content="笔者最近在使用sliver过程中，发现目前中文社区内暂无较为完善的教程。 而且目前命令搜索相当麻烦，因此整理出一份入土教程供大家参考 当然了，同时也会作为本人备忘录使用。 安装 一键脚本  1curl -q -o- https:&#x2F;&#x2F;sliver.sh&#x2F;install | sudo bash  自行下载  12345678910111213141516171819    直接从https:&#x2F;&#x2F;git">
+<meta property="og:description" content="笔者最近在使用sliver过程中，发现目前中文社区内暂无较为完善的教程。 而且目前命令搜索相当麻烦，因此整理出一份入土教程供大家参考 当然了，同时也会作为本人备忘录使用。 安装 一键脚本  1curl -q -o- https:&#x2F;&#x2F;sliver.sh&#x2F;install | sudo bash  自行下载  12345    直接从https:&#x2F;&#x2F;github.com&#x2F;BishopFox&#x2F;sliver">
 <meta property="og:locale">
 <meta property="og:image" content="https://jesen.ddwhm.com/2023/02/10/sliver_c2/image-20230210230859968.png">
 <meta property="og:image" content="https://jesen.ddwhm.com/2023/02/10/sliver_c2/FzKX4_Sliver%20C2%20Implant-16377473396871.png">
 <meta property="og:image" content="https://jesen.ddwhm.com/2023/02/10/sliver_c2/Pasted%20image%2020220926232548.png">
 <meta property="article:published_time" content="2023-02-10T14:24:33.000Z">
-<meta property="article:modified_time" content="2023-02-10T16:27:33.122Z">
+<meta property="article:modified_time" content="2023-02-11T04:50:26.838Z">
 <meta property="article:author" content="Jesen">
 <meta property="article:tag" content="远控">
 <meta property="article:tag" content="sliver">
@@ -218,7 +218,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.9k 字
+      3.8k 字
     </span>
   
 
@@ -227,7 +227,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      33 分钟
+      32 分钟
     </span>
   
 
@@ -267,15 +267,16 @@
  <figure class="highlight shell"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs shell">curl -q -o- https://sliver.sh/install | sudo bash<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>自行下载</p>
- <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs awk">    直接从https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/BishopFox/</span>sliver/releases下载，<br>    服务端下载-server，例如wget https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/BishopFox/</span>sliver<span class="hljs-regexp">/releases/</span>download<span class="hljs-regexp">/v1.5.34/</span>sliver-server_linux<br>    客户端用的上就下载,是-client<br><br>​	需要注意最好机器上安装msf，如果需要stage的话，msf是必须的。<br><br><span class="hljs-comment">## 使用</span><br><br><span class="hljs-comment">### 协同工作</span><br><br>**服务端**<br><br>需要注意的是，server端默认监听的端口为<span class="hljs-number">31337</span>。创建用户配置文件尽量不要用默认的。<br><br>```sh<br><span class="hljs-comment">#创建用户配置文件</span><br>new-operator --name Jesen --lport <span class="hljs-number">20000</span> --lhost <span class="hljs-number">1.1</span>.<span class="hljs-number">1.1</span><br><span class="hljs-comment">#启用多用户</span><br>multiplayer -l <span class="hljs-number">20000</span><br></code></pre></td></tr></table></figure>
+ <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs awk">    直接从https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/BishopFox/</span>sliver/releases下载，<br>    服务端下载-server，例如wget https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/BishopFox/</span>sliver<span class="hljs-regexp">/releases/</span>download<span class="hljs-regexp">/v1.5.34/</span>sliver-server_linux<br>    客户端用的上就下载,是-client<br><br>​	需要注意最好机器上安装msf，如果需要stage的话，msf是必须的。<br></code></pre></td></tr></table></figure>
 
 </li>
 </ol>
-<p><strong>客户端</strong></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment">#配置文件放入位置</span><br>windows=C:\Users\xxx\.sliver-client\configs\<br>linux=~/.sliver-client/configs/<br></code></pre></td></tr></table></figure>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="协同工作"><a href="#协同工作" class="headerlink" title="协同工作"></a>协同工作</h3><p><strong>服务端</strong></p>
+<p>需要注意的是，server端默认监听的端口为31337。创建用户配置文件尽量不要用默认的。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment">#创建用户配置文件</span><br>new-operator --name Jesen --lport 20000 --lhost 1.1.1.1<br><span class="hljs-comment">#启用多用户</span><br>multiplayer -l 20000<br></code></pre></td></tr></table></figure>
 
-<p>放入之后，如果只有一个配置文件，那么直接运行client即可，无需import，否则需要import</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">.<span class="hljs-regexp">/sliver-client_linux import /</span>root<span class="hljs-regexp">/tool/</span>Jesen_1.<span class="hljs-number">1.1</span>.<span class="hljs-number">1</span>.cfg<br></code></pre></td></tr></table></figure>
+<p><strong>客户端</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment">#配置文件放入位置</span><br>windows=C:\Users\xxx\.sliver-client\configs\<br>linux=~/.sliver-client/configs/<br><br><span class="hljs-comment"># 放入之后，如果只有一个配置文件，那么直接运行client即可，否则需要import</span><br><br>./sliver-client_linux import /root/tool/Jesen_1.1.1.1.cfg<br></code></pre></td></tr></table></figure>
 
 <h3 id="设置监听"><a href="#设置监听" class="headerlink" title="设置监听"></a>设置监听</h3><p>支持mtls http https dns wg</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment">#监听本机23333端口</span><br>mtls -l 23333<br></code></pre></td></tr></table></figure>
@@ -307,9 +308,9 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">armory install rubeus<br>armory install seatbelt<br>armory install nanodump<br></code></pre></td></tr></table></figure>
 
 <p>安装非官方工具，需要安装<a target="_blank" rel="noopener" href="https://github.com/sliverarmory/COFFLoader">COFF Loader</a> extension</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment">#参考链接1： cna转sliver格式</span><br>https://github.com/BishopFox/sliver/wiki/BOF-&amp;-COFF-Support<span class="hljs-comment">#converting-bofs-to-sliver</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#参考链接1： cna转sliver格式</span><br>https://github.com/BishopFox/sliver/wiki/BOF-&amp;-COFF-Support<span class="hljs-comment">#converting-bofs-to-sliver</span><br></code></pre></td></tr></table></figure>
 
-<p>能力的使用: 需要注意如果给扩展传参数，前面需要加—表示sliver自己的参数已经给完了，—之后的全是seatbelt的参数了。</p>
+<p>安装工具的使用：<br>需要注意如果给扩展传参数，前面需要加—表示sliver自己的参数已经给完了，—之后的全是seatbelt的参数了。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">seatbelt -i -- -group=system<br></code></pre></td></tr></table></figure>
 
 
