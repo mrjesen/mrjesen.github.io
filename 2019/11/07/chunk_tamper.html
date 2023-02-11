@@ -90,7 +90,8 @@
   </script>
   <script  src="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/js/utils.js" ></script>
   <script  src="https://cdn.jsdelivr.net/gh/mrjesen/mrjesen.github.io/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="Jesen's Blog" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -289,7 +290,7 @@
 <p><img src="/images/20190308101355_13243.png" srcset="/img/loading.gif" lazyload alt="blob"></p>
 <p>服务器能正常接收到数据并返回了正常的页面内容</p>
 <p>分块传输的post数据头部需要添加</p>
-<figure class="highlight fortran"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs fortran"><span class="hljs-built_in">Transfer</span>-Encoding:Chunked<br></code></pre></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs ruby"><span class="hljs-title class_">Transfer</span>-<span class="hljs-title class_">Encoding</span><span class="hljs-symbol">:Chunked</span><br></code></pre></td></tr></table></figure>
 
 <p>而post的数据是这种格式<br>&gt;2<br>id<br>2<br>=3<br>0</p>
 <p>分块传输格式解析</p>

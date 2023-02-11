@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Jesen&#39;s Blog</title>
+  <icon>https://jesen.ddwhm.com/icon.png</icon>
+  <subtitle>分享便是自己最好的老师。</subtitle>
+  <link href="https://jesen.ddwhm.com/atom.xml" rel="self"/>
+  
+  <link href="https://jesen.ddwhm.com/"/>
+  <updated>2023-02-11T11:50:48.531Z</updated>
+  <id>https://jesen.ddwhm.com/</id>
+  
+  <author>
+    <name>Jesen</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Sliver从入门到入土</title>
+    <link href="https://jesen.ddwhm.com/2023/02/10/sliver_c2.html"/>
+    <id>https://jesen.ddwhm.com/2023/02/10/sliver_c2.html</id>
+    <published>2023-02-10T14:24:33.000Z</published>
+    <updated>2023-02-11T11:50:48.531Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;笔者最近在使用sliver过程中，发现目前中文社区内暂无较为完善的教程。&lt;/p&gt;
+&lt;p&gt;而且目前命令搜索相当麻烦，因此整理出一份入土教程供大家参考&lt;/p&gt;
+&lt;p&gt;当然了，同时也会作为本人备忘录使用。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="远控C2" scheme="https://jesen.ddwhm.com/categories/%E8%BF%9C%E6%8E%A7C2/"/>
+    
+    <category term="教程" scheme="https://jesen.ddwhm.com/categories/%E8%BF%9C%E6%8E%A7C2/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="笔记" scheme="https://jesen.ddwhm.com/categories/%E8%BF%9C%E6%8E%A7C2/%E6%95%99%E7%A8%8B/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="远控" scheme="https://jesen.ddwhm.com/tags/%E8%BF%9C%E6%8E%A7/"/>
+    
+    <category term="sliver" scheme="https://jesen.ddwhm.com/tags/sliver/"/>
+    
+    <category term="入门教程" scheme="https://jesen.ddwhm.com/tags/%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="笔记" scheme="https://jesen.ddwhm.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2022年度总结</title>
+    <link href="https://jesen.ddwhm.com/2023/01/01/2022zongjie.html"/>
+    <id>https://jesen.ddwhm.com/2023/01/01/2022zongjie.html</id>
+    <published>2023-01-01T04:06:23.000Z</published>
+    <updated>2023-02-11T11:58:25.162Z</updated>
+    
+    
+    <summary type="html">need password to read.</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>2021年度总结</title>
+    <link href="https://jesen.ddwhm.com/2022/01/01/2021zongjie.html"/>
+    <id>https://jesen.ddwhm.com/2022/01/01/2021zongjie.html</id>
+    <published>2022-01-01T07:06:23.000Z</published>
+    <updated>2023-02-11T11:58:16.901Z</updated>
+    
+    
+    <summary type="html">need password to read.</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>2021年东北赛区ciscn分区赛wp</title>
+    <link href="https://jesen.ddwhm.com/2021/06/17/ciscn-northeast.html"/>
+    <id>https://jesen.ddwhm.com/2021/06/17/ciscn-northeast.html</id>
+    <published>2021-06-17T13:43:36.000Z</published>
+    <updated>2021-06-17T13:47:06.508Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;简单的注入&quot;&gt;&lt;a href=&quot;#简单的注入&quot; class=&quot;headerlink&quot; title=&quot;简单的注入&quot;&gt;&lt;/a&gt;简单的注入&lt;/h3&gt;&lt;p&gt;简单的测试之后：&lt;/p&gt;
+&lt;figure class=&quot;highlight</summary>
+        
+      
+    
+    
+    
+    <category term="CTF" scheme="https://jesen.ddwhm.com/categories/CTF/"/>
+    
+    <category term="writeup" scheme="https://jesen.ddwhm.com/categories/CTF/writeup/"/>
+    
+    
+    <category term="web" scheme="https://jesen.ddwhm.com/tags/web/"/>
+    
+    <category term="wp" scheme="https://jesen.ddwhm.com/tags/wp/"/>
+    
+    <category term="ctf" scheme="https://jesen.ddwhm.com/tags/ctf/"/>
+    
+    <category term="ciscn" scheme="https://jesen.ddwhm.com/tags/ciscn/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>纵横杯2020-WRITEUP</title>
+    <link href="https://jesen.ddwhm.com/2020/12/27/zongheng-wp.html"/>
+    <id>https://jesen.ddwhm.com/2020/12/27/zongheng-wp.html</id>
+    <published>2020-12-27T12:58:25.000Z</published>
+    <updated>2020-12-27T13:04:16.228Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;纵横杯WRITEUP&quot;&gt;&lt;a href=&quot;#纵横杯WRITEUP&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="CTF" scheme="https://jesen.ddwhm.com/categories/CTF/"/>
+    
+    
+    <category term="CTF" scheme="https://jesen.ddwhm.com/tags/CTF/"/>
+    
+    <category term="web" scheme="https://jesen.ddwhm.com/tags/web/"/>
+    
+    <category term="writeup" scheme="https://jesen.ddwhm.com/tags/writeup/"/>
+    
+    <category term="纵横杯" scheme="https://jesen.ddwhm.com/tags/%E7%BA%B5%E6%A8%AA%E6%9D%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>强网杯2020部分writeup</title>
+    <link href="https://jesen.ddwhm.com/2020/08/24/qwb2020.html"/>
+    <id>https://jesen.ddwhm.com/2020/08/24/qwb2020.html</id>
+    <published>2020-08-24T07:59:01.000Z</published>
+    <updated>2020-08-24T08:08:19.853Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;强网杯2020部分writeup&quot;&gt;&lt;a href=&quot;#强网杯2020部分writeup&quot; class=&quot;headerlink&quot; title=&quot;强网杯2020部分writeup&quot;&gt;&lt;/a&gt;强网杯2020部分writeup&lt;/h1&gt;&lt;h3</summary>
+        
+      
+    
+    
+    
+    <category term="CTf" scheme="https://jesen.ddwhm.com/categories/CTf/"/>
+    
+    
+    <category term="CTF" scheme="https://jesen.ddwhm.com/tags/CTF/"/>
+    
+    <category term="web" scheme="https://jesen.ddwhm.com/tags/web/"/>
+    
+    <category term="writeup" scheme="https://jesen.ddwhm.com/tags/writeup/"/>
+    
+    <category term="强网杯" scheme="https://jesen.ddwhm.com/tags/%E5%BC%BA%E7%BD%91%E6%9D%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CISCN2020 初赛WEB writeup</title>
+    <link href="https://jesen.ddwhm.com/2020/08/24/ciscncs.html"/>
+    <id>https://jesen.ddwhm.com/2020/08/24/ciscncs.html</id>
+    <published>2020-08-24T02:37:46.000Z</published>
+    <updated>2020-08-24T02:47:10.624Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;CISCN2020-初赛WEBwriteup&quot;&gt;&lt;a href=&quot;#CISCN2020-初赛WEBwriteup&quot; class=&quot;headerlink&quot; title=&quot;CISCN2020 初赛WEBwriteup&quot;&gt;&lt;/a&gt;CISCN2020</summary>
+        
+      
+    
+    
+    
+    <category term="CTF" scheme="https://jesen.ddwhm.com/categories/CTF/"/>
+    
+    
+    <category term="CTF" scheme="https://jesen.ddwhm.com/tags/CTF/"/>
+    
+    <category term="web" scheme="https://jesen.ddwhm.com/tags/web/"/>
+    
+    <category term="writeup" scheme="https://jesen.ddwhm.com/tags/writeup/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2020GeekPwn-Cosplay题解</title>
+    <link href="https://jesen.ddwhm.com/2020/07/12/2020GeekPwn-Cosplay.html"/>
+    <id>https://jesen.ddwhm.com/2020/07/12/2020GeekPwn-Cosplay.html</id>
+    <published>2020-07-12T14:38:02.000Z</published>
+    <updated>2020-07-12T14:48:31.340Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;2020GeekPwn-Cosplay题解&quot;&gt;&lt;a href=&quot;#2020GeekPwn-Cosplay题解&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="CTF" scheme="https://jesen.ddwhm.com/categories/CTF/"/>
+    
+    
+    <category term="CTF" scheme="https://jesen.ddwhm.com/tags/CTF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>简简单单过词达人各种任务</title>
+    <link href="https://jesen.ddwhm.com/2020/03/04/jianjiandandancidaren.html"/>
+    <id>https://jesen.ddwhm.com/2020/03/04/jianjiandandancidaren.html</id>
+    <published>2020-03-04T13:21:01.000Z</published>
+    <updated>2020-08-26T04:12:49.156Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;前提&quot;&gt;&lt;a href=&quot;#前提&quot; class=&quot;headerlink&quot; title=&quot;前提&quot;&gt;&lt;/a&gt;前提&lt;/h1&gt;&lt;p&gt;本文默认你具备使用burp的能力以及对json数据格式有所了解，并且可以为手机配置代理或者对安卓模拟器进行设置.</summary>
+        
+      
+    
+    
+    
+    <category term="其他" scheme="https://jesen.ddwhm.com/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+    <category term="词达人" scheme="https://jesen.ddwhm.com/tags/%E8%AF%8D%E8%BE%BE%E4%BA%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>NJUCTF2019-部分wp</title>
+    <link href="https://jesen.ddwhm.com/2019/11/24/NJUCTF2019.html"/>
+    <id>https://jesen.ddwhm.com/2019/11/24/NJUCTF2019.html</id>
+    <published>2019-11-24T11:28:28.000Z</published>
+    <updated>2019-11-24T12:04:27.937Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;虽然拿了一血但是是靠手速哈哈。&lt;/p&gt;
+&lt;h1 id=&quot;web-replace&quot;&gt;&lt;a href=&quot;#web-replace&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="CTF" scheme="https://jesen.ddwhm.com/categories/CTF/"/>
+    
+    
+    <category term="CTF" scheme="https://jesen.ddwhm.com/tags/CTF/"/>
+    
+    <category term="web" scheme="https://jesen.ddwhm.com/tags/web/"/>
+    
+    <category term="南京邮电CTF" scheme="https://jesen.ddwhm.com/tags/%E5%8D%97%E4%BA%AC%E9%82%AE%E7%94%B5CTF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>湖湘杯2019 web1-UNTAR writeup</title>
+    <link href="https://jesen.ddwhm.com/2019/11/09/hxbctf-2019.html"/>
+    <id>https://jesen.ddwhm.com/2019/11/09/hxbctf-2019.html</id>
+    <published>2019-11-09T14:03:29.000Z</published>
+    <updated>2019-11-09T14:41:29.203Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;0x01-观察源码&quot;&gt;&lt;a href=&quot;#0x01-观察源码&quot; class=&quot;headerlink&quot; title=&quot;0x01 观察源码&quot;&gt;&lt;/a&gt;0x01 观察源码&lt;/h1&gt;&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="CTF" scheme="https://jesen.ddwhm.com/categories/CTF/"/>
+    
+    
+    <category term="web" scheme="https://jesen.ddwhm.com/tags/web/"/>
+    
+    <category term="ctf" scheme="https://jesen.ddwhm.com/tags/ctf/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>分块传输tamper</title>
+    <link href="https://jesen.ddwhm.com/2019/11/07/chunk_tamper.html"/>
+    <id>https://jesen.ddwhm.com/2019/11/07/chunk_tamper.html</id>
+    <published>2019-11-07T11:33:32.000Z</published>
+    <updated>2019-11-07T14:42:16.951Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;分块传输tamper&quot;&gt;&lt;a href=&quot;#分块传输tamper&quot; class=&quot;headerlink&quot; title=&quot;分块传输tamper&quot;&gt;&lt;/a&gt;分块传输tamper&lt;/h1&gt;&lt;p&gt;本文转载自： &lt;a</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>CTF中的PHP常见姿势分析</title>
+    <link href="https://jesen.ddwhm.com/2019/11/05/ctf-php-zishi.html"/>
+    <id>https://jesen.ddwhm.com/2019/11/05/ctf-php-zishi.html</id>
+    <published>2019-11-05T14:36:38.000Z</published>
+    <updated>2019-11-05T14:26:29.072Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;CTF中的php常见姿势分析&quot;&gt;&lt;a href=&quot;#CTF中的php常见姿势分析&quot; class=&quot;headerlink&quot; title=&quot;CTF中的php常见姿势分析&quot;&gt;&lt;/a&gt;CTF中的php常见姿势分析&lt;/h1&gt;&lt;h2 id=&quot;1&quot;&gt;&lt;a href=&quot;#1&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="CTF" scheme="https://jesen.ddwhm.com/categories/CTF/"/>
+    
+    
+    <category term="ctf" scheme="https://jesen.ddwhm.com/tags/ctf/"/>
+    
+    <category term="php" scheme="https://jesen.ddwhm.com/tags/php/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://jesen.ddwhm.com/2019/11/03/hello-world.html"/>
+    <id>https://jesen.ddwhm.com/2019/11/03/hello-world.html</id>
+    <published>2019-11-03T08:22:48.443Z</published>
+    <updated>2022-06-15T12:45:07.343Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;是的，从这篇文章开始，我的博客就开始更新了~😁&lt;/p&gt;
+</summary>
+        
+      
+    
+    
+    
+    <category term="随笔" scheme="https://jesen.ddwhm.com/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+    <category term="ctf" scheme="https://jesen.ddwhm.com/tags/ctf/"/>
+    
+    <category term="jesen" scheme="https://jesen.ddwhm.com/tags/jesen/"/>
+    
+  </entry>
+  
+</feed>
