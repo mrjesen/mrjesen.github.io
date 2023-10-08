@@ -398,17 +398,6 @@
   
   
   <entry>
-    <title>分类</title>
-    <link href="/"/>
-    <url>/</url>
-    
-    <content type="html"><![CDATA[]]></content>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>关于本人</title>
     <link href="/"/>
     <url>/</url>
@@ -421,6 +410,17 @@
   
   <entry>
     <title>标签</title>
+    <link href="/"/>
+    <url>/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>分类</title>
     <link href="/"/>
     <url>/</url>
     
