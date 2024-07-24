@@ -324,7 +324,7 @@
                       <a href="/2022/01/01/2021zongjie.html">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">2021年度总结</span>
-                        <span class="visible-mobile">Vorheriger</span>
+                        <span class="visible-mobile">Previous</span>
                       </a>
                     
                   </article>
@@ -333,7 +333,7 @@
                     
                       <a href="/2020/12/27/zongheng-wp.html">
                         <span class="hidden-mobile">纵横杯2020-WRITEUP</span>
-                        <span class="visible-mobile">Nächster</span>
+                        <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -405,7 +405,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -414,7 +414,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">Stichwort</label>
+                 for="local-search-input">keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
@@ -445,6 +445,15 @@
 
 
   
+  <script>
+      const registerSW = () => {
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("/sw.js" + location.search).then(reg => console.log("Service worker register succeeded"),
+                error => console.error(`Service worker register failed: ${error}`))
+        }
+      };
+      window.addEventListener("load", () => registerSW());
+  </script>
 </footer>
 
 
