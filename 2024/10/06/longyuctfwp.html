@@ -31,6 +31,7 @@
 <meta property="og:image" content="https://jesen.ddwhm.com/2024/10/06/longyuctfwp/image-20241006205345957.png">
 <meta property="og:image" content="https://jesen.ddwhm.com/2024/10/06/longyuctfwp/image-20241002151838265.png">
 <meta property="og:image" content="https://jesen.ddwhm.com/2024/10/06/longyuctfwp/image-20241004155901423.png">
+<meta property="og:image" content="https://jesen.ddwhm.com/2024/10/06/longyuctfwp/image-20241006210804597.png">
 <meta property="og:image" content="https://jesen.ddwhm.com/2024/10/06/longyuctfwp/image-20241006205613904.png">
 <meta property="og:image" content="https://jesen.ddwhm.com/2024/10/06/longyuctfwp/image-20241001222027303.png">
 <meta property="og:image" content="https://jesen.ddwhm.com/2024/10/06/longyuctfwp/image-20241003162226734.png">
@@ -39,7 +40,7 @@
 <meta property="og:image" content="https://jesen.ddwhm.com/2024/10/06/longyuctfwp/image-20241002123832055.png">
 <meta property="og:image" content="https://jesen.ddwhm.com/2024/10/06/longyuctfwp/641fc1b2ab28565afd6c42537768514f.png">
 <meta property="article:published_time" content="2024-10-06T12:17:36.000Z">
-<meta property="article:modified_time" content="2024-10-06T12:57:32.471Z">
+<meta property="article:modified_time" content="2024-10-06T13:08:38.793Z">
 <meta property="article:author" content="Jesen">
 <meta property="article:tag" content="CTF">
 <meta property="article:tag" content="Writeup">
@@ -365,7 +366,9 @@
 <p>自己没解出来，其他人解出来了：<a target="_blank" rel="noopener" href="https://blog.csdn.net/aczhqq/article/details/142730872?spm=1001.2014.3001.5502">https://blog.csdn.net/aczhqq/article/details/142730872?spm=1001.2014.3001.5502</a></p>
 </blockquote>
 <p>拿到题目两张图片<br>首先发现jpg后面有多余的数据，但是缺PKxxxx的zip头，导出后添加zip头</p>
-<p>png那里隐隐约约可以看到<code>key:15740</code></p>
+<p>png那里主要是看010editor的预览图，注意要眯眼看</p>
+<p><img src="/2024/10/06/longyuctfwp/image-20241006210804597.png" srcset="/img/loading.gif" lazyload alt="注意mi眼看"></p>
+<p>隐隐约约可以看到<code>key:15740</code></p>
 <p><img src="/2024/10/06/longyuctfwp/image-20241006205613904.png" srcset="/img/loading.gif" lazyload alt="key"></p>
 <p>然后使用silenteye解即可。</p>
 <p><code>flag&#123;h@r_X4_Ya2&#125;</code></p>
