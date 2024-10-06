@@ -26,8 +26,12 @@
 <meta property="og:image" content="https://jesen.ddwhm.com/2024/10/06/longyuctfwp/image-20241006201945559.png">
 <meta property="og:image" content="https://jesen.ddwhm.com/2024/10/06/longyuctfwp/image-20241001222709774.png">
 <meta property="og:image" content="https://jesen.ddwhm.com/2024/10/06/longyuctfwp/image-20241002175650787.png">
+<meta property="og:image" content="https://jesen.ddwhm.com/2024/10/06/longyuctfwp/image-20241006205005796.png">
+<meta property="og:image" content="https://jesen.ddwhm.com/2024/10/06/longyuctfwp/image-20241006205322797.png">
+<meta property="og:image" content="https://jesen.ddwhm.com/2024/10/06/longyuctfwp/image-20241006205345957.png">
 <meta property="og:image" content="https://jesen.ddwhm.com/2024/10/06/longyuctfwp/image-20241002151838265.png">
 <meta property="og:image" content="https://jesen.ddwhm.com/2024/10/06/longyuctfwp/image-20241004155901423.png">
+<meta property="og:image" content="https://jesen.ddwhm.com/2024/10/06/longyuctfwp/image-20241006205613904.png">
 <meta property="og:image" content="https://jesen.ddwhm.com/2024/10/06/longyuctfwp/image-20241001222027303.png">
 <meta property="og:image" content="https://jesen.ddwhm.com/2024/10/06/longyuctfwp/image-20241003162226734.png">
 <meta property="og:image" content="https://jesen.ddwhm.com/2024/10/06/longyuctfwp/image-20241005142248664.png">
@@ -35,7 +39,7 @@
 <meta property="og:image" content="https://jesen.ddwhm.com/2024/10/06/longyuctfwp/image-20241002123832055.png">
 <meta property="og:image" content="https://jesen.ddwhm.com/2024/10/06/longyuctfwp/641fc1b2ab28565afd6c42537768514f.png">
 <meta property="article:published_time" content="2024-10-06T12:17:36.000Z">
-<meta property="article:modified_time" content="2024-10-06T12:32:55.144Z">
+<meta property="article:modified_time" content="2024-10-06T12:57:32.471Z">
 <meta property="article:author" content="Jesen">
 <meta property="article:tag" content="CTF">
 <meta property="article:tag" content="Writeup">
@@ -225,7 +229,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      11k 字
+      12k 字
     </span>
   
 
@@ -234,7 +238,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      93 分钟
+      104 分钟
     </span>
   
 
@@ -267,12 +271,16 @@
             
             <div class="markdown-body">
               <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>国庆太闲了，随便打打。</p>
-<p><img src="/2024/10/06/longyuctfwp/image-20241006201945559.png" srcset="/img/loading.gif" lazyload alt="image-20241006201945559"></p>
+<p><img src="/2024/10/06/longyuctfwp/image-20241006201945559.png" srcset="/img/loading.gif" lazyload alt="RANK"></p>
 <h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="web-签到"><a href="#web-签到" class="headerlink" title="web-签到"></a>web-签到</h2><p>查看网页源代码</p>
 <h2 id="shuangyuCTF-web1"><a href="#shuangyuCTF-web1" class="headerlink" title="shuangyuCTF-web1"></a>shuangyuCTF-web1</h2><p>$_SERVER[‘REMOTE_ADDR’]是我们的ip地址，那么直接本地跑一些密码生成逻辑获取一下密码即可</p>
 <figure class="highlight php"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></div></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">generate_password</span>(<span class="hljs-params"><span class="hljs-variable">$seed</span></span>) </span>&#123;<br>    <span class="hljs-comment">// 初始化一些变量</span><br>    <span class="hljs-variable">$a</span> = <span class="hljs-number">1</span>;<br>    <span class="hljs-variable">$b</span> = <span class="hljs-number">1</span>;<br>    <span class="hljs-variable">$n</span> = <span class="hljs-variable">$seed</span>;<br>    <span class="hljs-comment">// 斐波那契数列生成，但是有点特别</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-variable">$i</span> = <span class="hljs-number">0</span>; <span class="hljs-variable">$i</span> &lt; <span class="hljs-variable">$n</span>; <span class="hljs-variable">$i</span>++) &#123;<br>        <span class="hljs-variable">$temp</span> = <span class="hljs-variable">$a</span> + <span class="hljs-variable">$b</span> + <span class="hljs-variable">$i</span>; <span class="hljs-comment">// 注意这里的变种斐波那契</span><br>        <span class="hljs-variable">$a</span> = <span class="hljs-variable">$b</span>;<br>        <span class="hljs-variable">$b</span> = <span class="hljs-variable">$temp</span>;<br>    &#125;<br>    <span class="hljs-comment">// 将最后的斐波那契数作为密码的一部分</span><br>    <span class="hljs-variable">$password_part1</span> = <span class="hljs-variable">$b</span>;<br>    <span class="hljs-comment">// 还有一些其他的运算</span><br>    <span class="hljs-variable">$password_part2</span> = (<span class="hljs-variable">$seed</span> * <span class="hljs-variable">$seed</span> + <span class="hljs-variable">$seed</span> + <span class="hljs-number">1</span>) % <span class="hljs-number">1000</span>; <span class="hljs-comment">// 这是一个二次函数模运算</span><br>    <span class="hljs-comment">// 密码是这两部分的组合，但是中间有一个固定的分隔符</span><br>    <span class="hljs-variable">$password</span> = <span class="hljs-variable">$password_part1</span> . <span class="hljs-string">&#x27;-&#x27;</span> . <span class="hljs-variable">$password_part2</span>;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable">$password</span>;<br>&#125;<br><span class="hljs-variable">$seed</span> = <span class="hljs-string">&quot;1.2.3.4&quot;</span> % <span class="hljs-number">100</span>; <span class="hljs-comment">// 使用用户的IP地址作为种子, 改成你的ip</span><br><span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">generate_password</span>(<span class="hljs-variable">$seed</span>);<br></code></pre></td></tr></table></figure>
 
-<h2 id="Gscsed在线版"><a href="#Gscsed在线版" class="headerlink" title="Gscsed在线版"></a>Gscsed在线版</h2><p>写wp的时候网站挂了</p>
+<h2 id="Gscsed在线版"><a href="#Gscsed在线版" class="headerlink" title="Gscsed在线版"></a>Gscsed在线版</h2><p>源码：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-title function_ invoke__">highlight_file</span>(<span class="hljs-keyword">__FILE__</span>);<br><span class="hljs-comment">//error_reporting(0);</span><br><span class="hljs-keyword">include</span>(<span class="hljs-string">&#x27;flag.php&#x27;</span>);<br><br><span class="hljs-variable">$gt</span>=<span class="hljs-variable">$_GET</span>[<span class="hljs-string">&#x27;GT&#x27;</span>];<br><span class="hljs-variable">$pt</span>=<span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;PT&#x27;</span>];<br><span class="hljs-variable">$ggt</span>=<span class="hljs-variable">$_GET</span>[<span class="hljs-string">&#x27;GGT&#x27;</span>];<br><span class="hljs-variable">$ppt</span>=<span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;PPT&#x27;</span>];<br><br><span class="hljs-variable">$subgt</span>=<span class="hljs-title function_ invoke__">substr</span>(<span class="hljs-variable">$flag</span>,<span class="hljs-number">0</span>,<span class="hljs-number">5</span>);<br><span class="hljs-variable">$len</span>=<span class="hljs-title function_ invoke__">strlen</span>(<span class="hljs-variable">$flag</span>);<br><span class="hljs-variable">$subpt</span>=<span class="hljs-title function_ invoke__">substr</span>(<span class="hljs-variable">$flag</span>,<span class="hljs-variable">$len</span>-<span class="hljs-number">1</span>,<span class="hljs-number">1</span>);<br><br><span class="hljs-keyword">if</span>(<span class="hljs-variable">$pt</span>==<span class="hljs-variable">$subpt</span>&amp;&amp;<span class="hljs-variable">$gt</span>==<span class="hljs-variable">$subgt</span>)&#123;<br>    <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;进入下一层吧&quot;</span>;<br>&#125;<span class="hljs-keyword">else</span>&#123;<br>    <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;你输啦&quot;</span>;<br>&#125;<br><br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">PTplus</span>(<span class="hljs-params"><span class="hljs-variable">$pts</span></span>)</span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (<span class="hljs-title function_ invoke__">preg_match</span>(<span class="hljs-string">&#x27;/(`|\$|a|s|e|p|require|include|phpinfo|exec|eval|systemctl|shell_exec|system)/i&#x27;</span>, <span class="hljs-variable">$pts</span>)) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    &#125;<span class="hljs-keyword">else</span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>    &#125;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">GTplus</span>(<span class="hljs-params"><span class="hljs-variable">$gts</span></span>) </span>&#123;<br>    <span class="hljs-keyword">if</span>(<span class="hljs-title function_ invoke__">strpos</span>(<span class="hljs-variable">$gts</span>, <span class="hljs-string">&#x27;***&#x27;</span>))&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>        <br>    &#125;<span class="hljs-keyword">else</span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">if</span> (<span class="hljs-title function_ invoke__">PTplus</span>(<span class="hljs-variable">$ppt</span>)&amp;&amp;<span class="hljs-title function_ invoke__">GTplus</span>(<span class="hljs-variable">$ggt</span>))&#123;<br>    <span class="hljs-keyword">eval</span>(<span class="hljs-variable">$ppt</span>);<br>    <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;恭喜恭喜&quot;</span>;<br>&#125;<span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;再看看吧&quot;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
 <p>前面的一个判断用的是echo，不影响后面的执行，所以无视第一个判断。</p>
 <p>第二个判断过滤了很多，但可以用取反绕过。</p>
 <p>大概思路就是直接使用取反绕过进行代码执行，执行cat flag.php即可。</p>
@@ -282,7 +290,7 @@
 <h1 id="CRYPTO"><a href="#CRYPTO" class="headerlink" title="CRYPTO"></a>CRYPTO</h1><h2 id="shuangyuCTF-AES-amp-Base"><a href="#shuangyuCTF-AES-amp-Base" class="headerlink" title="shuangyuCTF-AES &amp; Base"></a>shuangyuCTF-AES &amp; Base</h2><p>exp:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># ----请写出你的解题过程，得到flag---------</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">decrypt</span>(<span class="hljs-params">data, iv, key</span>):<br>    <span class="hljs-comment"># 创建用于解密的AES对象</span><br>    cipher2 = AES.new(key, AES.MODE_CBC, iv)<br>    <span class="hljs-comment"># 解密完成后，需要对数据进行取消填充，获取原来的数据</span><br>    <span class="hljs-comment"># pt = unpad(cipher2.decrypt(data), 16)</span><br>    pt = cipher2.decrypt(data)<br>    <span class="hljs-keyword">return</span> pt<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">h256</span>(<span class="hljs-params">data</span>):<br>    hash_object = hashlib.sha256(data)<br>    <span class="hljs-comment">#print(hash_object.digest()[:8])</span><br>    <span class="hljs-keyword">return</span> hash_object.digest()[:<span class="hljs-number">8</span>]<br><br><span class="hljs-keyword">for</span> sk <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1000</span>):<br>    secret = secret_prefix + <span class="hljs-built_in">repr</span>(sk).rjust(<span class="hljs-number">3</span>,<span class="hljs-string">&#x27;0&#x27;</span>).encode()<br>    secret = h256(secret)<br>    dec_data = decrypt(encoded_item[<span class="hljs-number">16</span>:], encoded_item[:<span class="hljs-number">16</span>], fixed_key_part + secret)<br>    <span class="hljs-keyword">if</span>(<span class="hljs-string">b&quot;flag&quot;</span> <span class="hljs-keyword">in</span> dec_data):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;解密后的数据：&quot;</span>, dec_data)<br></code></pre></td></tr></table></figure>
 
-<h2 id="At"><a href="#At" class="headerlink" title="At"></a>At</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs ruby"><span class="hljs-comment">#js执行报错</span><br><span class="hljs-comment">#发现是uozt&#123;Mr_s<span class="hljs-doctag">@L</span>_Z!!!&#125;</span><br><br><span class="hljs-comment"># 埃特巴什码解密</span><br><span class="hljs-comment"># http://www.hiencode.com/atbash.html</span><br><br><span class="hljs-comment"># 注意大小写：flag&#123;Ni_h<span class="hljs-doctag">@O</span>_A!!!&#125;</span><br></code></pre></td></tr></table></figure>
+<h2 id="At"><a href="#At" class="headerlink" title="At"></a>At</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs ruby"><span class="hljs-comment">#在控制台执行，执行报错</span><br><span class="hljs-comment">#发现是uozt&#123;Mr_s<span class="hljs-doctag">@L</span>_Z!!!&#125;</span><br><br><span class="hljs-comment"># 埃特巴什码解密</span><br><span class="hljs-comment"># http://www.hiencode.com/atbash.html</span><br><br><span class="hljs-comment"># 注意大小写：flag&#123;Ni_h<span class="hljs-doctag">@O</span>_A!!!&#125;</span><br></code></pre></td></tr></table></figure>
 
 <h2 id="Base签到"><a href="#Base签到" class="headerlink" title="Base签到"></a>Base签到</h2><p>base解码</p>
 <h2 id="XOR"><a href="#XOR" class="headerlink" title="XOR"></a>XOR</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python">flag = <span class="hljs-string">&quot;zoyistheflag&quot;</span><br><span class="hljs-keyword">for</span> kk <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">26</span>):<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> flag:<br>        asciichar = <span class="hljs-built_in">ord</span>(i)<br>        <span class="hljs-built_in">print</span>(<span class="hljs-built_in">chr</span>(asciichar^kk),end=<span class="hljs-string">&#x27;&#x27;</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;&quot;</span>)<br><br><span class="hljs-comment"># 输出解密后的结果，请注意格式奥~.~</span><br><span class="hljs-comment"># flag&#123;wbtd~yehkalj&#125;</span><br></code></pre></td></tr></table></figure>
@@ -316,7 +324,7 @@
 <p>使用工具对pyc进行-x操作拿到flag</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">./stegosaurus 1.pyc -x<br></code></pre></td></tr></table></figure>
 
-<p><img src="/2024/10/06/longyuctfwp/image-20241001222709774.png" srcset="/img/loading.gif" lazyload alt="image-20241001222709774"></p>
+<p><img src="/2024/10/06/longyuctfwp/image-20241001222709774.png" srcset="/img/loading.gif" lazyload alt="命令执行结果"></p>
 <h2 id="看过那年的雪吗？"><a href="#看过那年的雪吗？" class="headerlink" title="看过那年的雪吗？"></a>看过那年的雪吗？</h2><p>原题：<a target="_blank" rel="noopener" href="https://blog.csdn.net/2301_80185313/article/details/140865849#:~:text=%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%88%B0%E6%96%87%E6%9C%AC%E4%BC%BC%E4%B9%8E">https://blog.csdn.net/2301_80185313/article/details/140865849#:~:text=%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%88%B0%E6%96%87%E6%9C%AC%E4%BC%BC%E4%B9%8E</a></p>
 <h2 id="1zrecover"><a href="#1zrecover" class="headerlink" title="1zrecover"></a>1zrecover</h2><p>打开压缩包，发现是png，010editorcheck没过，末尾有东西。</p>
 <p>利用zsteg -E 提取出来。</p>
@@ -335,12 +343,32 @@
 <p>flag{C0n9ratu1ati0ns!_you_are_so_cool}</p>
 <h2 id="1z-disk-decode"><a href="#1z-disk-decode" class="headerlink" title="1z_disk_decode"></a>1z_disk_decode</h2><p>谜语解不出来，选择密码爆破，爆破出来密码是natasha。</p>
 <p><img src="/2024/10/06/longyuctfwp/image-20241002175650787.png" srcset="/img/loading.gif" lazyload alt="image-20241002175650787"></p>
+<blockquote>
+<p>以下是出题人的补充，我自己酶解出来：</p>
+</blockquote>
+<p><img src="/2024/10/06/longyuctfwp/image-20241006205005796.png" srcset="/img/loading.gif" lazyload alt="密码路径"></p>
+<p>打开其中的图片，翻到图片尾发现后面还有数据</p>
+<p>提取: <code>zsteg -E &#39;extradata:0&#39; xxx.png &gt; a.img</code></p>
+<p>前面图片也提取出来作为密钥。</p>
+<p>用veracrypt挂载4这个文件，提取出的图片作为密钥文件。</p>
+<p><img src="/2024/10/06/longyuctfwp/image-20241006205322797.png" srcset="/img/loading.gif" lazyload alt="vera"></p>
+<p>之后访问挂载好的那个磁盘会发现存在一张图片</p>
+<p><img src="/2024/10/06/longyuctfwp/image-20241006205345957.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
+<p>发现图片高度似乎不对，修改图片高度，即可拿到flag</p>
 <h2 id="wu-kong"><a href="#wu-kong" class="headerlink" title="wu_kong"></a>wu_kong</h2><p><img src="/2024/10/06/longyuctfwp/image-20241002151838265.png" srcset="/img/loading.gif" lazyload alt="image-20241002151838265"></p>
 <h2 id="more-hight"><a href="#more-hight" class="headerlink" title="more_hight"></a>more_hight</h2><p>题目名字很明显，改高度。</p>
 <h2 id="FindSeed-MC"><a href="#FindSeed-MC" class="headerlink" title="FindSeed_MC"></a>FindSeed_MC</h2><p>pcl启动器启动游戏，装上搜种子的mod：<a target="_blank" rel="noopener" href="https://github.com/19MisterX98/SeedcrackerX/releases">Releases · 19MisterX98/SeedcrackerX (github.com)</a></p>
 <p>然后开挂跑图就行了，跑够了就会帮忙算种子</p>
 <p><img src="/2024/10/06/longyuctfwp/image-20241004155901423.png" srcset="/img/loading.gif" lazyload alt="image-20241004155901423"></p>
 <p>5880616f80d73e086ec577d7ad21ef99</p>
+<h2 id="海尔之眼"><a href="#海尔之眼" class="headerlink" title="海尔之眼"></a>海尔之眼</h2><blockquote>
+<p>自己没解出来，其他人解出来了：<a target="_blank" rel="noopener" href="https://blog.csdn.net/aczhqq/article/details/142730872?spm=1001.2014.3001.5502">https://blog.csdn.net/aczhqq/article/details/142730872?spm=1001.2014.3001.5502</a></p>
+</blockquote>
+<p>拿到题目两张图片<br>首先发现jpg后面有多余的数据，但是缺PKxxxx的zip头，导出后添加zip头</p>
+<p>png那里隐隐约约可以看到<code>key:15740</code></p>
+<p><img src="/2024/10/06/longyuctfwp/image-20241006205613904.png" srcset="/img/loading.gif" lazyload alt="key"></p>
+<p>然后使用silenteye解即可。</p>
+<p><code>flag&#123;h@r_X4_Ya2&#125;</code></p>
 <h1 id="Forensics"><a href="#Forensics" class="headerlink" title="Forensics"></a>Forensics</h1><h2 id="shuangyuCTF-白小鱼"><a href="#shuangyuCTF-白小鱼" class="headerlink" title="shuangyuCTF-白小鱼"></a>shuangyuCTF-白小鱼</h2><p>流量包里面有一个网站，xiaoyus.top:5000</p>
 <p>可以看到一部分代码和upload接口。</p>
 <p>有sql，但是无法注入，因为是预编译。</p>
@@ -419,8 +447,12 @@
 <p>libc地址可以考unsortedbin泄露</p>
 <p>此外，size设为0的时候realloc可以当free用，然后利用uaf就可以。</p>
 <p><img src="/2024/10/06/longyuctfwp/641fc1b2ab28565afd6c42537768514f.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>EXP:</p>
+<p>未完待续</p>
 <h2 id="babyheap-revenge"><a href="#babyheap-revenge" class="headerlink" title="babyheap-revenge"></a>babyheap-revenge</h2><p>题目描述：经过上次的失败，开发者将程序进行了升级，这使它更加牢固（也可能更脆弱了）——vrtua</p>
 <p>同上，但是没有后门，有佬打io，也有佬打atoi的got~</p>
+<p>EXP:</p>
+<p>未完待续</p>
 
             </div>
             <hr>
